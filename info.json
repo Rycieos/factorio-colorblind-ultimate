@@ -4,6 +4,6 @@
   "title": "Color Blind Ultimate",
   "author": "rycieos",
   "factorio_version": "1.1",
-  "dependencies": ["base >= 1.1"],
-  "description": "Ultimate options for color blindness accessability."
+  "dependencies": ["base == 1.1"],
+  "description": "Ultimate options for color blindness accessibility."
 }
