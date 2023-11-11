@@ -86,6 +86,11 @@ overlay_icon("ammo", "explosive-cannon-shell", explosive_overlay)
 overlay_icon("ammo", "explosive-rocket", explosive_overlay)
 overlay_icon("capsule", "cluster-grenade", explosive_overlay)
 
+local cliff_overlay = table_merge(icon_overlay, {
+  icon = "__base__/graphics/icons/cliff.png",
+})
+overlay_icon("capsule", "cliff-explosives", cliff_overlay)
+
 local shifted_explosive_overlay = table_merge(explosive_overlay, {
   shift = {-8, -8},
 })
@@ -118,9 +123,11 @@ overlay_icon("module", "speed-module", speed_overlay)
 overlay_icon("module", "speed-module-2", speed_overlay)
 overlay_icon("module", "speed-module-3", speed_overlay)
 
-overlay_icon("item", "logistic-chest-active-provider", table_merge(tooltip_overlay, {
+local pushes_overlay = table_merge(tooltip_overlay, {
   icon = Icons .. "tooltips/pushes.png",
-}))
+})
+overlay_icon("item", "logistic-chest-active-provider", pushes_overlay)
+
 overlay_icon("item", "logistic-chest-passive-provider", table_merge(tooltip_overlay, {
   icon = Icons .. "tooltips/generates.png",
 }))
@@ -130,9 +137,11 @@ overlay_icon("item", "logistic-chest-buffer", table_merge(tooltip_overlay, {
 overlay_icon("item", "logistic-chest-requester", table_merge(tooltip_overlay, {
   icon = Icons .. "tooltips/consumes.png",
 }))
-overlay_icon("item", "logistic-chest-storage", table_merge(tooltip_overlay, {
+
+local storage_overlay = table_merge(tooltip_overlay, {
   icon = Icons .. "tooltips/storage.png",
-}))
+})
+overlay_icon("item", "logistic-chest-storage", storage_overlay)
 
 
 overlay_icon("tool", "automation-science-pack", table_merge(icon_overlay, {
@@ -156,3 +165,24 @@ overlay_icon("tool", "utility-science-pack", table_merge(icon_overlay, {
 overlay_icon("tool", "space-science-pack", table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/satellite.png",
 }))
+
+overlay_icon("item", "fast-inserter", speed_overlay)
+
+local filter_overlay = table_merge(tooltip_overlay, {
+  icon = Icons .. "tooltips/filter.png",
+})
+overlay_icon("item", "filter-inserter", filter_overlay)
+
+overlay_icon("item", "stack-inserter", storage_overlay)
+
+local shifted_filter_overlay = table_merge(filter_overlay, {
+  shift = {-8, -8},
+})
+overlay_icon("item", "stack-filter-inserter", storage_overlay, shifted_filter_overlay)
+
+overlay_icon("item", "long-handed-inserter", pushes_overlay)
+
+local coal_overlay = table_merge(icon_overlay, {
+  icon = "__base__/graphics/icons/coal.png",
+})
+overlay_icon("item", "burner-inserter", coal_overlay)
