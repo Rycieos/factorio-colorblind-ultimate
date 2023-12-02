@@ -25,6 +25,32 @@ local function overlay_icon(_type, item, icon, icon2)
   end
 end
 
+local function overlay_picture(_type, item, sprite, sprite2)
+  local obj = data.raw[_type][item]
+  table.insert(obj.pictures.layers, sprite)
+  if sprite2 then
+    table.insert(obj.pictures.layers, sprite2)
+  end
+end
+
+local function icon_to_sprite(icon)
+  local sprite = {
+    filename = icon["icon"],
+    size = icon["icon_size"],
+    mipmaps = icon["icon_mipmaps"],
+  }
+  if not icon["scale"] ~= nil then
+    sprite["scale"] = icon["scale"] / 2
+  end
+  if not icon["shift"] ~= nil then
+    sprite["shift"] = {
+      icon["shift"][1] * 0.015,
+      icon["shift"][2] * 0.015,
+    }
+  end
+  return sprite
+end
+
 local function table_merge(t1, t2)
   local t = {}
   for k,v in pairs(t1) do
@@ -87,12 +113,19 @@ overlay_icon("upgrade-item", "upgrade-planner", table_merge(mip_overlay, {
 local nuclear_overlay = table_merge(tooltip_overlay, {
   icon = "__base__/graphics/icons/tooltips/tooltip-category-nuclear.png",
 })
+local nuclear_sprite_overlay = icon_to_sprite(nuclear_overlay)
 overlay_icon("item", "nuclear-fuel", nuclear_overlay)
 overlay_icon("item", "uranium-235", nuclear_overlay)
 overlay_icon("item", "uranium-fuel-cell", nuclear_overlay)
 overlay_icon("ammo", "uranium-cannon-shell", nuclear_overlay)
 overlay_icon("ammo", "uranium-rounds-magazine", nuclear_overlay)
 overlay_icon("ammo", "atomic-bomb", nuclear_overlay)
+overlay_picture("item", "nuclear-fuel", nuclear_sprite_overlay)
+overlay_picture("item", "uranium-235", nuclear_sprite_overlay)
+overlay_picture("item", "uranium-fuel-cell", nuclear_sprite_overlay)
+overlay_picture("ammo", "uranium-cannon-shell", nuclear_sprite_overlay)
+overlay_picture("ammo", "uranium-rounds-magazine", nuclear_sprite_overlay)
+overlay_picture("ammo", "atomic-bomb", nuclear_sprite_overlay)
 
 local explosive_overlay = table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/explosives.png",
@@ -110,7 +143,9 @@ local shifted_explosive_overlay = table_merge(explosive_overlay, {
   shift = {-8, -8},
 })
 overlay_icon("ammo", "explosive-uranium-cannon-shell", nuclear_overlay, shifted_explosive_overlay)
+overlay_picture("ammo", "explosive-uranium-cannon-shell", nuclear_sprite_overlay, icon_to_sprite(shifted_explosive_overlay))
 
+-- TODO: improve graphic.
 local piercing_overlay = table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/iron-stick.png",
 })
@@ -138,6 +173,7 @@ overlay_icon("module", "speed-module", speed_overlay)
 overlay_icon("module", "speed-module-2", speed_overlay)
 overlay_icon("module", "speed-module-3", speed_overlay)
 
+-- TODO: fix these for entities.
 local pushes_overlay = table_merge(tooltip_overlay, {
   icon = Icons .. "tooltips/pushes.png",
 })
@@ -181,6 +217,7 @@ overlay_icon("tool", "space-science-pack", table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/satellite.png",
 }))
 
+-- TODO: fix these for entities.
 overlay_icon("item", "fast-inserter", speed_overlay)
 
 local filter_overlay = table_merge(tooltip_overlay, {
