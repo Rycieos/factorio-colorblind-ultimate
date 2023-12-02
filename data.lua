@@ -186,3 +186,17 @@ local coal_overlay = table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/coal.png",
 })
 overlay_icon("item", "burner-inserter", coal_overlay)
+
+-- TODO: fix for item on ground.
+overlay_icon("item", "iron-ore", table_merge(icon_overlay, {
+  icon = "__base__/graphics/icons/iron-plate.png",
+}))
+overlay_icon("item", "copper-ore", table_merge(icon_overlay, {
+  icon = "__base__/graphics/icons/copper-plate.png",
+}))
+overlay_icon("item", "uranium-ore", table_merge(icon_overlay, {
+  icon = "__base__/graphics/icons/uranium-238.png",
+}))
+overlay_icon("item", "stone", table_merge(icon_overlay, {
+  icon = "__base__/graphics/icons/stone-brick.png",
+}))
