@@ -45,6 +45,13 @@ local mip_overlay = {
   icon_mipmaps = 2,
 }
 
+local constant_overlay = {
+  icon_size = 128,
+  icon_mipmaps = 3,
+  scale = 0.2,
+  shift = {-8, 8},
+}
+
 local tooltip_overlay = {
   icon_size = 40,
   icon_mipmaps = 2,
@@ -102,22 +109,22 @@ local piercing_overlay = table_merge(icon_overlay, {
 overlay_icon("ammo", "piercing-rounds-magazine", piercing_overlay)
 overlay_icon("ammo", "piercing-shotgun-shell", piercing_overlay)
 
-local productivity_overlay = table_merge(tooltip_overlay, {
-  icon = Icons .. "tooltips/gear.png",
+local productivity_overlay = table_merge(constant_overlay, {
+  icon = "__core__/graphics/icons/technology/constants/constant-mining-productivity.png",
 })
 overlay_icon("module", "productivity-module", productivity_overlay)
 overlay_icon("module", "productivity-module-2", productivity_overlay)
 overlay_icon("module", "productivity-module-3", productivity_overlay)
 
-local effectivity_overlay = table_merge(tooltip_overlay, {
-  icon = Icons .. "tooltips/electricity.png",
+local effectivity_overlay = table_merge(constant_overlay, {
+  icon = "__core__/graphics/icons/technology/constants/constant-battery.png",
 })
 overlay_icon("module", "effectivity-module", effectivity_overlay)
 overlay_icon("module", "effectivity-module-2", effectivity_overlay)
 overlay_icon("module", "effectivity-module-3", effectivity_overlay)
 
-local speed_overlay = table_merge(tooltip_overlay, {
-  icon = Icons .. "tooltips/speed.png",
+local speed_overlay = table_merge(constant_overlay, {
+  icon = "__core__/graphics/icons/technology/constants/constant-speed.png",
 })
 overlay_icon("module", "speed-module", speed_overlay)
 overlay_icon("module", "speed-module-2", speed_overlay)
