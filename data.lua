@@ -46,6 +46,8 @@ override_icon("item", "electronic-circuit", {
   icon_mipmaps = 4,
 })
 
+local scale = 0.25
+
 local mip_overlay = {
   icon_size = 32,
   icon_mipmaps = 2,
@@ -54,21 +56,21 @@ local mip_overlay = {
 local constant_overlay = {
   icon_size = 128,
   icon_mipmaps = 3,
-  scale = 0.2,
+  scale = scale * 0.8,
   shift = {-8, 8},
 }
 
 local tooltip_overlay = {
   icon_size = 40,
   icon_mipmaps = 2,
-  scale = 0.4,
+  scale = scale * 1.6,
   shift = {-8, 8},
 }
 
 local icon_overlay = {
   icon_size = 64,
   icon_mipmaps = 4,
-  scale = 0.25,
+  scale = scale,
   shift = {-8, 8},
 }
 
