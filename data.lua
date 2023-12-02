@@ -5,8 +5,8 @@ local function config(name)
   return settings.startup["colorblind_ultimate__" .. name].value
 end
 
-local function override_icon(name)
-  data.raw["item"][name].icon = Icons .. name .. ".png"
+local function override_icon(_type, item, icon)
+  data.raw[_type][item].icons = {icon}
 end
 
 local function overlay_icon(_type, item, icon, icon2)
@@ -36,9 +36,15 @@ local function table_merge(t1, t2)
   return t
 end
 
-if config("electronic-circuit-custom") then
-  override_icon("electronic-circuit")
-end
+--if config("electronic-circuit-custom") then
+--  override_icon("electronic-circuit")
+--end
+
+override_icon("item", "electronic-circuit", {
+  icon = Icons .. "electronic-circuit.png",
+  icon_size = 64,
+  icon_mipmaps = 4,
+})
 
 local mip_overlay = {
   icon_size = 32,
