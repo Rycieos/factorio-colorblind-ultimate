@@ -203,6 +203,7 @@ local speed_overlay = table_merge(constant_overlay, {
 overlay_icon("module", "speed-module", speed_overlay)
 overlay_icon("module", "speed-module-2", speed_overlay)
 overlay_icon("module", "speed-module-3", speed_overlay)
+overlay_icon("capsule", "slowdown-capsule", speed_overlay)
 
 -- TODO: fix these for entities.
 local pushes_overlay = table_merge(tooltip_overlay, {
