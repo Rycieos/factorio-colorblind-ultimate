@@ -82,20 +82,25 @@ local function table_merge(t1, t2)
   return t
 end
 
---if config("electronic-circuit-custom") then
---  override_icon("electronic-circuit")
---end
+local copper_icon
+if config("copper-plate-custom") then
+  copper_icon = Icons .. "copper-plate.png"
+  override_icon("item", "copper-plate", {
+    icon = copper_icon,
+    icon_size = 64,
+    icon_mipmaps = 4,
+  })
+else
+  copper_icon = "__base__/graphics/icons/copper-plate.png"
+end
 
-override_icon("item", "copper-plate", {
-  icon = Icons .. "copper-plate.png",
-  icon_size = 64,
-  icon_mipmaps = 4,
-})
-override_icon("item", "electronic-circuit", {
-  icon = Icons .. "electronic-circuit.png",
-  icon_size = 64,
-  icon_mipmaps = 4,
-})
+if config("electronic-circuit-custom") then
+  override_icon("item", "electronic-circuit", {
+    icon = Icons .. "electronic-circuit.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+  })
+end
 
 local scale = config("scale")
 
@@ -271,8 +276,7 @@ local iron_overlay = table_merge(icon_overlay, {
 overlay_icon("item", "iron-ore", iron_overlay)
 overlay_pictures("item", "iron-ore", icon_to_sprite(iron_overlay))
 local copper_overlay = table_merge(icon_overlay, {
-  --icon = "__base__/graphics/icons/copper-plate.png",
-  icon = Icons .. "copper-plate.png",
+  icon = copper_icon,
 })
 overlay_icon("item", "copper-ore", copper_overlay)
 overlay_pictures("item", "copper-ore", icon_to_sprite(copper_overlay))
