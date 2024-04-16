@@ -78,7 +78,7 @@ override_icon("item", "electronic-circuit", {
   icon_mipmaps = 4,
 })
 
-local scale = 0.25
+local scale = config("scale")
 
 local mip_overlay = {
   icon_size = 32,
@@ -88,21 +88,22 @@ local mip_overlay = {
 local constant_overlay = {
   icon_size = 128,
   icon_mipmaps = 3,
-  scale = scale * 0.8,
+  scale = scale * 0.4,
   shift = {-8, 8},
 }
 
 local tooltip_overlay = {
   icon_size = 40,
   icon_mipmaps = 2,
-  scale = scale * 1.6,
+  scale = scale * 0.8,
   shift = {-8, 8},
 }
 
+-- > Defaults to 32/icon_size for items and recipes
 local icon_overlay = {
   icon_size = 64,
   icon_mipmaps = 4,
-  scale = scale,
+  scale = scale * 0.5,
   shift = {-8, 8},
 }
 
