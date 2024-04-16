@@ -13,14 +13,18 @@ end
 -- Overlay an icon on top of the base icon.
 local function overlay_icon(_type, item, icon, icon2)
   local obj = data.raw[_type][item]
-  obj.icons = {
-    {
-      icon = obj.icon,
-      icon_size = obj.icon_size,
-      icon_mipmaps = obj.icon_mipmaps,
-    },
-    icon,
-  }
+  if obj.icons then
+    table.insert(obj.icons, icon)
+  else
+    obj.icons = {
+      {
+        icon = obj.icon,
+        icon_size = obj.icon_size,
+        icon_mipmaps = obj.icon_mipmaps,
+      },
+      icon,
+    }
+  end
 
   if icon2 then
     table.insert(obj.icons, icon2)
@@ -130,6 +134,9 @@ local icon_overlay = {
   scale = scale * 0.5,
   shift = {-8, 8},
 }
+local centered_icon_overlay = table_merge(icon_overlay, {
+  shift = {0, 8},
+})
 
 overlay_icon("blueprint", "blueprint", table_merge(mip_overlay, {
   icon = "__base__/graphics/icons/shortcut-toolbar/mip/new-blueprint-x32-white.png",
@@ -291,3 +298,9 @@ local stone_overlay = table_merge(icon_overlay, {
 })
 overlay_icon("item", "stone", stone_overlay)
 overlay_pictures("item", "stone", icon_to_sprite(stone_overlay))
+
+local oil_overlay = table_merge(centered_icon_overlay, {
+  icon = "__base__/graphics/icons/pumpjack.png",
+})
+overlay_icon("fluid", "crude-oil", oil_overlay)
+overlay_icon("item", "crude-oil-barrel", oil_overlay)
