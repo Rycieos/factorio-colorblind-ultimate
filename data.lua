@@ -36,6 +36,20 @@ local function overlay_picture(_type, item, sprite, sprite2)
   end
 end
 
+-- Overlay a sprite over an array of pictures, which is used for ground rendering.
+local function overlay_pictures(_type, item, sprite, sprite2)
+  local obj = data.raw[_type][item]
+  local pictures = {}
+  for _, picture in ipairs(obj.pictures) do
+    local layers = {picture, sprite}
+    if sprite2 then
+      table.insert(layers, sprite2)
+    end
+    table.insert(pictures, {layers = layers})
+  end
+  obj.pictures = pictures
+end
+
 -- Convert an icon format to a sprite format. Used when the on ground icon does
 -- not match the inventory icon, because then it is a sprite/picture.
 local function icon_to_sprite(icon)
@@ -251,17 +265,24 @@ local coal_overlay = table_merge(icon_overlay, {
 })
 overlay_icon("item", "burner-inserter", coal_overlay)
 
--- TODO: fix for item on ground.
-overlay_icon("item", "iron-ore", table_merge(icon_overlay, {
+local iron_overlay = table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/iron-plate.png",
-}))
-overlay_icon("item", "copper-ore", table_merge(icon_overlay, {
+})
+overlay_icon("item", "iron-ore", iron_overlay)
+overlay_pictures("item", "iron-ore", icon_to_sprite(iron_overlay))
+local copper_overlay = table_merge(icon_overlay, {
   --icon = "__base__/graphics/icons/copper-plate.png",
   icon = Icons .. "copper-plate.png",
-}))
-overlay_icon("item", "uranium-ore", table_merge(icon_overlay, {
+})
+overlay_icon("item", "copper-ore", copper_overlay)
+overlay_pictures("item", "copper-ore", icon_to_sprite(copper_overlay))
+local uranium_overlay = table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/uranium-238.png",
-}))
-overlay_icon("item", "stone", table_merge(icon_overlay, {
+})
+overlay_icon("item", "uranium-ore", uranium_overlay)
+overlay_pictures("item", "uranium-ore", icon_to_sprite(uranium_overlay))
+local stone_overlay = table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/stone-brick.png",
-}))
+})
+overlay_icon("item", "stone", stone_overlay)
+overlay_pictures("item", "stone", icon_to_sprite(stone_overlay))
