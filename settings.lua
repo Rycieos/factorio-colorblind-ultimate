@@ -19,5 +19,14 @@ data:extend({
     localised_name = "Electronic circuit custom",
     localised_description = "custom icon",
   },
+  {
+    name = "colorblind_ultimate__copper-plate-custom",
+    type = "bool-setting",
+    setting_type = "startup",
+    default_value = false,
+    order = "100",
+    localised_name = "Copper plate custom",
+    localised_description = "custom icon",
+  },
 })
 

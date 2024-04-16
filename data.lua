@@ -72,6 +72,11 @@ end
 --  override_icon("electronic-circuit")
 --end
 
+override_icon("item", "copper-plate", {
+  icon = Icons .. "copper-plate.png",
+  icon_size = 64,
+  icon_mipmaps = 4,
+})
 override_icon("item", "electronic-circuit", {
   icon = Icons .. "electronic-circuit.png",
   icon_size = 64,
@@ -251,7 +256,8 @@ overlay_icon("item", "iron-ore", table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/iron-plate.png",
 }))
 overlay_icon("item", "copper-ore", table_merge(icon_overlay, {
-  icon = "__base__/graphics/icons/copper-plate.png",
+  --icon = "__base__/graphics/icons/copper-plate.png",
+  icon = Icons .. "copper-plate.png",
 }))
 overlay_icon("item", "uranium-ore", table_merge(icon_overlay, {
   icon = "__base__/graphics/icons/uranium-238.png",
