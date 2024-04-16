@@ -5,10 +5,12 @@ local function config(name)
   return settings.startup["colorblind_ultimate__" .. name].value
 end
 
+-- Overwrite the default icon.
 local function override_icon(_type, item, icon)
   data.raw[_type][item].icons = {icon}
 end
 
+-- Overlay an icon on top of the base icon.
 local function overlay_icon(_type, item, icon, icon2)
   local obj = data.raw[_type][item]
   obj.icons = {
@@ -25,6 +27,7 @@ local function overlay_icon(_type, item, icon, icon2)
   end
 end
 
+-- Overlay a sprite over a picture, which is used for ground rendering.
 local function overlay_picture(_type, item, sprite, sprite2)
   local obj = data.raw[_type][item]
   table.insert(obj.pictures.layers, sprite)
@@ -33,6 +36,8 @@ local function overlay_picture(_type, item, sprite, sprite2)
   end
 end
 
+-- Convert an icon format to a sprite format. Used when the on ground icon does
+-- not match the inventory icon, because then it is a sprite/picture.
 local function icon_to_sprite(icon)
   local sprite = {
     filename = icon["icon"],
@@ -51,6 +56,7 @@ local function icon_to_sprite(icon)
   return sprite
 end
 
+-- Merge two tables, with t2 overriding values from t1.
 local function table_merge(t1, t2)
   local t = {}
   for k,v in pairs(t1) do
