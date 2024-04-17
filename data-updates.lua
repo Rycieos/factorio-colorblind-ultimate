@@ -318,29 +318,35 @@ local sulfuric_acid_overlay = table_merge(centered_icon_overlay, {
 })
 overlay_icon("item", "sulfuric-acid-barrel", sulfuric_acid_overlay)
 
-local water_setting = config("water-custom")
-if water_setting ~= "none" then
-  local water_icon = {
-    icon = Icons .. "h2o.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
-  }
-
-  local water_overlay
-  if water_setting == "text" then
-    water_overlay = table_merge(centered_icon_overlay, {
-      icon = Icons .. "h2o-text.png",
+local function overlay_or_replace_fluid(fluid)
+  local setting = config(fluid .. "-custom")
+  if setting ~= "none" then
+    local icon = {
+      icon = Icons .. "fluid/" .. fluid .. ".png",
       icon_size = 64,
-      icon_mipmaps = 2,
-    })
-  else
-    water_overlay = table_merge(centered_icon_overlay, water_icon)
-  end
-  overlay_icon("item", "water-barrel", water_overlay)
+      icon_mipmaps = 4,
+    }
 
-  if water_setting == "h2o" then
-    replace_icon("fluid", "water", water_icon)
-  else
-    overlay_icon("fluid", "water", water_overlay)
+    local overlay
+    if setting == "text-overlay" then
+      overlay = table_merge(centered_icon_overlay, {
+        icon = Icons .. "fluid/" .. fluid .. "-text.png",
+        icon_size = 64,
+        icon_mipmaps = 2,
+      })
+    else
+      overlay = table_merge(centered_icon_overlay, icon)
+    end
+    overlay_icon("item", fluid .. "-barrel", overlay)
+
+    if setting == "molecule" then
+      replace_icon("fluid", fluid, icon)
+    else
+      overlay_icon("fluid", fluid, overlay)
+    end
   end
 end
+
+overlay_or_replace_fluid("heavy-oil")
+overlay_or_replace_fluid("light-oil")
+overlay_or_replace_fluid("water")

@@ -1,3 +1,5 @@
+local allowed_values = {"none", "text-overlay", "molecule", "molecule-overlay"}
+
 data:extend({
   {
     name = "colorblind_ultimate__scale",
@@ -29,6 +31,26 @@ data:extend({
     localised_description = "custom icon",
   },
   {
+    name = "colorblind_ultimate__heavy-oil-custom",
+    type = "string-setting",
+    setting_type = "startup",
+    default_value = "none",
+    order = "100",
+    localised_name = "Heavy oil custom",
+    localised_description = "custom icon",
+    allowed_values = allowed_values,
+  },
+  {
+    name = "colorblind_ultimate__light-oil-custom",
+    type = "string-setting",
+    setting_type = "startup",
+    default_value = "none",
+    order = "100",
+    localised_name = "Light oil custom",
+    localised_description = "custom icon",
+    allowed_values = allowed_values,
+  },
+  {
     name = "colorblind_ultimate__water-custom",
     type = "string-setting",
     setting_type = "startup",
@@ -36,7 +58,7 @@ data:extend({
     order = "100",
     localised_name = "Water custom",
     localised_description = "custom icon",
-    allowed_values = {"none", "text", "h2o", "h2o-overlay"},
+    allowed_values = allowed_values,
   },
 })
 
