@@ -309,6 +309,14 @@ local lube_overlay = table_merge(centered_icon_overlay, {
 })
 overlay_icon("fluid", "lubricant", lube_overlay)
 overlay_icon("item", "lubricant-barrel", lube_overlay)
+local petrol_overlay = table_merge(centered_icon_overlay, {
+  icon = "__base__/graphics/icons/fluid/petroleum-gas.png",
+})
+overlay_icon("item", "petroleum-gas-barrel", petrol_overlay)
+local sulfuric_acid_overlay = table_merge(centered_icon_overlay, {
+  icon = "__base__/graphics/icons/fluid/sulfuric-acid.png",
+})
+overlay_icon("item", "sulfuric-acid-barrel", sulfuric_acid_overlay)
 
 local water_setting = config("water-custom")
 if water_setting ~= "none" then
