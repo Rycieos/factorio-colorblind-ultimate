@@ -28,5 +28,15 @@ data:extend({
     localised_name = "Copper plate custom",
     localised_description = "custom icon",
   },
+  {
+    name = "colorblind_ultimate__water-custom",
+    type = "string-setting",
+    setting_type = "startup",
+    default_value = "none",
+    order = "100",
+    localised_name = "Water custom",
+    localised_description = "custom icon",
+    allowed_values = {"none", "text", "h2o", "h2o-overlay"},
+  },
 })
 

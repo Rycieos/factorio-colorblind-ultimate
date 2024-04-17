@@ -304,3 +304,35 @@ local oil_overlay = table_merge(centered_icon_overlay, {
 })
 overlay_icon("fluid", "crude-oil", oil_overlay)
 overlay_icon("item", "crude-oil-barrel", oil_overlay)
+local lube_overlay = table_merge(centered_icon_overlay, {
+  icon = "__base__/graphics/icons/iron-gear-wheel.png",
+})
+overlay_icon("fluid", "lubricant", lube_overlay)
+overlay_icon("item", "lubricant-barrel", lube_overlay)
+
+local water_setting = config("water-custom")
+if water_setting ~= "none" then
+  local water_icon = {
+    icon = Icons .. "h2o.png",
+    icon_size = 64,
+    icon_mipmaps = 4,
+  }
+
+  local water_overlay
+  if water_setting == "text" then
+    water_overlay = table_merge(centered_icon_overlay, {
+      icon = Icons .. "h2o-text.png",
+      icon_size = 64,
+      icon_mipmaps = 2,
+    })
+  else
+    water_overlay = table_merge(centered_icon_overlay, water_icon)
+  end
+  overlay_icon("item", "water-barrel", water_overlay)
+
+  if water_setting == "h2o" then
+    replace_icon("fluid", "water", water_icon)
+  else
+    overlay_icon("fluid", "water", water_overlay)
+  end
+end
