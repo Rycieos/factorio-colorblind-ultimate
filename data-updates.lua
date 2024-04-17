@@ -6,7 +6,7 @@ local function config(name)
 end
 
 -- Overwrite the default icon.
-local function override_icon(_type, item, icon)
+local function replace_icon(_type, item, icon)
   data.raw[_type][item].icons = {icon}
 end
 
@@ -89,7 +89,7 @@ end
 local copper_icon
 if config("copper-plate-custom") then
   copper_icon = Icons .. "copper-plate.png"
-  override_icon("item", "copper-plate", {
+  replace_icon("item", "copper-plate", {
     icon = copper_icon,
     icon_size = 64,
     icon_mipmaps = 4,
@@ -99,7 +99,7 @@ else
 end
 
 if config("electronic-circuit-custom") then
-  override_icon("item", "electronic-circuit", {
+  replace_icon("item", "electronic-circuit", {
     icon = Icons .. "electronic-circuit.png",
     icon_size = 64,
     icon_mipmaps = 4,
