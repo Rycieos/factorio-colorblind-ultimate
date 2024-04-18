@@ -130,4 +130,14 @@ replace_icon("recipe", "basic-oil-processing", EmptyIcon)
 overlay_icon("recipe", "basic-oil-processing", get_and_shift_fluid_icons("petroleum-gas", {0, 8}, 0.75))
 overlay_icon("recipe", "basic-oil-processing", get_and_shift_fluid_icons("crude-oil", {0, -7.5}, 0.65))
 
+replace_icon("recipe", "heavy-oil-cracking", EmptyIcon)
+overlay_icon("recipe", "heavy-oil-cracking", get_and_shift_fluid_icons("light-oil", {-8, 8}, 0.55))
+overlay_icon("recipe", "heavy-oil-cracking", get_and_shift_fluid_icons("light-oil", {8, 8}, 0.55))
+overlay_icon("recipe", "heavy-oil-cracking", get_and_shift_fluid_icons("heavy-oil", {0, -4.5}, 0.6))
+
+replace_icon("recipe", "light-oil-cracking", EmptyIcon)
+overlay_icon("recipe", "light-oil-cracking", get_and_shift_fluid_icons("petroleum-gas", {-8, 8}, 0.55))
+overlay_icon("recipe", "light-oil-cracking", get_and_shift_fluid_icons("petroleum-gas", {8, 8}, 0.55))
+overlay_icon("recipe", "light-oil-cracking", get_and_shift_fluid_icons("light-oil", {0, -4.5}, 0.6))
+
 log(serpent.block(data.raw["recipe"]["advanced-oil-processing"]))
