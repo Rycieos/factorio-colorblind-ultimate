@@ -21,7 +21,7 @@ function overlay_icon(_type, item, icon, icon2)
         icon_mipmaps = obj.icon_mipmaps,
       }
     }
-    obj.icon = nil
+    --obj.icon = nil
   end
   table.insert(obj.icons, icon)
 
@@ -30,20 +30,16 @@ function overlay_icon(_type, item, icon, icon2)
   end
 end
 
+
 Icons = {}
 
-local function create_icon(name, path)
-  table.insert(Icons, name, {
-    icon = path,
+local function create_custom_icon(name)
+  Icons[name .. "-custom"] = {
+    icon = IconPath .. name .. ".png",
     icon_size = 64,
     icon_mipmaps = 4,
-  })
+  }
 end
 
-local function create_custom_icon(name)
-  create_icon(name .. "-custom", IconPath .. name .. ".png")
-end
-
-create_icon("copper-plate", BaseIconPath .. "copper-plate.png")
 create_custom_icon("copper-plate")
 create_custom_icon("electronic-circuit")
