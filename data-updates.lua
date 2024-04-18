@@ -15,7 +15,7 @@ overlay_icon("blueprint", "blueprint", Overlays["blueprint"])
 overlay_icon("deconstruction-item", "deconstruction-planner", Overlays["deconstruction-planner"])
 overlay_icon("upgrade-item", "upgrade-planner", Overlays["upgrade-planner"])
 
-local nuclear_overlay = Overlays["nuclear-tooltip"]
+local nuclear_overlay = Overlays["nuclear"]
 local nuclear_sprite_overlay = icon_to_sprite(nuclear_overlay)
 overlay_icon("item", "nuclear-fuel", nuclear_overlay)
 overlay_icon("item", "uranium-235", nuclear_overlay)
@@ -79,11 +79,11 @@ overlay_icon("tool", "space-science-pack", Overlays["satellite"])
 
 -- TODO: fix these for entities.
 overlay_icon("item", "fast-inserter", speed_overlay)
-overlay_icon("item", "filter-inserter", Overlays["filter-tooltip"])
-overlay_icon("item", "stack-inserter", Overlays["storage-tooltip"])
+overlay_icon("item", "filter-inserter", Overlays["filter"])
+overlay_icon("item", "stack-inserter", Overlays["storage"])
 overlay_icon("item", "stack-filter-inserter",
-  Overlays["storage-tooltip"],
-  table_merge(Overlays["filter-tooltip"], BaseOverlays.shifted)
+  Overlays["storage"],
+  table_merge(Overlays["filter"], BaseOverlays.shifted)
 )
 overlay_icon("item", "long-handed-inserter", Overlays["pushes"])
 overlay_icon("item", "burner-inserter", Overlays["coal"])

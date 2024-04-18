@@ -49,13 +49,13 @@ end
 
 local function create_tooltip(name, path)
   create_overlay(name, BaseOverlays.tooltip, {
-    icon = path,
+    icon = path and path or IconPath .. "tooltips/" .. name .. ".png",
   })
 end
 
 local function create_icon(name, path)
   create_overlay(name, BaseOverlays.icon, {
-    icon = path,
+    icon = path and path or BaseIconPath .. name .. ".png",
   })
 end
 
@@ -67,29 +67,29 @@ create_constant("effectivity", CoreIconPath .. "technology/constants/constant-ba
 create_constant("productivity", CoreIconPath .. "technology/constants/constant-mining-productivity.png")
 create_constant("speed", CoreIconPath .. "technology/constants/constant-speed.png")
 
-create_tooltip("buffer-tooltip", IconPath .. "tooltips/buffer.png")
-create_tooltip("consumes-tooltip", IconPath .. "tooltips/consumes.png")
-create_tooltip("filter-tooltip", IconPath .. "tooltips/filter.png")
-create_tooltip("generates-tooltip", IconPath .. "tooltips/generates.png")
-create_tooltip("nuclear-tooltip", BaseIconPath .. "tooltips/tooltip-category-nuclear.png")
-create_tooltip("pushes-tooltip", IconPath .. "tooltips/pushes.png")
-create_tooltip("storage-tooltip", IconPath .. "tooltips/storage.png")
+create_tooltip("buffer")
+create_tooltip("consumes")
+create_tooltip("filter")
+create_tooltip("generates")
+create_tooltip("nuclear", BaseIconPath .. "tooltips/tooltip-category-nuclear.png")
+create_tooltip("pushes")
+create_tooltip("storage")
 
-create_icon("cliff", BaseIconPath .. "cliff.png")
-create_icon("coal", BaseIconPath .. "coal.png")
-create_icon("copper-plate", BaseIconPath .. "copper-plate.png")
-create_icon("explosives", BaseIconPath .. "explosives.png")
-create_icon("inserter", BaseIconPath .. "inserter.png")
-create_icon("iron-gear-wheel", BaseIconPath .. "iron-gear-wheel.png")
-create_icon("iron-plate", BaseIconPath .. "iron-plate.png")
+create_icon("cliff")
+create_icon("coal")
+create_icon("copper-plate")
+create_icon("explosives")
+create_icon("inserter")
+create_icon("iron-gear-wheel")
+create_icon("iron-plate")
 create_icon("petroleum-gas", BaseIconPath .. "fluid/petroleum-gas.png")
 create_icon("piercing", BaseIconPath .. "iron-stick.png")
-create_icon("piercing-rounds-magazine", BaseIconPath .. "piercing-rounds-magazine.png")
-create_icon("processing-unit", BaseIconPath .. "processing-unit.png")
-create_icon("productivity-module", BaseIconPath .. "productivity-module.png")
-create_icon("pumpjack", BaseIconPath .. "pumpjack.png")
-create_icon("satellite", BaseIconPath .. "satellite.png")
-create_icon("stone-brick", BaseIconPath .. "stone-brick.png")
+create_icon("piercing-rounds-magazine")
+create_icon("processing-unit")
+create_icon("productivity-module")
+create_icon("pumpjack")
+create_icon("satellite")
+create_icon("stone-brick")
 create_icon("sulfuric-acid", BaseIconPath .. "fluid/sulfuric-acid.png")
 create_icon("uranium", BaseIconPath .. "uranium-238.png")
 
