@@ -29,6 +29,22 @@ BaseOverlays = {
   },
 }
 
+function create_overlay_from_icons(icons, shift, scale)
+  shift = shift or {-8, 8}
+  scale = scale or IconScale
+
+  for _, icon in ipairs(icons) do
+    icon.scale = math.max((icon.scale or 32 / icon.icon_size) * scale, 0.2)
+
+    local original_shift = icon.shift or {0, 0}
+    icon.shift = {
+      original_shift[1] * 0.5 + shift[1],
+      original_shift[2] * 0.5 + shift[2]
+    }
+  end
+  return icons
+end
+
 Overlays = {}
 
 local function create_overlay(name, _type, icon)
@@ -93,6 +109,6 @@ create_icon("stone-brick")
 create_icon("sulfuric-acid", BaseIconPath .. "fluid/sulfuric-acid.png")
 create_icon("uranium", BaseIconPath .. "uranium-238.png")
 
-for name, icon in pairs(Icons) do
-  create_overlay(name, BaseOverlays.icon, icon)
+for name, icon in pairs(CustomIcons) do
+  create_overlay(name .. "-custom", BaseOverlays.icon, icon)
 end

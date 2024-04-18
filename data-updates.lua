@@ -1,14 +1,15 @@
 require("scripts/config")
+require("scripts/fluids")
 require("scripts/icons")
 require("scripts/icon_overlays")
 require("scripts/sprites")
 
 if config("copper-plate-custom") then
-  replace_icon("item", "copper-plate", Icons["copper-plate-custom"])
+  replace_icon("item", "copper-plate", CustomIcons["copper-plate"])
 end
 
 if config("electronic-circuit-custom") then
-  replace_icon("item", "electronic-circuit", Icons["electronic-circuit-custom"])
+  replace_icon("item", "electronic-circuit", CustomIcons["electronic-circuit"])
 end
 
 overlay_icon("blueprint", "blueprint", Overlays["blueprint"])
@@ -104,42 +105,15 @@ overlay_pictures("item", "stone", icon_to_sprite(stone_overlay))
 local oil_overlay = Overlays["pumpjack"]
 overlay_icon("fluid", "crude-oil", oil_overlay)
 overlay_icon("item", "crude-oil-barrel", oil_overlay)
+overlay_fluid_barreling("crude-oil")
 local lube_overlay = Overlays["iron-gear-wheel"]
 overlay_icon("fluid", "lubricant", lube_overlay)
 overlay_icon("item", "lubricant-barrel", lube_overlay)
+overlay_fluid_barreling("lubricant")
 local petrol_overlay = Overlays["petroleum-gas"]
 overlay_icon("item", "petroleum-gas-barrel", petrol_overlay)
 local sulfuric_acid_overlay = Overlays["sulfuric-acid"]
 overlay_icon("item", "sulfuric-acid-barrel", sulfuric_acid_overlay)
-
-local function overlay_or_replace_fluid(fluid)
-  local setting = config(fluid .. "-custom")
-  if setting ~= "none" then
-    local icon = {
-      icon = IconPath .. "fluid/" .. fluid .. ".png",
-      icon_size = 64,
-      icon_mipmaps = 4,
-    }
-
-    local overlay
-    if setting == "text-overlay" then
-      overlay = table_merge(BaseOverlays.icon, {
-        icon = IconPath .. "fluid/" .. fluid .. "-text.png",
-        icon_size = 64,
-        icon_mipmaps = 2,
-      })
-    else
-      overlay = table_merge(BaseOverlays.icon, icon)
-    end
-    overlay_icon("item", fluid .. "-barrel", overlay)
-
-    if setting == "molecule" then
-      replace_icon("fluid", fluid, icon)
-    else
-      overlay_icon("fluid", fluid, overlay)
-    end
-  end
-end
 
 overlay_or_replace_fluid("heavy-oil")
 overlay_or_replace_fluid("light-oil")
