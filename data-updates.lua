@@ -119,4 +119,11 @@ overlay_or_replace_fluid("heavy-oil")
 overlay_or_replace_fluid("light-oil")
 overlay_or_replace_fluid("water")
 
---log(serpent.block(data.raw["item"]["filter-inserter"]))
+replace_icon("recipe", "advanced-oil-processing", EmptyIcon)
+overlay_icon("recipe", "advanced-oil-processing", get_and_shift_fluid_icons("petroleum-gas", {0, 8}, 0.5))
+overlay_icon("recipe", "advanced-oil-processing", get_and_shift_fluid_icons("heavy-oil", {-12, 8}, 0.5))
+overlay_icon("recipe", "advanced-oil-processing", get_and_shift_fluid_icons("light-oil", {12, 8}, 0.5))
+overlay_icon("recipe", "advanced-oil-processing", get_and_shift_fluid_icons("water", {-4.5, -8}, 0.5))
+overlay_icon("recipe", "advanced-oil-processing", get_and_shift_fluid_icons("crude-oil", {4.5, -8}, 0.5))
+
+log(serpent.block(data.raw["recipe"]["advanced-oil-processing"]))

@@ -10,17 +10,23 @@ function replace_icon(_type, item, icon)
   data.raw[_type][item].icon = nil
 end
 
+function icons_from_obj(obj)
+  if obj.icons then
+    return table.deepcopy(obj.icons)
+  else
+    return {{
+      icon = obj.icon,
+      icon_size = obj.icon_size,
+      icon_mipmaps = obj.icon_mipmaps,
+    }}
+  end
+end
+
 -- Overlay an icon on top of the base icon.
 function overlay_icon(_type, item, icon, icon2)
   local obj = data.raw[_type][item]
   if not obj.icons then
-    obj.icons = {
-      {
-        icon = obj.icon,
-        icon_size = obj.icon_size,
-        icon_mipmaps = obj.icon_mipmaps,
-      }
-    }
+    obj.icons = icons_from_obj(obj)
     obj.icon = nil
   end
   table.insert(obj.icons, icon)
@@ -30,6 +36,12 @@ function overlay_icon(_type, item, icon, icon2)
   end
 end
 
+-- Used as a base icon for layering all not full size icons on top.
+EmptyIcon = {
+  icon = "__core__/graphics/empty.png",
+  icon_size = 1,
+  scale = 32,
+}
 
 CustomIcons = {}
 
@@ -50,6 +62,7 @@ local function create_custom_text_icon(name, path)
     icon = IconPath .. "text/" .. path .. ".png",
     icon_size = 64,
     icon_mipmaps = 2,
+    scale = 1.0,
   }
 end
 

@@ -5,6 +5,7 @@ BaseOverlays = {
   mip = {
     icon_size = 32,
     icon_mipmaps = 2,
+    scale = 1,
   },
   constant = {
     icon_size = 128,
@@ -34,7 +35,7 @@ function create_overlay_from_icons(icons, shift, scale)
   scale = scale or IconScale
 
   for _, icon in ipairs(icons) do
-    icon.scale = math.max((icon.scale or 32 / icon.icon_size) * scale, 0.2)
+    icon.scale = (icon.scale or 32 / icon.icon_size) * scale
 
     local original_shift = icon.shift or {0, 0}
     icon.shift = {
@@ -49,6 +50,10 @@ Overlays = {}
 
 local function create_overlay(name, _type, icon)
   Overlays[name] = table_merge(icon, _type)
+end
+
+local function create_custom_overlay(name, _type, icon)
+  Overlays[name .. "-custom"] = create_overlay_from_icons({icon})[1]
 end
 
 local function create_mip(name, path)
@@ -110,5 +115,5 @@ create_icon("sulfuric-acid", BaseIconPath .. "fluid/sulfuric-acid.png")
 create_icon("uranium", BaseIconPath .. "uranium-238.png")
 
 for name, icon in pairs(CustomIcons) do
-  create_overlay(name .. "-custom", BaseOverlays.icon, icon)
+  create_custom_overlay(name, BaseOverlays.icon, table.deepcopy(icon))
 end
