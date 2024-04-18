@@ -1,109 +1,13 @@
-local Root = "__colorblind_ultimate__"
-local Icons = Root.."/graphics/icons/"
+require("scripts/config")
+require("scripts/icons")
+require("scripts/sprites")
 
-local function config(name)
-  return settings.startup["colorblind_ultimate__" .. name].value
-end
-
--- Overwrite the default icon.
-local function replace_icon(_type, item, icon)
-  data.raw[_type][item].icons = {icon}
-end
-
--- Overlay an icon on top of the base icon.
-local function overlay_icon(_type, item, icon, icon2)
-  local obj = data.raw[_type][item]
-  if obj.icons then
-    table.insert(obj.icons, icon)
-  else
-    obj.icons = {
-      {
-        icon = obj.icon,
-        icon_size = obj.icon_size,
-        icon_mipmaps = obj.icon_mipmaps,
-      },
-      icon,
-    }
-  end
-
-  if icon2 then
-    table.insert(obj.icons, icon2)
-  end
-end
-
--- Overlay a sprite over a picture, which is used for ground rendering.
-local function overlay_picture(_type, item, sprite, sprite2)
-  local obj = data.raw[_type][item]
-  table.insert(obj.pictures.layers, sprite)
-  if sprite2 then
-    table.insert(obj.pictures.layers, sprite2)
-  end
-end
-
--- Overlay a sprite over an array of pictures, which is used for ground rendering.
-local function overlay_pictures(_type, item, sprite, sprite2)
-  local obj = data.raw[_type][item]
-  local pictures = {}
-  for _, picture in ipairs(obj.pictures) do
-    local layers = {picture, sprite}
-    if sprite2 then
-      table.insert(layers, sprite2)
-    end
-    table.insert(pictures, {layers = layers})
-  end
-  obj.pictures = pictures
-end
-
--- Convert an icon format to a sprite format. Used when the on ground icon does
--- not match the inventory icon, because then it is a sprite/picture.
-local function icon_to_sprite(icon)
-  local sprite = {
-    filename = icon["icon"],
-    size = icon["icon_size"],
-    mipmaps = icon["icon_mipmaps"],
-  }
-  if not icon["scale"] ~= nil then
-    sprite["scale"] = icon["scale"] / 2
-  end
-  if not icon["shift"] ~= nil then
-    sprite["shift"] = {
-      icon["shift"][1] * 0.015,
-      icon["shift"][2] * 0.015,
-    }
-  end
-  return sprite
-end
-
--- Merge two tables, with t2 overriding values from t1.
-local function table_merge(t1, t2)
-  local t = {}
-  for k,v in pairs(t1) do
-    t[k] = v
-  end
-  for k,v in pairs(t2) do
-    t[k] = v
-  end
-  return t
-end
-
-local copper_icon
 if config("copper-plate-custom") then
-  copper_icon = Icons .. "copper-plate.png"
-  replace_icon("item", "copper-plate", {
-    icon = copper_icon,
-    icon_size = 64,
-    icon_mipmaps = 4,
-  })
-else
-  copper_icon = "__base__/graphics/icons/copper-plate.png"
+  replace_icon("item", "copper-plate", Icons["copper-plate-custom"])
 end
 
 if config("electronic-circuit-custom") then
-  replace_icon("item", "electronic-circuit", {
-    icon = Icons .. "electronic-circuit.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
-  })
+  replace_icon("item", "electronic-circuit", Icons["electronic-circuit-custom"])
 end
 
 local scale = config("scale")
@@ -283,9 +187,10 @@ local iron_overlay = table_merge(icon_overlay, {
 })
 overlay_icon("item", "iron-ore", iron_overlay)
 overlay_pictures("item", "iron-ore", icon_to_sprite(iron_overlay))
-local copper_overlay = table_merge(icon_overlay, {
-  icon = copper_icon,
-})
+local copper_overlay = table_merge(
+  config("copper-plate-custom") and Icons["copper-plate-custom"] or Icons["copper-plate"],
+  icon_overlay,
+)
 overlay_icon("item", "copper-ore", copper_overlay)
 overlay_pictures("item", "copper-ore", icon_to_sprite(copper_overlay))
 local uranium_overlay = table_merge(icon_overlay, {

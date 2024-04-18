@@ -7,6 +7,7 @@ cp -r \
   ./info.json \
   ./*.lua \
   graphics \
+  scripts \
   "$dir/"
 
 zip -r "${dir}.zip" "$dir"
