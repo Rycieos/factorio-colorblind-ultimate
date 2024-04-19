@@ -1,34 +1,35 @@
 require("scripts/utils")
 
--- Overlay a sprite over a picture, which is used for ground rendering.
-function overlay_picture(_type, item, sprite, sprite2)
-  local obj = data.raw[_type][item]
-  table.insert(obj.pictures.layers, sprite)
-  if sprite2 then
-    table.insert(obj.pictures.layers, sprite2)
-  end
-end
-
 -- Overlay a sprite over an array of pictures, which is used for ground rendering.
-function overlay_pictures(_type, item, sprite, sprite2)
-  local obj = data.raw[_type][item]
-  local pictures = {}
-  for _, picture in ipairs(obj.pictures) do
-    local layers = {picture, sprite}
-    if sprite2 then
-      table.insert(layers, sprite2)
-    end
-    table.insert(pictures, {layers = layers})
+-- If an item has a single picture, it is likely it has a light layer.
+-- If it had no layers, it would not have a separate picture from the icon.
+function overlay_pictures(obj, sprite, sprite2)
+  if obj.pictures.filename then
+    obj.pictures = {layers = {obj.pictures}}
   end
-  obj.pictures = pictures
+  if obj.pictures.layers then
+    table.insert(obj.pictures.layers, sprite)
+    if sprite2 then
+      table.insert(obj.pictures.layers, sprite2)
+    end
+  else
+    local pictures = {}
+    for _, picture in ipairs(obj.pictures) do
+      local layers = picture.layers or {picture}
+      table.insert(layers, sprite)
+      if sprite2 then
+        table.insert(layers, sprite2)
+      end
+      table.insert(pictures, {layers = layers})
+    end
+    obj.pictures = pictures
+  end
 end
 
 -- Overlay a static sprite over an animation.
-function overlay_animation(_type, item, sprite, sprite2)
-  local obj = data.raw[_type][item]
+local function overlay_animation(obj, sprite, sprite2)
   if not obj.animation.layers then
     obj.animation.layers = {obj.animation}
-    obj.animation = nil
   end
   local frame_count = obj.animation.layers[1].frame_count
   table.insert(obj.animation.layers, table_merge(sprite, {repeat_count = frame_count}))
@@ -38,8 +39,7 @@ function overlay_animation(_type, item, sprite, sprite2)
 end
 
 -- Overlay a static sprite over a platform picture.
-function overlay_platform_picture(_type, item, sprite, sprite2)
-  local obj = data.raw[_type][item]
+local function overlay_platform_picture(obj, sprite, sprite2)
   if not obj.platform_picture.sheets then
     obj.platform_picture.sheets = {obj.platform_picture.sheet}
     obj.platform_picture.sheet = nil
@@ -47,6 +47,15 @@ function overlay_platform_picture(_type, item, sprite, sprite2)
   table.insert(obj.platform_picture.sheets, table_merge(sprite, {frames = 1}))
   if sprite2 then
     table.insert(obj.platform_picture.sheets, table_merge(sprite2, {frames = 1}))
+  end
+end
+
+function overlay_sprite(obj, sprite, sprite2)
+  if obj.animation then
+    overlay_animation(obj, sprite, sprite2)
+  end
+  if obj.platform_picture then
+    overlay_platform_picture(obj, sprite, sprite2)
   end
 end
 

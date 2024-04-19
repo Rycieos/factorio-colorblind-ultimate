@@ -5,11 +5,13 @@ BaseIconPath = "__base__/graphics/icons/"
 CoreIconPath = "__core__/graphics/icons/"
 
 -- Overwrite a default icon.
-function replace_icon(_type, item, icon)
-  data.raw[_type][item].icons = {icon}
-  data.raw[_type][item].icon = nil
+function replace_icon(obj, icon)
+  obj.icons = {icon}
+  obj.icon = nil
 end
 
+-- Get an array of icons from an object, even if the array formatted "icons"
+-- property is not set.
 function icons_from_obj(obj)
   if obj.icons then
     return table.deepcopy(obj.icons)
@@ -23,8 +25,7 @@ function icons_from_obj(obj)
 end
 
 -- Overlay an icon on top of the base icon.
-function overlay_icon(_type, item, icon, icon2)
-  local obj = data.raw[_type][item]
+function overlay_icon(obj, icon, icon2)
   if not obj.icons then
     obj.icons = icons_from_obj(obj)
     obj.icon = nil

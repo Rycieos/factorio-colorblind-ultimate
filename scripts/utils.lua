@@ -12,3 +12,12 @@ function table_merge(t1, t2)
   end
   return t
 end
+
+-- Get the item object that corresponds to the entity object.
+function get_item_from_entity(obj)
+  return data.raw["item"][obj.minable.result]
+end
+
+function config_name(name)
+  return Mod .. "__" .. name
+end
