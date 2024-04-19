@@ -17,7 +17,7 @@ overlay_icon("deconstruction-item", "deconstruction-planner", Overlays["deconstr
 overlay_icon("upgrade-item", "upgrade-planner", Overlays["upgrade-planner"])
 
 local nuclear_overlay = Overlays["nuclear"]
-local nuclear_sprite_overlay = icon_to_sprite(nuclear_overlay)
+local nuclear_sprite_overlay = icon_to_sprite(nuclear_overlay, 0.5)
 overlay_icon("item", "nuclear-fuel", nuclear_overlay)
 overlay_icon("item", "uranium-235", nuclear_overlay)
 overlay_icon("item", "uranium-fuel-cell", nuclear_overlay)
@@ -40,7 +40,7 @@ overlay_icon("capsule", "cliff-explosives", Overlays["cliff"])
 
 local shifted_explosive_overlay = table_merge(explosive_overlay, BaseOverlays.shifted)
 overlay_icon("ammo", "explosive-uranium-cannon-shell", nuclear_overlay, shifted_explosive_overlay)
-overlay_picture("ammo", "explosive-uranium-cannon-shell", nuclear_sprite_overlay, icon_to_sprite(shifted_explosive_overlay))
+overlay_picture("ammo", "explosive-uranium-cannon-shell", nuclear_sprite_overlay, icon_to_sprite(shifted_explosive_overlay, 0.5))
 
 -- TODO: improve graphic.
 local piercing_overlay = Overlays["piercing"]
@@ -63,12 +63,21 @@ overlay_icon("module", "speed-module-2", speed_overlay)
 overlay_icon("module", "speed-module-3", speed_overlay)
 overlay_icon("capsule", "slowdown-capsule", speed_overlay)
 
--- TODO: fix these for entities.
-overlay_icon("item", "logistic-chest-active-provider", Overlays["pushes"])
-overlay_icon("item", "logistic-chest-passive-provider", Overlays["generates"])
-overlay_icon("item", "logistic-chest-buffer", Overlays["buffer"])
-overlay_icon("item", "logistic-chest-requester", Overlays["consumes"])
-overlay_icon("item", "logistic-chest-storage", Overlays["storage"])
+local function overlay_entity_icon(_type, entity, icon, icon2)
+  overlay_icon(_type, entity, icon, icon2)
+  overlay_icon("item", data.raw[_type][entity].minable.result, icon, icon2)
+end
+
+overlay_entity_icon("logistic-container", "logistic-chest-active-provider", Overlays["pushes"])
+overlay_animation("logistic-container", "logistic-chest-active-provider", icon_to_sprite(Overlays["pushes"]))
+overlay_entity_icon("logistic-container", "logistic-chest-passive-provider", Overlays["generates"])
+overlay_animation("logistic-container", "logistic-chest-passive-provider", icon_to_sprite(Overlays["generates"]))
+overlay_entity_icon("logistic-container", "logistic-chest-buffer", Overlays["buffer"])
+overlay_animation("logistic-container", "logistic-chest-buffer", icon_to_sprite(Overlays["buffer"]))
+overlay_entity_icon("logistic-container", "logistic-chest-requester", Overlays["consumes"])
+overlay_animation("logistic-container", "logistic-chest-requester", icon_to_sprite(Overlays["consumes"]))
+overlay_entity_icon("logistic-container", "logistic-chest-storage", Overlays["storage"])
+overlay_animation("logistic-container", "logistic-chest-storage", icon_to_sprite(Overlays["storage"]))
 
 overlay_icon("tool", "automation-science-pack", Overlays["iron-gear-wheel"])
 overlay_icon("tool", "logistic-science-pack", Overlays["inserter"])
@@ -91,16 +100,16 @@ overlay_icon("item", "burner-inserter", Overlays["coal"])
 
 local iron_overlay = Overlays["iron-plate"]
 overlay_icon("item", "iron-ore", iron_overlay)
-overlay_pictures("item", "iron-ore", icon_to_sprite(iron_overlay))
+overlay_pictures("item", "iron-ore", icon_to_sprite(iron_overlay, 0.5))
 local copper_overlay = config("copper-plate-custom") and Overlays["copper-plate-custom"] or Overlays["copper-plate"]
 overlay_icon("item", "copper-ore", copper_overlay)
-overlay_pictures("item", "copper-ore", icon_to_sprite(copper_overlay))
+overlay_pictures("item", "copper-ore", icon_to_sprite(copper_overlay, 0.5))
 local uranium_overlay = Overlays["uranium"]
 overlay_icon("item", "uranium-ore", uranium_overlay)
-overlay_pictures("item", "uranium-ore", icon_to_sprite(uranium_overlay))
+overlay_pictures("item", "uranium-ore", icon_to_sprite(uranium_overlay, 0.5))
 local stone_overlay = Overlays["stone-brick"]
 overlay_icon("item", "stone", stone_overlay)
-overlay_pictures("item", "stone", icon_to_sprite(stone_overlay))
+overlay_pictures("item", "stone", icon_to_sprite(stone_overlay, 0.5))
 
 local oil_overlay = Overlays["pumpjack"]
 overlay_icon("fluid", "crude-oil", oil_overlay)
