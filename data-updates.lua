@@ -87,16 +87,24 @@ overlay_icon("tool", "production-science-pack", Overlays["productivity-module"])
 overlay_icon("tool", "utility-science-pack", Overlays["processing-unit"])
 overlay_icon("tool", "space-science-pack", Overlays["satellite"])
 
--- TODO: fix these for entities.
-overlay_icon("item", "fast-inserter", speed_overlay)
-overlay_icon("item", "filter-inserter", Overlays["filter"])
-overlay_icon("item", "stack-inserter", Overlays["storage"])
-overlay_icon("item", "stack-filter-inserter",
+overlay_entity_icon("inserter", "burner-inserter", Overlays["coal"])
+overlay_platform_picture("inserter", "burner-inserter", icon_to_sprite(Overlays["coal"]))
+overlay_entity_icon("inserter", "fast-inserter", Overlays["speed"])
+overlay_platform_picture("inserter", "fast-inserter", icon_to_sprite(Overlays["speed"]))
+overlay_entity_icon("inserter", "filter-inserter", Overlays["filter"])
+overlay_platform_picture("inserter", "filter-inserter", icon_to_sprite(Overlays["filter"]))
+overlay_entity_icon("inserter", "long-handed-inserter", Overlays["pushes"])
+overlay_platform_picture("inserter", "long-handed-inserter", icon_to_sprite(Overlays["pushes"]))
+overlay_entity_icon("inserter", "stack-inserter", Overlays["storage"])
+overlay_platform_picture("inserter", "stack-inserter", icon_to_sprite(Overlays["storage"]))
+overlay_entity_icon("inserter", "stack-filter-inserter",
   Overlays["storage"],
   table_merge(Overlays["filter"], BaseOverlays.shifted)
 )
-overlay_icon("item", "long-handed-inserter", Overlays["pushes"])
-overlay_icon("item", "burner-inserter", Overlays["coal"])
+overlay_platform_picture("inserter", "stack-filter-inserter",
+  icon_to_sprite(Overlays["storage"]),
+  icon_to_sprite(table_merge(Overlays["filter"], BaseOverlays.shifted))
+)
 
 local iron_overlay = Overlays["iron-plate"]
 overlay_icon("item", "iron-ore", iron_overlay)

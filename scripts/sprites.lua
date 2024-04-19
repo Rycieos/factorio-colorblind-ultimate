@@ -28,11 +28,25 @@ function overlay_animation(_type, item, sprite, sprite2)
   local obj = data.raw[_type][item]
   if not obj.animation.layers then
     obj.animation.layers = {obj.animation}
+    obj.animation = nil
   end
   local frame_count = obj.animation.layers[1].frame_count
   table.insert(obj.animation.layers, table_merge(sprite, {repeat_count = frame_count}))
   if sprite2 then
     table.insert(obj.animation.layers, table_merge(sprite2, {repeat_count = frame_count}))
+  end
+end
+
+-- Overlay a static sprite over a platform picture.
+function overlay_platform_picture(_type, item, sprite, sprite2)
+  local obj = data.raw[_type][item]
+  if not obj.platform_picture.sheets then
+    obj.platform_picture.sheets = {obj.platform_picture.sheet}
+    obj.platform_picture.sheet = nil
+  end
+  table.insert(obj.platform_picture.sheets, table_merge(sprite, {frames = 1}))
+  if sprite2 then
+    table.insert(obj.platform_picture.sheets, table_merge(sprite2, {frames = 1}))
   end
 end
 
