@@ -39,6 +39,7 @@ local function add_fluid_setting(name, options)
   }})
 end
 
+add_replace_setting("advanced-circuit")
 add_replace_setting("copper-cable")
 add_replace_setting("copper-plate")
 add_replace_setting("electronic-circuit")
