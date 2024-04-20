@@ -67,6 +67,7 @@ local function create_custom_text_icon(name, path)
   }
 end
 
+create_custom_icon("copper-cable")
 create_custom_icon("copper-plate")
 create_custom_icon("electronic-circuit")
 

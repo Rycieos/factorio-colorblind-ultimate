@@ -44,6 +44,7 @@ local function do_overlay_entity_icon(_type, name, icon, icon2)
 end
 
 
+do_replace_icon("item", "copper-cable")
 do_replace_icon("item", "copper-plate")
 do_replace_icon("item", "electronic-circuit")
 
