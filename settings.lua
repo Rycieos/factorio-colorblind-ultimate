@@ -1,7 +1,5 @@
 require("scripts/utils")
 
-local allowed_values = {"none", "text-overlay", "molecule", "molecule-overlay"}
-
 local function add_replace_setting(name)
   data:extend({{
     name = config_name(name),
@@ -88,12 +86,14 @@ add_overlay_setting("uranium-rounds-magazine")
 add_overlay_setting("utility-science-pack")
 
 add_fluid_setting("crude-oil")
-add_fluid_setting("heavy-oil", allowed_values)
-add_fluid_setting("light-oil", allowed_values)
 add_fluid_setting("lubricant")
 add_fluid_setting("petroleum-gas")
 add_fluid_setting("sulfuric-acid")
-add_fluid_setting("water", allowed_values)
+
+local allowed_values = {"none", "text-overlay", "icon"}
+add_fluid_setting("heavy-oil", allowed_values)
+add_fluid_setting("light-oil", allowed_values)
+add_fluid_setting("water", {"none", "text-overlay", "icon", "icon-overlay"})
 
 data:extend({{
   name = config_name("scale"),

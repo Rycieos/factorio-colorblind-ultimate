@@ -31,7 +31,7 @@ function overlay_or_replace_fluid(fluid)
     end
     overlay_icon(data.raw.item[fluid .. "-barrel"], overlay)
 
-    if setting == "molecule" then
+    if setting == "icon" then
       replace_icon(data.raw.fluid[fluid], CustomIcons[fluid])
     else
       overlay_icon(data.raw.fluid[fluid], overlay)
