@@ -170,10 +170,8 @@ end
 
 local lube_overlay = Overlays["iron-gear-wheel"]
 if do_overlay_icon("fluid", "lubricant", lube_overlay) then
-  overlay_icon(data.raw.item["lubricant-barrel"], table.deepcopy(lube_overlay))
+  overlay_icon(data.raw.item["lubricant-barrel"], lube_overlay)
   overlay_fluid_barreling("lubricant")
-else
-  error("no lube")
 end
 
 if config("petroleum-gas") then
