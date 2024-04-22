@@ -40,6 +40,31 @@ local function overlay_animation(obj, sprite, sprite2)
   end
 end
 
+-- Overlay a static sprite over an RotatedAnimation.
+-- A terrible hack, but the game requires a sprite per direction, even if
+-- they are all exactly the same.
+function overlay_rotated_animation(obj, sprite)
+  if not obj.layers then
+    obj.layers = {table.deepcopy(obj)}
+  end
+  local props = {
+    frame_count = 1,
+    line_length = 1,
+    lines_per_file = 1,
+    slice = 1,
+    repeat_count = obj.layers[1].frame_count,
+    direction_count = 20,
+    filenames = {},
+  }
+  for i=1, 12 do
+    table.insert(props.filenames, sprite.filename)
+  end
+  for i=1, 8 do
+    table.insert(props.filenames, EmptyConstant.icon)
+  end
+  table.insert(obj.layers, table_merge(sprite, props))
+end
+
 -- Overlay a static sprite over a Sprite4Way.
 local function overlay_sprite4way(obj, sprite, sprite2)
   if not obj.sheets then
@@ -80,6 +105,11 @@ function overlay_sprite(obj, sprite, sprite2)
         overlay_animation(obj.structure[_type], sprite, sprite2)
       end
     end
+  end
+  -- Need to filter to transport belts because other objects share the same
+  -- animation sets and will infect the transport belt of the same tier.
+  if obj.type == "transport-belt" and obj.belt_animation_set then
+    overlay_rotated_animation(obj.belt_animation_set.animation_set, sprite)
   end
 end
 

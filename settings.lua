@@ -39,6 +39,22 @@ local function add_option_setting(name, localised_category, options)
   }})
 end
 
+local function add_entity_setting(name)
+  add_option_setting(name, "entity-name", {
+    Options.icon_overlay_icon,
+    Options.icon_overlay_entity,
+    Options.icon_overlay,
+  })
+end
+
+local function add_tiered_entity_setting(name)
+  add_option_setting(name, "entity-name", {
+    Options.tier_icon,
+    Options.tier_entity,
+    Options.tier,
+  })
+end
+
 add_replace_setting("advanced-circuit")
 add_replace_setting("copper-cable")
 add_replace_setting("copper-plate")
@@ -47,7 +63,6 @@ add_replace_setting("electronic-circuit")
 add_overlay_setting("atomic-bomb")
 add_overlay_setting("automation-science-pack")
 add_overlay_setting("blueprint")
-add_overlay_setting("burner-inserter", "entity-name")
 add_overlay_setting("chemical-science-pack")
 add_overlay_setting("cliff-explosives")
 add_overlay_setting("cluster-grenade")
@@ -57,16 +72,8 @@ add_overlay_setting("effectivity-module")
 add_overlay_setting("explosive-cannon-shell")
 add_overlay_setting("explosive-rocket")
 add_overlay_setting("explosive-uranium-cannon-shell")
-add_overlay_setting("fast-inserter", "entity-name")
-add_overlay_setting("filter-inserter", "entity-name")
 add_overlay_setting("iron-ore")
-add_overlay_setting("logistic-chest-active-provider", "entity-name")
-add_overlay_setting("logistic-chest-buffer", "entity-name")
-add_overlay_setting("logistic-chest-passive-provider", "entity-name")
-add_overlay_setting("logistic-chest-requester", "entity-name")
-add_overlay_setting("logistic-chest-storage", "entity-name")
 add_overlay_setting("logistic-science-pack")
-add_overlay_setting("long-handed-inserter", "entity-name")
 add_overlay_setting("military-science-pack")
 add_overlay_setting("nuclear-fuel")
 add_overlay_setting("piercing-rounds-magazine")
@@ -76,8 +83,6 @@ add_overlay_setting("productivity-module")
 add_overlay_setting("slowdown-capsule")
 add_overlay_setting("space-science-pack")
 add_overlay_setting("speed-module")
-add_overlay_setting("stack-filter-inserter", "entity-name")
-add_overlay_setting("stack-inserter", "entity-name")
 add_overlay_setting("stone")
 add_overlay_setting("upgrade-planner")
 add_overlay_setting("uranium-235")
@@ -87,16 +92,28 @@ add_overlay_setting("uranium-ore")
 add_overlay_setting("uranium-rounds-magazine")
 add_overlay_setting("utility-science-pack")
 
-add_overlay_setting("fast-transport-belt", "entity-name")
-add_overlay_setting("express-loader", "entity-name")
-add_overlay_setting("express-splitter", "entity-name")
-add_overlay_setting("express-underground-belt", "entity-name")
-add_overlay_setting("fast-loader", "entity-name")
-add_overlay_setting("fast-splitter", "entity-name")
-add_overlay_setting("fast-underground-belt", "entity-name")
-add_overlay_setting("loader", "entity-name")
-add_overlay_setting("splitter", "entity-name")
-add_overlay_setting("underground-belt", "entity-name")
+add_entity_setting("burner-inserter")
+add_entity_setting("fast-inserter")
+add_entity_setting("filter-inserter")
+add_entity_setting("logistic-chest-active-provider")
+add_entity_setting("logistic-chest-buffer")
+add_entity_setting("logistic-chest-passive-provider")
+add_entity_setting("logistic-chest-requester")
+add_entity_setting("logistic-chest-storage")
+add_entity_setting("long-handed-inserter")
+add_entity_setting("stack-filter-inserter")
+add_entity_setting("stack-inserter")
+
+add_tiered_entity_setting("express-loader")
+add_tiered_entity_setting("express-splitter")
+add_tiered_entity_setting("express-underground-belt")
+add_tiered_entity_setting("fast-loader")
+add_tiered_entity_setting("fast-splitter")
+add_tiered_entity_setting("fast-transport-belt")
+add_tiered_entity_setting("fast-underground-belt")
+add_tiered_entity_setting("loader")
+add_tiered_entity_setting("splitter")
+add_tiered_entity_setting("underground-belt")
 
 add_option_setting("transport-belt", "entity-name", {
   Options.icon,

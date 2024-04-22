@@ -8,6 +8,8 @@ Options = {
   tier_entity = "tier-overlay-entity",
   icon = "icon",
   icon_overlay = "icon-overlay",
+  icon_overlay_icon = "icon-overlay-icon",
+  icon_overlay_entity = "icon-overlay-entity",
   text_overlay = "text-overlay",
 }
 
