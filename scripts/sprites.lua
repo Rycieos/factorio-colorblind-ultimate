@@ -1,5 +1,20 @@
 require("scripts/utils")
 
+-- Shifts a sprite based on how large the base sprite is. This will help keep
+-- the target sprite in the same area no matter how weirdly sized the base
+-- sprite is.
+local function shift_overlay_sprite(base_sprite, target_sprite)
+  if base_sprite.layers then
+    return shift_overlay_sprite(base_sprite.layers[1], target_sprite)
+  end
+
+  local shift = {
+    base_sprite.shift[1] + target_sprite.shift[1] * (base_sprite.width or base_sprite.size) / 32,
+    base_sprite.shift[2] + target_sprite.shift[2] * (base_sprite.height or base_sprite.size) / 32,
+  }
+  return table_merge(target_sprite, {shift = shift})
+end
+
 -- Overlay a sprite over an array of pictures, which is used for ground rendering.
 -- If an item has a single picture, it is likely it has a light layer.
 -- If it had no layers, it would not have a separate picture from the icon.
@@ -34,9 +49,9 @@ local function overlay_animation(obj, sprite, sprite2)
   local props = {
     repeat_count = obj.layers[1].frame_count,
   }
-  table.insert(obj.layers, table_merge(sprite, props))
+  table.insert(obj.layers, table_merge(shift_overlay_sprite(obj.layers[1], sprite), props))
   if sprite2 then
-    table.insert(obj.layers, table_merge(sprite2, props))
+    table.insert(obj.layers, table_merge(shift_overlay_sprite(obj.layers[1], sprite2), props))
   end
 end
 
