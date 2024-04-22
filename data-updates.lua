@@ -1,8 +1,9 @@
 require("scripts/config")
 require("scripts/fluids")
-require("scripts/icons")
 require("scripts/icon_overlays")
+require("scripts/icons")
 require("scripts/sprites")
+require("scripts/transport-belts")
 
 local function do_replace_icon(_type, name)
   if config(name) then
@@ -48,6 +49,20 @@ do_replace_icon("item", "advanced-circuit")
 do_replace_icon("item", "copper-cable")
 do_replace_icon("item", "copper-plate")
 do_replace_icon("item", "electronic-circuit")
+
+do_overlay_entity_icon("loader", "express-loader", Overlays["tier-3"])
+do_overlay_entity_icon("splitter", "express-splitter", Overlays["tier-3"])
+do_overlay_entity_icon("underground-belt", "express-underground-belt", Overlays["tier-3"])
+do_overlay_entity_icon("loader", "fast-loader", Overlays["tier-2"])
+do_overlay_entity_icon("splitter", "fast-splitter", Overlays["tier-2"])
+do_overlay_entity_icon("underground-belt", "fast-underground-belt", Overlays["tier-2"])
+do_overlay_entity_icon("loader", "loader", Overlays["tier-1"])
+do_overlay_entity_icon("splitter", "splitter", Overlays["tier-1"])
+do_overlay_entity_icon("underground-belt", "underground-belt", Overlays["tier-1"])
+
+overlay_or_replace_transport_belt("transport-belt", Overlays["tier-1"])
+overlay_or_replace_transport_belt("fast-transport-belt", Overlays["tier-2"])
+overlay_or_replace_transport_belt("express-transport-belt", Overlays["tier-3"])
 
 do_overlay_icon("blueprint", "blueprint")
 do_overlay_icon("deconstruction-item", "deconstruction-planner")

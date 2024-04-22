@@ -28,34 +28,58 @@ end
 
 -- Overlay a static sprite over an animation.
 local function overlay_animation(obj, sprite, sprite2)
-  if not obj.animation.layers then
-    obj.animation.layers = {obj.animation}
+  if not obj.layers then
+    obj.layers = {table.deepcopy(obj)}
   end
-  local frame_count = obj.animation.layers[1].frame_count
-  table.insert(obj.animation.layers, table_merge(sprite, {repeat_count = frame_count}))
+  local props = {
+    repeat_count = obj.layers[1].frame_count,
+  }
+  table.insert(obj.layers, table_merge(sprite, props))
   if sprite2 then
-    table.insert(obj.animation.layers, table_merge(sprite2, {repeat_count = frame_count}))
+    table.insert(obj.layers, table_merge(sprite2, props))
   end
 end
 
--- Overlay a static sprite over a platform picture.
-local function overlay_platform_picture(obj, sprite, sprite2)
-  if not obj.platform_picture.sheets then
-    obj.platform_picture.sheets = {obj.platform_picture.sheet}
-    obj.platform_picture.sheet = nil
+-- Overlay a static sprite over a Sprite4Way.
+local function overlay_sprite4way(obj, sprite, sprite2)
+  if not obj.sheets then
+    obj.sheets = {obj.sheet}
+    obj.sheet = nil
   end
-  table.insert(obj.platform_picture.sheets, table_merge(sprite, {frames = 1}))
+  table.insert(obj.sheets, table_merge(sprite, {frames = 1}))
   if sprite2 then
-    table.insert(obj.platform_picture.sheets, table_merge(sprite2, {frames = 1}))
+    table.insert(obj.sheets, table_merge(sprite2, {frames = 1}))
   end
 end
 
 function overlay_sprite(obj, sprite, sprite2)
   if obj.animation then
-    overlay_animation(obj, sprite, sprite2)
+    overlay_animation(obj.animation, sprite, sprite2)
   end
   if obj.platform_picture then
-    overlay_platform_picture(obj, sprite, sprite2)
+    overlay_sprite4way(obj.platform_picture, sprite, sprite2)
+  end
+  if obj.structure then
+    for _, _type in pairs({
+      "direction_in",
+      "direction_in_side_loading",
+      "direction_out",
+      "direction_out_side_loading",
+    }) do
+      if obj.structure[_type] then
+        overlay_sprite4way(obj.structure[_type], sprite, sprite2)
+      end
+    end
+    for _, _type in pairs({
+      "north",
+      "east",
+      "west",
+      "south",
+    }) do
+      if obj.structure[_type] then
+        overlay_animation(obj.structure[_type], sprite, sprite2)
+      end
+    end
   end
 end
 

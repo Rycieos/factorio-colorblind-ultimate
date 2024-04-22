@@ -87,6 +87,9 @@ create_mip("upgrade-planner", BaseIconPath .. "shortcut-toolbar/mip/new-upgrade-
 create_constant("effectivity", CoreIconPath .. "technology/constants/constant-battery.png")
 create_constant("productivity", CoreIconPath .. "technology/constants/constant-mining-productivity.png")
 create_constant("speed", CoreIconPath .. "technology/constants/constant-speed.png")
+create_constant("tier-1", IconPath .. "constants/tier-1.png")
+create_constant("tier-2", IconPath .. "constants/tier-2.png")
+create_constant("tier-3", IconPath .. "constants/tier-3.png")
 
 create_tooltip("buffer")
 create_tooltip("consumes")

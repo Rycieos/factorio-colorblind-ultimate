@@ -13,27 +13,29 @@ local function add_replace_setting(name)
 end
 
 local function add_overlay_setting(name, localised_category)
+  localised_category = localised_category or "item-name"
   data:extend({{
     name = config_name(name),
     type = "bool-setting",
     setting_type = "startup",
     default_value = false,
-    order = "c",
-    localised_name = {(localised_category or "item-name") .. "." .. name},
+    order = localised_category,
+    localised_name = {localised_category .. "." .. name},
     localised_description = "a custom overlay",
   }})
 end
 
-local function add_fluid_setting(name, options)
+local function add_option_setting(name, localised_category, options)
+  localised_category = localised_category or "item-name"
   data:extend({{
     name = config_name(name),
-    type = options and "string-setting" or "bool-setting",
+    type = "string-setting",
     setting_type = "startup",
-    default_value = options and options[1] or false,
-    allowed_values = options,
-    order = "f",
-    localised_name = {"fluid-name." .. name},
-    localised_description = options and "a custom icon or overlay" or "a custom overlay",
+    default_value = Options.none,
+    allowed_values = {Options.none, table.unpack(options)},
+    order = localised_category,
+    localised_name = {localised_category .. "." .. name},
+    localised_description = "a custom icon or overlay",
   }})
 end
 
@@ -85,15 +87,48 @@ add_overlay_setting("uranium-ore")
 add_overlay_setting("uranium-rounds-magazine")
 add_overlay_setting("utility-science-pack")
 
-add_fluid_setting("crude-oil")
-add_fluid_setting("lubricant")
-add_fluid_setting("petroleum-gas")
-add_fluid_setting("sulfuric-acid")
+add_overlay_setting("fast-transport-belt", "entity-name")
+add_overlay_setting("express-loader", "entity-name")
+add_overlay_setting("express-splitter", "entity-name")
+add_overlay_setting("express-underground-belt", "entity-name")
+add_overlay_setting("fast-loader", "entity-name")
+add_overlay_setting("fast-splitter", "entity-name")
+add_overlay_setting("fast-underground-belt", "entity-name")
+add_overlay_setting("loader", "entity-name")
+add_overlay_setting("splitter", "entity-name")
+add_overlay_setting("underground-belt", "entity-name")
 
-local allowed_values = {"none", "text-overlay", "icon"}
-add_fluid_setting("heavy-oil", allowed_values)
-add_fluid_setting("light-oil", allowed_values)
-add_fluid_setting("water", {"none", "text-overlay", "icon", "icon-overlay"})
+add_option_setting("transport-belt", "entity-name", {
+  Options.icon,
+  Options.tier_icon,
+  Options.tier_entity,
+  Options.tier,
+})
+add_option_setting("express-transport-belt", "entity-name", {
+  Options.icon,
+  Options.tier_icon,
+  Options.tier_entity,
+  Options.tier,
+})
+
+add_overlay_setting("crude-oil", "fluid-name")
+add_overlay_setting("lubricant", "fluid-name")
+add_overlay_setting("petroleum-gas", "fluid-name")
+add_overlay_setting("sulfuric-acid", "fluid-name")
+
+add_option_setting("heavy-oil", "fluid-name", {
+  Options.icon,
+  Options.text_overlay,
+})
+add_option_setting("light-oil", "fluid-name", {
+  Options.icon,
+  Options.text_overlay,
+})
+add_option_setting("water", "fluid-name", {
+  Options.icon,
+  Options.icon_overlay,
+  Options.text_overlay,
+})
 
 data:extend({{
   name = config_name("scale"),

@@ -44,6 +44,13 @@ EmptyIcon = {
   scale = 32,
 }
 
+-- Used as a base icon RotatedAnimations that need the same size everywhere.
+EmptyConstant = {
+  icon = IconPath .. "constants/empty.png",
+  icon_size = 128,
+  icon_mipmaps = 3,
+}
+
 CustomIcons = {}
 
 local function create_custom_icon(name, path)
@@ -71,6 +78,8 @@ create_custom_icon("advanced-circuit")
 create_custom_icon("copper-cable")
 create_custom_icon("copper-plate")
 create_custom_icon("electronic-circuit")
+create_custom_icon("express-transport-belt")
+create_custom_icon("transport-belt")
 
 create_custom_fluid_icon("heavy-oil")
 create_custom_fluid_icon("light-oil")

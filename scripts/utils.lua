@@ -1,6 +1,16 @@
 Mod = "colorblind_ultimate"
 ModPath = "__" .. Mod .. "__"
 
+Options = {
+  none = "none",
+  tier = "tier-overlay",
+  tier_icon = "tier-overlay-icon",
+  tier_entity = "tier-overlay-entity",
+  icon = "icon",
+  icon_overlay = "icon-overlay",
+  text_overlay = "text-overlay",
+}
+
 -- Merge two tables, with t2 overriding values from t1.
 function table_merge(t1, t2)
   local t = {}

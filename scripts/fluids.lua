@@ -22,16 +22,16 @@ end
 
 function overlay_or_replace_fluid(fluid)
   local setting = config(fluid)
-  if setting ~= "none" then
+  if setting ~= Options.none then
     local overlay
-    if setting == "text-overlay" then
+    if setting == Options.text_overlay then
       overlay = Overlays[fluid .. "-text-custom"]
     else
       overlay = Overlays[fluid .. "-custom"]
     end
     overlay_icon(data.raw.item[fluid .. "-barrel"], overlay)
 
-    if setting == "icon" then
+    if setting == Options.icon then
       replace_icon(data.raw.fluid[fluid], CustomIcons[fluid])
     else
       overlay_icon(data.raw.fluid[fluid], overlay)
