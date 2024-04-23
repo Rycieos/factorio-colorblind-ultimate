@@ -88,6 +88,13 @@ local function do_replace_wire_sprite(name)
   end
 end
 
+local function do_replace_circuit_network_content_slot(name)
+  local setting = config(name .. "-circuit-background-color")
+  if setting ~= name then
+    data.raw["gui-style"].default[name.."_circuit_network_content_slot"].default_graphical_set.position = CircuitBackgrounds[setting]
+  end
+end
+
 
 do_replace_icon("item", "copper-cable")
 do_replace_icon("item", "copper-plate")
@@ -102,6 +109,9 @@ do_overlay_icon("item", "red-wire", Overlays["red-wire-text-custom"])
 do_replace_wire_sprite("copper_wire")
 do_replace_wire_sprite("green_wire")
 do_replace_wire_sprite("red_wire")
+
+do_replace_circuit_network_content_slot("green")
+do_replace_circuit_network_content_slot("red")
 
 do_overlay_entity_icon("assembling-machine", "assembling-machine-1", Overlays["tier-1"])
 do_overlay_entity_icon("assembling-machine", "assembling-machine-2", Overlays["tier-2"])

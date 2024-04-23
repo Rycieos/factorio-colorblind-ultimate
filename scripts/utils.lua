@@ -15,6 +15,16 @@ Options = {
   text_overlay = "text-overlay",
 }
 
+CircuitBackgrounds = {
+  blue = {221, 72},
+  dark_blue = {221, 36},
+  green = {111, 108},
+  grey = {111, 0},
+  orange = {75, 108},
+  red = {111, 36},
+  yellow = {111, 72},
+}
+
 -- Merge two tables, with t2 overriding values from t1.
 function table_merge(t1, t2)
   local t = {}
@@ -25,6 +35,14 @@ function table_merge(t1, t2)
     t[k] = v
   end
   return t
+end
+
+function keys(table)
+  local keys = {}
+  for key, _ in pairs(table) do
+    keys[#keys+1] = key
+  end
+  return keys
 end
 
 -- Get the item object that corresponds to the entity object.
