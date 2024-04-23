@@ -15,6 +15,18 @@ Options = {
   text_overlay = "text-overlay",
 }
 
+SignalColors = {
+  "signal-black",
+  "signal-blue",
+  "signal-cyan",
+  "signal-green",
+  "signal-grey",
+  "signal-pink",
+  "signal-red",
+  "signal-white",
+  "signal-yellow",
+}
+
 CircuitBackgrounds = {
   blue = {221, 72},
   dark_blue = {221, 36},

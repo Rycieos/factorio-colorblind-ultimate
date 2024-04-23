@@ -59,6 +59,7 @@ add_replace_setting("copper-cable")
 add_replace_setting("copper-plate")
 add_replace_setting("signal-each", {"", {"virtual-signal-name.signal-each"}, " signal"})
 add_replace_setting("signal-everything", {"", {"virtual-signal-name.signal-everything"}, " signal"})
+add_replace_setting("signal-colors", "All color signals")
 
 add_option_setting("advanced-circuit", "item-name", {
   Options.icon,

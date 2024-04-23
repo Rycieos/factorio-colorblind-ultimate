@@ -65,6 +65,10 @@ local function create_custom_fluid_icon(name)
   create_custom_icon(name, "fluid/" .. name)
 end
 
+local function create_custom_signal_icon(name)
+  create_custom_icon(name, "signal/" .. name)
+end
+
 local function create_custom_text_icon(name, path)
   CustomIcons[name .. "-text"] = {
     icon = IconPath .. "text/" .. path .. ".png",
@@ -94,5 +98,8 @@ create_custom_text_icon("light-oil", "l")
 create_custom_text_icon("red-wire", "r")
 create_custom_text_icon("water", "h2o")
 
-create_custom_icon("signal-each", "signal/signal_each")
-create_custom_icon("signal-everything", "signal/signal_everything")
+create_custom_signal_icon("signal-each")
+create_custom_signal_icon("signal-everything")
+for _, signal in pairs(SignalColors) do
+  create_custom_signal_icon(signal)
+end

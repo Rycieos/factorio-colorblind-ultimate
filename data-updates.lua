@@ -100,6 +100,11 @@ do_replace_icon("item", "copper-cable")
 do_replace_icon("item", "copper-plate")
 do_replace_icon("virtual-signal", "signal-each")
 do_replace_icon("virtual-signal", "signal-everything")
+if config("signal-colors") then
+  for _, signal in pairs(SignalColors) do
+    replace_icon(data.raw["virtual-signal"][signal], CustomIcons[signal])
+  end
+end
 
 do_replace_or_overlay_icon("item", "advanced-circuit", Overlays["tier-2"])
 do_replace_or_overlay_icon("item", "electronic-circuit", Overlays["tier-1"])
