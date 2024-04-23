@@ -76,6 +76,18 @@ local function do_overlay_entity_icon(_type, name, icon, icon2)
   end
 end
 
+local function do_replace_wire_sprite(name)
+  local setting = config(name .. "-sprite-color")
+  if setting ~= "" then
+    local color = util.color(setting)
+    local sprite = data.raw["utility-sprites"].default[name]
+    sprite.filename = ModPath.."/graphics/base-wire.png"
+    sprite.hr_version.filename = ModPath.."/graphics/hr-base-wire.png"
+    sprite.tint = color
+    sprite.hr_version.tint = color
+  end
+end
+
 
 do_replace_icon("item", "copper-cable")
 do_replace_icon("item", "copper-plate")
@@ -86,6 +98,10 @@ do_overlay_icon("item", "processing-unit", Overlays["tier-3"])
 
 do_replace_or_overlay_icon("item", "green-wire", Overlays["green-wire-text-custom"])
 do_overlay_icon("item", "red-wire", Overlays["red-wire-text-custom"])
+
+do_replace_wire_sprite("copper_wire")
+do_replace_wire_sprite("green_wire")
+do_replace_wire_sprite("red_wire")
 
 do_overlay_entity_icon("assembling-machine", "assembling-machine-1", Overlays["tier-1"])
 do_overlay_entity_icon("assembling-machine", "assembling-machine-2", Overlays["tier-2"])

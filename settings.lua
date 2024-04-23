@@ -178,14 +178,46 @@ add_option_setting("water", "fluid-name", {
   Options.text_overlay,
 })
 
-data:extend({{
-  name = config_name("scale"),
-  type = "double-setting",
-  setting_type = "startup",
-  default_value = 0.5,
-  minimum_value = 0.1,
-  maximum_value = 1.0,
-  order = "a",
-  localised_name = "Icon scale",
-  localised_description = "scaling for icons overlaid the base icon",
-}})
+data:extend({
+  {
+    name = config_name("scale"),
+    type = "double-setting",
+    setting_type = "startup",
+    default_value = 0.5,
+    minimum_value = 0.1,
+    maximum_value = 1.0,
+    order = "a",
+    localised_name = "Icon scale",
+    localised_description = "scaling for icons overlaid the base icon",
+  },
+  {
+    name = config_name("copper_wire-sprite-color"),
+    type = "string-setting",
+    setting_type = "startup",
+    allow_blank = true,
+    default_value = "",
+    order = "z",
+    localised_name = {"", {"item-name.copper-cable"}, " sprite"},
+    localised_description = {"", "custom color for ", {"item-name.copper-cable"}, " between poles. Hex color format."},
+  },
+  {
+    name = config_name("green_wire-sprite-color"),
+    type = "string-setting",
+    setting_type = "startup",
+    allow_blank = true,
+    default_value = "",
+    order = "z",
+    localised_name = {"", {"item-name.green-wire"}, " sprite"},
+    localised_description = {"", "custom color for ", {"item-name.green-wire"}, " between poles. Hex color format."},
+  },
+  {
+    name = config_name("red_wire-sprite-color"),
+    type = "string-setting",
+    setting_type = "startup",
+    allow_blank = true,
+    default_value = "",
+    order = "z",
+    localised_name = {"", {"item-name.red-wire"}, " sprite"},
+    localised_description = {"", "custom color for ", {"item-name.red-wire"}, " between poles. Hex color format."},
+  },
+})
