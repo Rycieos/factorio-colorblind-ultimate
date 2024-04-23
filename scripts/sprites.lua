@@ -1,5 +1,7 @@
 require("scripts/utils")
 
+SpritePath = ModPath .. "/graphics/entity/"
+
 -- Shifts a sprite based on how large the base sprite is. This will help keep
 -- the target sprite in the same area no matter how weirdly sized the base
 -- sprite is.
@@ -125,6 +127,24 @@ function overlay_sprite(obj, sprite, sprite2)
   -- animation sets and will infect the transport belt of the same tier.
   if obj.type == "transport-belt" and obj.belt_animation_set then
     overlay_rotated_animation(obj.belt_animation_set.animation_set, sprite)
+  end
+end
+
+-- Replace a sprite with a custom sprite.
+function replace_sprite(obj)
+  if obj.type == "underground-belt" then
+    for _, _type in pairs({
+      "direction_in",
+      "direction_out",
+      "direction_in_side_loading",
+      "direction_out_side_loading",
+    }) do
+      if obj.structure[_type] then
+        local sheet = obj.structure[_type].sheet
+        sheet.filename = SpritePath .. obj.name .. "/" .. obj.name .. "-structure.png"
+        sheet.hr_version.filename = SpritePath .. obj.name .. "/hr-" .. obj.name .. "-structure.png"
+      end
+    end
   end
 end
 

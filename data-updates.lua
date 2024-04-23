@@ -39,15 +39,22 @@ local function do_overlay_entity_icon(_type, name, icon, icon2)
   if setting ~= Options.none then
     local obj = data.raw[_type][name]
 
-    if setting == Options.icon then
+    if setting == Options.icon or setting == Options.icon_and_entity then
       local icon = CustomIcons[name]
       replace_icon(obj, icon)
       replace_icon(get_item_from_entity(obj), icon)
-    elseif setting ~= Options.tier_entity and setting ~= Options.icon_overlay_entity then
+    elseif setting ~= Options.entity
+        and setting ~= Options.tier_entity
+        and setting ~= Options.icon_overlay_entity
+        then
       overlay_icon(obj, icon, icon2)
       overlay_icon(get_item_from_entity(obj), icon, icon2)
     end
-    if setting == Options.tier
+    if setting == Options.entity
+        or setting == Options.icon_and_entity
+        then
+      replace_sprite(obj)
+    elseif setting == Options.tier
         or setting == Options.tier_entity
         or setting == Options.icon_overlay
         or setting == Options.icon_overlay_entity

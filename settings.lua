@@ -113,10 +113,8 @@ add_tiered_entity_setting("express-underground-belt")
 add_tiered_entity_setting("fast-loader")
 add_tiered_entity_setting("fast-splitter")
 add_tiered_entity_setting("fast-transport-belt")
-add_tiered_entity_setting("fast-underground-belt")
 add_tiered_entity_setting("loader")
 add_tiered_entity_setting("splitter")
-add_tiered_entity_setting("underground-belt")
 
 add_option_setting("transport-belt", "entity-name", {
   Options.icon,
@@ -126,6 +124,22 @@ add_option_setting("transport-belt", "entity-name", {
 })
 add_option_setting("express-transport-belt", "entity-name", {
   Options.icon,
+  Options.tier_icon,
+  Options.tier_entity,
+  Options.tier,
+})
+add_option_setting("fast-underground-belt", "entity-name", {
+  Options.icon,
+  Options.entity,
+  Options.icon_and_entity,
+  Options.tier_icon,
+  Options.tier_entity,
+  Options.tier,
+})
+add_option_setting("underground-belt", "entity-name", {
+  Options.icon,
+  Options.entity,
+  Options.icon_and_entity,
   Options.tier_icon,
   Options.tier_entity,
   Options.tier,
