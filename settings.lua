@@ -1,13 +1,13 @@
 require("scripts/utils")
 
-local function add_replace_setting(name)
+local function add_replace_setting(name, localised_name)
   data:extend({{
     name = config_name(name),
     type = "bool-setting",
     setting_type = "startup",
     default_value = false,
     order = "b",
-    localised_name = {"item-name." .. name},
+    localised_name = localised_name or {"item-name." .. name},
     localised_description = "a custom icon",
   }})
 end
@@ -57,6 +57,8 @@ end
 
 add_replace_setting("copper-cable")
 add_replace_setting("copper-plate")
+add_replace_setting("signal-each", {"", {"virtual-signal-name.signal-each"}, " signal"})
+add_replace_setting("signal-everything", {"", {"virtual-signal-name.signal-everything"}, " signal"})
 
 add_option_setting("advanced-circuit", "item-name", {
   Options.icon,

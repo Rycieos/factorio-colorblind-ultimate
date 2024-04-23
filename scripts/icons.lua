@@ -93,3 +93,6 @@ create_custom_text_icon("heavy-oil", "h")
 create_custom_text_icon("light-oil", "l")
 create_custom_text_icon("red-wire", "r")
 create_custom_text_icon("water", "h2o")
+
+create_custom_icon("signal-each", "signal/signal_each")
+create_custom_icon("signal-everything", "signal/signal_everything")
