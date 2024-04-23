@@ -84,6 +84,9 @@ do_replace_or_overlay_icon("item", "advanced-circuit", Overlays["tier-2"])
 do_replace_or_overlay_icon("item", "electronic-circuit", Overlays["tier-1"])
 do_overlay_icon("item", "processing-unit", Overlays["tier-3"])
 
+do_replace_or_overlay_icon("item", "green-wire", Overlays["green-wire-text-custom"])
+do_overlay_icon("item", "red-wire", Overlays["red-wire-text-custom"])
+
 do_overlay_entity_icon("assembling-machine", "assembling-machine-1", Overlays["tier-1"])
 do_overlay_entity_icon("assembling-machine", "assembling-machine-2", Overlays["tier-2"])
 do_overlay_entity_icon("assembling-machine", "assembling-machine-3", Overlays["tier-3"])

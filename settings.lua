@@ -88,6 +88,7 @@ add_overlay_setting("piercing-shotgun-shell")
 add_overlay_setting("processing-unit")
 add_overlay_setting("production-science-pack")
 add_overlay_setting("productivity-module")
+add_overlay_setting("red-wire")
 add_overlay_setting("slowdown-capsule")
 add_overlay_setting("space-science-pack")
 add_overlay_setting("speed-module")
@@ -151,6 +152,11 @@ add_option_setting("underground-belt", "entity-name", {
   Options.tier_icon,
   Options.tier_entity,
   Options.tier,
+})
+
+add_option_setting("green-wire", "item-name", {
+  Options.icon,
+  Options.text_overlay,
 })
 
 add_overlay_setting("crude-oil", "fluid-name")
