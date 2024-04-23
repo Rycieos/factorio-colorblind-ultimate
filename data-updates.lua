@@ -21,6 +21,18 @@ local function do_overlay_icon(_type, name, icon, icon2)
   return false
 end
 
+local function do_replace_or_overlay_icon(_type, name, icon, icon2)
+  local setting = config(name)
+  if setting ~= Options.none then
+    local obj = data.raw[_type][name]
+    if setting == Options.icon then
+      replace_icon(obj, CustomIcons[name])
+    else
+      overlay_icon(obj, icon, icon2)
+    end
+  end
+end
+
 local function do_overlay_icon_and_picture(_type, name, icon, icon2)
   icon = icon or Overlays[name]
   if config(name) then
@@ -65,10 +77,12 @@ local function do_overlay_entity_icon(_type, name, icon, icon2)
 end
 
 
-do_replace_icon("item", "advanced-circuit")
 do_replace_icon("item", "copper-cable")
 do_replace_icon("item", "copper-plate")
-do_replace_icon("item", "electronic-circuit")
+
+do_replace_or_overlay_icon("item", "advanced-circuit", Overlays["tier-2"])
+do_replace_or_overlay_icon("item", "electronic-circuit", Overlays["tier-1"])
+do_overlay_icon("item", "processing-unit", Overlays["tier-3"])
 
 do_overlay_entity_icon("assembling-machine", "assembling-machine-1", Overlays["tier-1"])
 do_overlay_entity_icon("assembling-machine", "assembling-machine-2", Overlays["tier-2"])

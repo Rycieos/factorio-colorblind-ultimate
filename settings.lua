@@ -55,10 +55,17 @@ local function add_tiered_entity_setting(name)
   })
 end
 
-add_replace_setting("advanced-circuit")
 add_replace_setting("copper-cable")
 add_replace_setting("copper-plate")
-add_replace_setting("electronic-circuit")
+
+add_option_setting("advanced-circuit", "item-name", {
+  Options.icon,
+  Options.tier_icon,
+})
+add_option_setting("electronic-circuit", "item-name", {
+  Options.icon,
+  Options.tier_icon,
+})
 
 add_overlay_setting("atomic-bomb")
 add_overlay_setting("automation-science-pack")
@@ -78,6 +85,7 @@ add_overlay_setting("military-science-pack")
 add_overlay_setting("nuclear-fuel")
 add_overlay_setting("piercing-rounds-magazine")
 add_overlay_setting("piercing-shotgun-shell")
+add_overlay_setting("processing-unit")
 add_overlay_setting("production-science-pack")
 add_overlay_setting("productivity-module")
 add_overlay_setting("slowdown-capsule")
