@@ -287,3 +287,39 @@ if light_oil_cracking then
   overlay_icon(recipe, get_and_shift_fluid_icons("petroleum-gas", {8, 8}, 0.55))
   overlay_icon(recipe, get_and_shift_fluid_icons("light-oil", {0, -4.5}, 0.6))
 end
+
+-- Chain signal
+-- The frame_sequence param is ignored; have to use stripes.
+if config("rail-chain-signal-blue")
+    or config("rail-chain-signal-green")
+    or config("rail-chain-signal-red")
+    or config("rail-chain-signal-yellow") then
+  local animation = data.raw["rail-chain-signal"]["rail-chain-signal"].animation
+
+  local stripe = {
+    filename = SpritePath .. "rail-chain-signal/rail-chain-signal.png",
+    width_in_frames = 1,
+  }
+  local hr_stripe = {
+    filename = SpritePath .. "rail-chain-signal/hr-rail-chain-signal.png",
+    width_in_frames = 1,
+  }
+  local sprite_sheet = table.deepcopy(animation.layers[1])
+
+  sprite_sheet.stripes = {
+    stripe,
+    config("rail-chain-signal-red") and table_merge(stripe, {x=160}) or stripe,
+    config("rail-chain-signal-yellow") and table_merge(stripe, {x=320}) or stripe,
+    config("rail-chain-signal-green") and table_merge(stripe, {x=480}) or stripe,
+    config("rail-chain-signal-blue") and table_merge(stripe, {x=640}) or stripe,
+  }
+  sprite_sheet.hr_version.stripes = {
+    hr_stripe,
+    config("rail-chain-signal-red") and table_merge(hr_stripe, {x=320}) or hr_stripe,
+    config("rail-chain-signal-yellow") and table_merge(hr_stripe, {x=640}) or hr_stripe,
+    config("rail-chain-signal-green") and table_merge(hr_stripe, {x=960}) or hr_stripe,
+    config("rail-chain-signal-blue") and table_merge(hr_stripe, {x=1280}) or hr_stripe,
+  }
+
+  table.insert(animation.layers, sprite_sheet)
+end

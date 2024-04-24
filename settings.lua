@@ -12,15 +12,14 @@ local function add_replace_setting(name, localised_name)
   }})
 end
 
-local function add_overlay_setting(name, localised_category)
-  localised_category = localised_category or "item-name"
+local function add_overlay_setting(name, localised_name)
   data:extend({{
     name = config_name(name),
     type = "bool-setting",
     setting_type = "startup",
     default_value = false,
     order = localised_category,
-    localised_name = {localised_category .. "." .. name},
+    localised_name = localised_name or {"item-name." .. name},
     localised_description = "a custom overlay",
   }})
 end
@@ -104,6 +103,31 @@ add_overlay_setting("uranium-ore")
 add_overlay_setting("uranium-rounds-magazine")
 add_overlay_setting("utility-science-pack")
 
+add_overlay_setting("rail-chain-signal-blue", {
+  "",
+  {"entity-name.rail-chain-signal"},
+  " ",
+  {"virtual-signal-name.signal-blue"},
+})
+add_overlay_setting("rail-chain-signal-green", {
+  "",
+  {"entity-name.rail-chain-signal"},
+  " ",
+  {"virtual-signal-name.signal-green"},
+})
+add_overlay_setting("rail-chain-signal-red", {
+  "",
+  {"entity-name.rail-chain-signal"},
+  " ",
+  {"virtual-signal-name.signal-red"},
+})
+add_overlay_setting("rail-chain-signal-yellow", {
+  "",
+  {"entity-name.rail-chain-signal"},
+  " ",
+  {"virtual-signal-name.signal-yellow"},
+})
+
 add_entity_setting("burner-inserter")
 add_entity_setting("fast-inserter")
 add_entity_setting("filter-inserter")
@@ -162,10 +186,10 @@ add_option_setting("green-wire", "item-name", {
   Options.text_overlay,
 })
 
-add_overlay_setting("crude-oil", "fluid-name")
-add_overlay_setting("lubricant", "fluid-name")
-add_overlay_setting("petroleum-gas", "fluid-name")
-add_overlay_setting("sulfuric-acid", "fluid-name")
+add_overlay_setting("crude-oil", {"fluid-name.crude-oil"})
+add_overlay_setting("lubricant", {"fluid-name.lubricant"})
+add_overlay_setting("petroleum-gas", {"fluid-name.petroleum-gas"})
+add_overlay_setting("sulfuric-acid", {"fluid-name.sulfuric-acid"})
 
 add_option_setting("heavy-oil", "fluid-name", {
   Options.icon,
