@@ -17,50 +17,47 @@ local function shift_overlay_sprite(base_sprite, target_sprite)
   return table_merge(target_sprite, {shift = shift})
 end
 
--- Overlay a sprite over an array of pictures, which is used for ground rendering.
--- If an item has a single picture, it is likely it has a light layer.
--- If it had no layers, it would not have a separate picture from the icon.
-function overlay_pictures(obj, sprite, sprite2)
-  if obj.pictures.filename then
-    obj.pictures = {layers = {obj.pictures}}
-  end
-  if obj.pictures.layers then
-    table.insert(obj.pictures.layers, sprite)
-    if sprite2 then
-      table.insert(obj.pictures.layers, sprite2)
-    end
-  else
-    local pictures = {}
-    for _, picture in ipairs(obj.pictures) do
-      local layers = picture.layers or {picture}
-      table.insert(layers, sprite)
-      if sprite2 then
-        table.insert(layers, sprite2)
-      end
-      table.insert(pictures, {layers = layers})
-    end
-    obj.pictures = pictures
-  end
-end
-
--- Overlay a static sprite over an animation.
-local function overlay_animation(obj, sprite, sprite2)
+-- Overlay a sprite object with one or two sprites in layers.
+local function overlay_sprite(obj, sprite, sprite2)
   if not obj.layers then
     obj.layers = {table.deepcopy(obj)}
   end
-  local props = {
-    repeat_count = obj.layers[1].frame_count,
-  }
-  table.insert(obj.layers, table_merge(shift_overlay_sprite(obj.layers[1], sprite), props))
+  table.insert(obj.layers, sprite)
   if sprite2 then
-    table.insert(obj.layers, table_merge(shift_overlay_sprite(obj.layers[1], sprite2), props))
+    table.insert(obj.layers, sprite2)
   end
 end
 
--- Overlay a static sprite over an RotatedAnimation.
+-- Overlay a sprite over an array of pictures, which is used for ground rendering.
+-- If an item has a single picture, it is likely it has a light layer.
+-- If it had no layers, it would not have a separate picture from the icon.
+function overlay_sprite_variation(obj, sprite, sprite2)
+  if obj.filename or obj.layers then
+    overlay_sprite(obj, sprite, sprite2)
+  else
+    for _, picture in ipairs(obj) do
+      overlay_sprite(picture, sprite, sprite2)
+    end
+  end
+end
+
+-- Overlay a static sprite over an Animation.
+-- Does not support stripes.
+local function overlay_animation(obj, sprite, sprite2)
+  local base = obj.layers and obj.layers[1] or obj
+  local props = {
+    repeat_count = base.frame_count,
+  }
+  overlay_sprite(obj,
+    table_merge(shift_overlay_sprite(base, sprite), props),
+    sprite2 and table_merge(shift_overlay_sprite(base, sprite2), props)
+  )
+end
+
+-- Overlay a static sprite over an RotatedAnimation for a belt.
 -- A terrible hack, but the game requires a sprite per direction, even if
 -- they are all exactly the same.
-function overlay_rotated_animation(obj, sprite)
+local function overlay_belt_animation(obj, sprite)
   if not obj.layers then
     obj.layers = {table.deepcopy(obj)}
   end
@@ -84,17 +81,28 @@ end
 
 -- Overlay a static sprite over a Sprite4Way.
 local function overlay_sprite4way(obj, sprite, sprite2)
-  if not obj.sheets then
+  if obj.sheet and not obj.sheets then
     obj.sheets = {obj.sheet}
     obj.sheet = nil
   end
-  table.insert(obj.sheets, table_merge(sprite, {frames = 1}))
-  if sprite2 then
-    table.insert(obj.sheets, table_merge(sprite2, {frames = 1}))
+  if obj.sheets then
+    table.insert(obj.sheets, table_merge(sprite, {frames = 1}))
+    if sprite2 then
+      table.insert(obj.sheets, table_merge(sprite2, {frames = 1}))
+    end
+  else
+    for _, _type in pairs({
+      "north",
+      "east",
+      "west",
+      "south",
+    }) do
+      overlay_sprite(obj[_type], sprite, sprite2)
+    end
   end
 end
 
-function overlay_sprite(obj, sprite, sprite2)
+function overlay_sprites(obj, sprite, sprite2)
   if obj.animation then
     overlay_animation(obj.animation, sprite, sprite2)
   end
@@ -126,7 +134,7 @@ function overlay_sprite(obj, sprite, sprite2)
   -- Need to filter to transport belts because other objects share the same
   -- animation sets and will infect the transport belt of the same tier.
   if obj.type == "transport-belt" and obj.belt_animation_set then
-    overlay_rotated_animation(obj.belt_animation_set.animation_set, sprite)
+    overlay_belt_animation(obj.belt_animation_set.animation_set, sprite)
   end
 end
 

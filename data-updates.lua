@@ -15,7 +15,15 @@ end
 local function do_overlay_icon(_type, name, icon, icon2)
   icon = icon or Overlays[name]
   if config(name) then
-    overlay_icon(data.raw[_type][name], icon, icon2)
+    local obj = data.raw[_type][name]
+    overlay_icon(obj, icon, icon2)
+    if obj.pictures then
+      overlay_sprite_variation(
+        obj.pictures,
+        icon_to_sprite(icon, 0.5),
+        icon2 and icon_to_sprite(icon2, 0.5)
+      )
+    end
     return true
   end
   return false
@@ -30,19 +38,6 @@ local function do_replace_or_overlay_icon(_type, name, icon, icon2)
     else
       overlay_icon(obj, icon, icon2)
     end
-  end
-end
-
-local function do_overlay_icon_and_picture(_type, name, icon, icon2)
-  icon = icon or Overlays[name]
-  if config(name) then
-    local obj = data.raw[_type][name]
-    overlay_icon(obj, icon, icon2)
-    overlay_pictures(
-      obj,
-      icon_to_sprite(icon, 0.5),
-      icon2 and icon_to_sprite(icon2, 0.5)
-    )
   end
 end
 
@@ -71,7 +66,7 @@ local function do_overlay_entity_icon(_type, name, icon, icon2)
         or setting == Options.icon_overlay
         or setting == Options.icon_overlay_entity
         then
-      overlay_sprite(obj, icon_to_sprite(icon), icon2 and icon_to_sprite(icon2))
+      overlay_sprites(obj, icon_to_sprite(icon), icon2 and icon_to_sprite(icon2))
     end
   end
 end
@@ -140,12 +135,12 @@ do_overlay_icon("blueprint", "blueprint")
 do_overlay_icon("deconstruction-item", "deconstruction-planner")
 do_overlay_icon("upgrade-item", "upgrade-planner")
 
-do_overlay_icon_and_picture("item", "nuclear-fuel", Overlays["nuclear"])
-do_overlay_icon_and_picture("item", "uranium-235", Overlays["nuclear"])
-do_overlay_icon_and_picture("item", "uranium-fuel-cell", Overlays["nuclear"])
-do_overlay_icon_and_picture("ammo", "uranium-cannon-shell", Overlays["nuclear"])
-do_overlay_icon_and_picture("ammo", "uranium-rounds-magazine", Overlays["nuclear"])
-do_overlay_icon_and_picture("ammo", "atomic-bomb", Overlays["nuclear"])
+do_overlay_icon("item", "nuclear-fuel", Overlays["nuclear"])
+do_overlay_icon("item", "uranium-235", Overlays["nuclear"])
+do_overlay_icon("item", "uranium-fuel-cell", Overlays["nuclear"])
+do_overlay_icon("ammo", "uranium-cannon-shell", Overlays["nuclear"])
+do_overlay_icon("ammo", "uranium-rounds-magazine", Overlays["nuclear"])
+do_overlay_icon("ammo", "atomic-bomb", Overlays["nuclear"])
 
 do_overlay_icon("ammo", "explosive-cannon-shell", Overlays["explosives"])
 do_overlay_icon("ammo", "explosive-rocket", Overlays["explosives"])
@@ -153,7 +148,7 @@ do_overlay_icon("capsule", "cluster-grenade", Overlays["explosives"])
 
 do_overlay_icon("capsule", "cliff-explosives", Overlays["cliff"])
 
-do_overlay_icon_and_picture(
+do_overlay_icon(
   "ammo", "explosive-uranium-cannon-shell",
   Overlays["nuclear"],
   table_merge(Overlays["explosives"], BaseOverlays.shifted)
@@ -209,10 +204,10 @@ do_overlay_entity_icon("inserter", "stack-filter-inserter",
 
 -- Ores
 local copper_overlay = config("copper-plate") and Overlays["copper-plate-custom"] or Overlays["copper-plate"]
-do_overlay_icon_and_picture("item", "copper-ore", copper_overlay)
-do_overlay_icon_and_picture("item", "iron-ore", Overlays["iron-plate"])
-do_overlay_icon_and_picture("item", "stone", Overlays["stone-brick"])
-do_overlay_icon_and_picture("item", "uranium-ore", Overlays["uranium"])
+do_overlay_icon("item", "copper-ore", copper_overlay)
+do_overlay_icon("item", "iron-ore", Overlays["iron-plate"])
+do_overlay_icon("item", "stone", Overlays["stone-brick"])
+do_overlay_icon("item", "uranium-ore", Overlays["uranium"])
 
 -- Fluids
 local advanced_oil_processing = false
