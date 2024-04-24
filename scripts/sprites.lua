@@ -54,6 +54,25 @@ local function overlay_animation(obj, sprite, sprite2)
   )
 end
 
+-- Overlay a static sprite over an Animation4Way.
+-- Does not support stripes.
+local function overlay_animation4way(obj, sprite, sprite2)
+  if obj.north then
+    for _, _type in pairs({
+      "north",
+      "east",
+      "west",
+      "south",
+    }) do
+      if obj[_type] then
+        overlay_animation(obj[_type], sprite, sprite2)
+      end
+    end
+  else
+    overlay_animation(obj, sprite, sprite2)
+  end
+end
+
 -- Overlay a static sprite over an RotatedAnimation for a belt.
 -- A terrible hack, but the game requires a sprite per direction, even if
 -- they are all exactly the same.
@@ -120,15 +139,8 @@ function overlay_sprites(obj, sprite, sprite2)
         overlay_sprite4way(obj.structure[_type], sprite, sprite2)
       end
     end
-    for _, _type in pairs({
-      "north",
-      "east",
-      "west",
-      "south",
-    }) do
-      if obj.structure[_type] then
-        overlay_animation(obj.structure[_type], sprite, sprite2)
-      end
+    if obj.structure.north then
+      overlay_animation4way(obj.structure, sprite, sprite2)
     end
   end
   -- Need to filter to transport belts because other objects share the same
