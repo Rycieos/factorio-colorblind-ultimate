@@ -283,6 +283,14 @@ if light_oil_cracking then
   overlay_icon(recipe, get_and_shift_fluid_icons("light-oil", {0, -4.5}, 0.6))
 end
 
+-- Train stop
+if config("train-stop-signal-red") then
+  local prototype = data.raw["train-stop"]["train-stop"]
+  local sprite = icon_to_sprite(Overlays["no-entry"], 0.25)
+  overlay_sprites(prototype.light1, icon_to_sprite(Overlays["no-entry"], 0.25))
+  overlay_sprites(prototype.light2, icon_to_sprite(Overlays["no-entry"], 0.25))
+end
+
 -- Chain signal
 -- The frame_sequence param is ignored; have to use stripes.
 if config("rail-chain-signal-blue")

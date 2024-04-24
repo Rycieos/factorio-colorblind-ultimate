@@ -6,6 +6,7 @@ BaseOverlays = {
     icon_size = 32,
     icon_mipmaps = 2,
     scale = 1,
+    shift = {0, 0},
   },
   constant = {
     icon_size = 128,
@@ -83,6 +84,7 @@ end
 create_mip("blueprint", BaseIconPath .. "shortcut-toolbar/mip/new-blueprint-x32-white.png")
 create_mip("deconstruction-planner", BaseIconPath .. "shortcut-toolbar/mip/new-deconstruction-planner-x32-white.png")
 create_mip("upgrade-planner", BaseIconPath .. "shortcut-toolbar/mip/new-upgrade-planner-x32-white.png")
+create_mip("no-entry", IconPath .. "mip/no-entry.png")
 
 create_constant("effectivity", CoreIconPath .. "technology/constants/constant-battery.png")
 create_constant("productivity", CoreIconPath .. "technology/constants/constant-mining-productivity.png")

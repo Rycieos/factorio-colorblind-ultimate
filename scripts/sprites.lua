@@ -116,7 +116,10 @@ local function overlay_sprite4way(obj, sprite, sprite2)
       "west",
       "south",
     }) do
-      overlay_sprite(obj[_type], sprite, sprite2)
+      overlay_sprite(obj[_type],
+        shift_overlay_sprite(obj[_type], sprite),
+        sprite2 and shift_overlay_sprite(obj[_type], sprite2)
+      )
     end
   end
 end
@@ -127,6 +130,9 @@ function overlay_sprites(obj, sprite, sprite2)
   end
   if obj.platform_picture then
     overlay_sprite4way(obj.platform_picture, sprite, sprite2)
+  end
+  if obj.red_picture then
+    overlay_sprite4way(obj.red_picture, sprite, sprite2)
   end
   if obj.structure then
     for _, _type in pairs({

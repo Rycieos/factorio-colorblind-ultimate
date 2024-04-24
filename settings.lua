@@ -128,6 +128,13 @@ add_overlay_setting("rail-chain-signal-yellow", {
   {"virtual-signal-name.signal-yellow"},
 })
 
+add_overlay_setting("train-stop-signal-red", {
+  "",
+  {"entity-name.train-stop"},
+  " ",
+  {"virtual-signal-name.signal-red"},
+})
+
 add_entity_setting("burner-inserter")
 add_entity_setting("fast-inserter")
 add_entity_setting("filter-inserter")
