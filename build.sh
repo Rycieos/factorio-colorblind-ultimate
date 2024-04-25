@@ -5,6 +5,7 @@ mkdir -p "$dir"
 
 cp -r \
   ./info.json \
+  ./thumbnail.png \
   ./*.lua \
   graphics \
   scripts \
