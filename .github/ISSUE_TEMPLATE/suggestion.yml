@@ -1,0 +1,26 @@
+name: Suggestion
+description: Suggest a feature or enhancement
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: |
+        A brief description of the request.
+      placeholder: |
+        Example: An overlay to distiguish between tier 1 and 2 belts.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Details
+      description: |
+        Describe the feature. The more details you can give, the more likely it
+        will be added.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Suggested solution
+      description: |
+        If you have an idea for how to implement the feature, detail that here.
