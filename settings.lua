@@ -54,6 +54,19 @@ local function add_tiered_entity_setting(name)
   })
 end
 
+local function add_color_setting(name, localised_name, localised_description)
+  data:extend({{
+    name = config_name(name .. "-color"),
+    type = "string-setting",
+    setting_type = "startup",
+    allow_blank = true,
+    default_value = "",
+    order = "y",
+    localised_name = localised_name,
+    localised_description = localised_description,
+  }})
+end
+
 add_replace_setting("copper-cable")
 add_replace_setting("copper-plate")
 add_replace_setting("signal-each", {"", {"virtual-signal-name.signal-each"}, " signal"})
@@ -212,6 +225,39 @@ add_option_setting("water", "fluid-name", {
   Options.text_overlay,
 })
 
+add_color_setting("copper_wire-sprite",
+  {"", {"item-name.copper-cable"}, " sprite"},
+  {"", "custom color for ", {"item-name.copper-cable"}, " between poles. Hex color format. Default is e48b00."}
+)
+add_color_setting("green_wire-sprite",
+  {"", {"item-name.green-wire"}, " sprite"},
+  {"", "custom color for ", {"item-name.green-wire"}, " between poles. Hex color format. Default is 619d3d."}
+)
+add_color_setting("red_wire-sprite",
+  {"", {"item-name.red-wire"}, " sprite"},
+  {"", "custom color for ", {"item-name.red-wire"}, " between poles. Hex color format. Default is de3b1d."}
+)
+add_color_setting("artillery_range",
+  {"technology-name.artillery-shell-range"},
+  {"", "custom color for ", {"technology-name.artillery-shell-range"}, " on the map. Hex color format. Default is cc4040ff."}
+)
+add_color_setting("enemy",
+  {"autoplace-control-names.enemy-base"},
+  {"", "custom color for ", {"autoplace-control-names.enemy-base"}, " on the map. Hex color format. Default is ff1919."}
+)
+add_color_setting("pollution",
+  {"item-name.pollution"},
+  {"", "custom color for ", {"item-name.pollution"}, " on the map. Hex color format. Default is 8c000095."}
+)
+add_color_setting("turret_range",
+  "Turret range",
+  "custom color for turret range visualization in game. Hex color format. Default is 0d190d26."
+)
+add_color_setting("turret_range_map",
+  "Turret range on map",
+  "custom color for turret range on the map. Hex color format. Default is cc4040ff."
+)
+
 data:extend({
   {
     name = config_name("scale"),
@@ -223,36 +269,6 @@ data:extend({
     order = "a",
     localised_name = "Icon scale",
     localised_description = "scaling for icons overlaid the base icon",
-  },
-  {
-    name = config_name("copper_wire-sprite-color"),
-    type = "string-setting",
-    setting_type = "startup",
-    allow_blank = true,
-    default_value = "",
-    order = "y",
-    localised_name = {"", {"item-name.copper-cable"}, " sprite"},
-    localised_description = {"", "custom color for ", {"item-name.copper-cable"}, " between poles. Hex color format."},
-  },
-  {
-    name = config_name("green_wire-sprite-color"),
-    type = "string-setting",
-    setting_type = "startup",
-    allow_blank = true,
-    default_value = "",
-    order = "y",
-    localised_name = {"", {"item-name.green-wire"}, " sprite"},
-    localised_description = {"", "custom color for ", {"item-name.green-wire"}, " between poles. Hex color format."},
-  },
-  {
-    name = config_name("red_wire-sprite-color"),
-    type = "string-setting",
-    setting_type = "startup",
-    allow_blank = true,
-    default_value = "",
-    order = "y",
-    localised_name = {"", {"item-name.red-wire"}, " sprite"},
-    localised_description = {"", "custom color for ", {"item-name.red-wire"}, " between poles. Hex color format."},
   },
   {
     name = config_name("green-circuit-background-color"),

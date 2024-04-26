@@ -71,6 +71,15 @@ local function do_overlay_entity_icon(_type, name, icon, icon2)
   end
 end
 
+local function do_replace_color(name, color)
+  local setting = config(name .. "-color")
+  if setting ~= "" then
+    for key, value in pairs(util.color(setting)) do
+      color[key] = value
+    end
+  end
+end
+
 local function do_replace_wire_sprite(name)
   local setting = config(name .. "-sprite-color")
   if setting ~= "" then
@@ -326,3 +335,11 @@ if config("rail-chain-signal-blue")
 
   table.insert(animation.layers, sprite_sheet)
 end
+
+-- Custom GUI colors
+local chart_colors = data.raw["utility-constants"].default.chart
+do_replace_color("artillery_range", chart_colors.artillery_range_color)
+do_replace_color("enemy", chart_colors.default_enemy_color)
+do_replace_color("pollution", chart_colors.pollution_color)
+do_replace_color("turret_range", data.raw["utility-constants"].default.turret_range_visualization_color)
+do_replace_color("turret_range_map", chart_colors.turret_range_color)
