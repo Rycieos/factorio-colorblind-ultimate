@@ -8,6 +8,7 @@ cp -r \
   ./thumbnail.png \
   ./*.lua \
   graphics \
+  scenarios \
   scripts \
   "$dir/"
 
