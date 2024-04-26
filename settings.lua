@@ -18,7 +18,7 @@ local function add_overlay_setting(name, localised_name)
     type = "bool-setting",
     setting_type = "startup",
     default_value = false,
-    order = localised_category,
+    order = "c",
     localised_name = localised_name or {"item-name." .. name},
     localised_description = "a custom overlay",
   }})
