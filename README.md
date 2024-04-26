@@ -3,9 +3,16 @@
 A mod for [Factorio](https://factorio.com/) that provides accessibility options
 for color blindness.
 
-Includes custom icons, sprites, icon and sprite overlays, text overlays, and
-custom wire colors. Everything is customizable. Can be removed without affecting
-save games.
+Includes:
+* custom icons
+* custom sprites
+* icon and sprite overlays
+* text overlays
+* customizable wire colors
+* customizable map overlay colors
+* customizable technology background colors
+
+Everything is customizable. Can be removed without affecting save games.
 
 ![Thumbnail](https://raw.githubusercontent.com/Rycieos/factorio-colorblind-ultimate/main/thumbnail.png)
 
