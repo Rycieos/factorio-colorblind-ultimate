@@ -61,9 +61,21 @@ local function add_color_setting(name, localised_name, localised_description)
     setting_type = "startup",
     allow_blank = true,
     default_value = "",
-    order = "y",
+    order = "q",
     localised_name = localised_name,
     localised_description = localised_description,
+  }})
+end
+
+local function add_bg_color_setting(name, default, localised_name)
+  data:extend({{
+    name = config_name(name .. "-background-color"),
+    type = "string-setting",
+    setting_type = "startup",
+    default_value = default,
+    allowed_values = keys(NewSlotBackgrounds),
+    order = "z",
+    localised_name = localised_name .. " background color",
   }})
 end
 
@@ -258,6 +270,12 @@ add_color_setting("turret_range_map",
   "custom color for turret range on the map. Hex color format. Default is cc4040ff."
 )
 
+add_bg_color_setting("available-technology", "light_orange", "Available technology")
+add_bg_color_setting("conditionally-available-technology", "orange", "Conditionally available technology")
+add_bg_color_setting("unavailable-technology", "red", "Unavailable technology")
+add_bg_color_setting("researched-technology", "green", "Researched technology")
+add_bg_color_setting("disabled-technology", "grey", "Disabled technology")
+
 data:extend({
   {
     name = config_name("scale"),
@@ -275,8 +293,8 @@ data:extend({
     type = "string-setting",
     setting_type = "startup",
     default_value = "green",
-    allowed_values = keys(CircuitBackgrounds),
-    order = "z",
+    allowed_values = keys(OldButtonBackgrounds),
+    order = "r",
     localised_name = "Green circuit background color",
   },
   {
@@ -284,8 +302,8 @@ data:extend({
     type = "string-setting",
     setting_type = "startup",
     default_value = "red",
-    allowed_values = keys(CircuitBackgrounds),
-    order = "z",
+    allowed_values = keys(OldButtonBackgrounds),
+    order = "r",
     localised_name = "Red circuit background color",
   },
 })

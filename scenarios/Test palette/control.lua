@@ -11,7 +11,6 @@ local on_player_created = function(event)
   local r = global.chart_distance or 200
   player.force.chart(player.surface, {{player.position.x - r, player.position.y - r}, {player.position.x + r, player.position.y + r}})
 
-  player.force.research_all_technologies()
   player.cheat_mode = true
   player.surface.always_day = true
   player.clear_recipe_notifications()
