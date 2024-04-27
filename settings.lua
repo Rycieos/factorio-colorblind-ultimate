@@ -261,6 +261,10 @@ add_color_setting("pollution",
   {"item-name.pollution"},
   {"", "custom color for ", {"item-name.pollution"}, " on the map. Hex color format. Default is 8c000095."}
 )
+add_color_setting("capsule_range",
+  {"", {"ammo-category-name.capsule"}, " range"},
+  "custom color for capsules/grenades range visualization in game. Hex color format. Default is 0d190d26."
+)
 add_color_setting("turret_range",
   "Turret range",
   "custom color for turret range visualization in game. Hex color format. Default is 0d190d26."

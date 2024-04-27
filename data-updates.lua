@@ -360,6 +360,7 @@ end
 -- Custom GUI colors
 local chart_colors = data.raw["utility-constants"].default.chart
 do_replace_color("artillery_range", chart_colors.artillery_range_color)
+do_replace_color("capsule_range", data.raw["utility-constants"].default.capsule_range_visualization_color)
 do_replace_color("enemy", chart_colors.default_enemy_color)
 do_replace_color("pollution", chart_colors.pollution_color)
 do_replace_color("turret_range", data.raw["utility-constants"].default.turret_range_visualization_color)
