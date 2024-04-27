@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dir="colorblind_ultimate_1.1.0"
+dir="colorblind_ultimate_1.2.0"
 mkdir -p "$dir"
 
 cp -r \
