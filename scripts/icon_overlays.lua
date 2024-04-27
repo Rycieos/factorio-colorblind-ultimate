@@ -1,6 +1,9 @@
 require("scripts/config")
 require("scripts/icons")
 
+primary_shift = Corners[config("overlay-corner")]
+secondary_shift = Corners[config("secondary-overlay-corner")]
+
 BaseOverlays = {
   mip = {
     icon_size = 32,
@@ -12,27 +15,27 @@ BaseOverlays = {
     icon_size = 128,
     icon_mipmaps = 3,
     scale = IconScale * 0.4,
-    shift = {-8, 8},
+    shift = primary_shift,
   },
   tooltip = {
     icon_size = 40,
     icon_mipmaps = 2,
     scale = IconScale * 0.8,
-    shift = {-8, 8},
+    shift = primary_shift,
   },
   icon = {
     icon_size = 64,
     icon_mipmaps = 4,
     scale = IconScale * 0.5,
-    shift = {-8, 8},
+    shift = primary_shift,
   },
   shifted = {
-    shift = {-8, -8},
+    shift = secondary_shift,
   },
 }
 
 function create_overlay_from_icons(icons, shift, scale)
-  shift = shift or {-8, 8}
+  shift = shift or primary_shift
   scale = scale or IconScale
 
   for _, icon in ipairs(icons) do

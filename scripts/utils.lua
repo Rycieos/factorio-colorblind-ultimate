@@ -98,6 +98,13 @@ NewSlotBackgrounds = {
   },
 }
 
+Corners = {
+  ["upper-left"]  = {-8, -8},
+  ["upper-right"] = {8, -8},
+  ["lower-left"]  = {-8, 8},
+  ["lower-right"] = {8, 8},
+}
+
 -- Merge two tables, with t2 overriding values from t1.
 function table_merge(t1, t2)
   local t = {}
