@@ -88,6 +88,8 @@ create_custom_icon("green-wire")
 create_custom_icon("transport-belt")
 create_custom_icon("underground-belt")
 
+create_custom_icon("flame")
+
 create_custom_fluid_icon("heavy-oil")
 create_custom_fluid_icon("light-oil")
 create_custom_fluid_icon("water")

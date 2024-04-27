@@ -222,7 +222,7 @@ do_overlay_icon("tool", "utility-science-pack", Overlays["processing-unit"])
 do_overlay_icon("tool", "space-science-pack", Overlays["satellite"])
 
 -- Inserters
-do_overlay_entity_icon("inserter", "burner-inserter", Overlays["coal"])
+do_overlay_entity_icon("inserter", "burner-inserter", Overlays["flame-custom"])
 do_overlay_entity_icon("inserter", "fast-inserter", Overlays["speed"])
 do_overlay_entity_icon("inserter", "filter-inserter", Overlays["filter"])
 do_overlay_entity_icon("inserter", "long-handed-inserter", Overlays["pushes"])
