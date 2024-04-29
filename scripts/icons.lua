@@ -74,7 +74,6 @@ local function create_custom_text_icon(name, path)
     icon = IconPath .. "text/" .. path .. ".png",
     icon_size = 64,
     icon_mipmaps = 2,
-    scale = 1.0,
   }
 end
 
@@ -94,11 +93,13 @@ create_custom_fluid_icon("heavy-oil")
 create_custom_fluid_icon("light-oil")
 create_custom_fluid_icon("water")
 
-create_custom_text_icon("green-wire", "g")
-create_custom_text_icon("heavy-oil", "h")
-create_custom_text_icon("light-oil", "l")
-create_custom_text_icon("red-wire", "r")
-create_custom_text_icon("water", "h2o")
+create_custom_text_icon("green-wire", "G")
+create_custom_text_icon("heavy-oil", "H")
+create_custom_text_icon("light-oil", "L")
+create_custom_text_icon("red-wire", "R")
+create_custom_text_icon("water", "H2O")
+-- Manually override scale.
+CustomIcons["water-text"].scale = 1
 
 create_custom_signal_icon("signal-each")
 create_custom_signal_icon("signal-everything")
