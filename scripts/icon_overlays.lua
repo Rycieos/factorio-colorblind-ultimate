@@ -1,8 +1,8 @@
 require("scripts/config")
 require("scripts/icons")
 
-primary_shift = Corners[config("overlay-corner")]
-secondary_shift = Corners[config("secondary-overlay-corner")]
+primary_shift = Offsets[config("overlay-corner")]
+secondary_shift = Offsets[config("secondary-overlay-corner")]
 
 BaseOverlays = {
   mip = {

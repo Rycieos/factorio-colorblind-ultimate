@@ -98,11 +98,16 @@ NewSlotBackgrounds = {
   },
 }
 
-Corners = {
+Offsets = {
   ["upper-left"]  = {-8, -8},
   ["upper-right"] = {8, -8},
   ["lower-left"]  = {-8, 8},
   ["lower-right"] = {8, 8},
+  ["upper"]       = {0, -8},
+  ["right"]       = {8, 0},
+  ["left"]        = {-8, 0},
+  ["lower"]       = {0, 8},
+  ["center"]      = {0, 0},
 }
 
 -- Merge two tables, with t2 overriding values from t1.
