@@ -51,7 +51,7 @@ function settings_from_prototypes(prototypes)
       table.insert(allowed_values, Options.entity)
     end
     if proto.icon_overlay or proto.icon_overlay_from then
-      if proto.icon_overlay and string.sub(proto.icon_overlay, 1, 4) == "tier-" then
+      if proto.icon_overlay and string.sub(proto.icon_overlay, 1, 5) == "tier-" then
         table.insert(allowed_values, Options.tier)
         if is_entity then
           table.insert(allowed_values, Options.tier_icon)
