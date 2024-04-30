@@ -31,6 +31,20 @@ end
 do_replace_button_background("green-circuit-background-color", "green", "green_circuit_network_content_slot")
 do_replace_button_background("red-circuit-background-color", "red", "red_circuit_network_content_slot")
 
+-- Custom roboport range sprites.
+function do_replace_robot_range_sprite(name)
+  local setting = config(name .. "-color")
+  if setting ~= "" then
+    local color = util.color(setting)
+    local sprite = data.raw["utility-sprites"].default[name]
+    sprite.filename = ModPath.."/graphics/visualization-radius.png"
+    sprite.tint = color
+  end
+end
+
+do_replace_robot_range_sprite("construction_radius_visualization")
+do_replace_robot_range_sprite("logistic_radius_visualization")
+
 -- Custom GUI colors
 local chart_colors = data.raw["utility-constants"].default.chart
 do_replace_color("artillery_range", chart_colors.artillery_range_color)

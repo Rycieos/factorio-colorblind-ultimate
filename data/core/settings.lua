@@ -56,6 +56,15 @@ add_color_setting("turret_range_map",
   "custom color for turret range on the map. Hex color format. Default is cc4040ff."
 )
 
+add_color_setting("construction_radius_visualization",
+  {"", {"entity-name.roboport"}, " ", {"entity-name.construction-robot"}, " range."},
+  {"", "custom color for ", {"entity-name.roboport"}, " ", {"entity-name.construction-robot"}, " range. Hex color format. Default is 83d937."}
+)
+add_color_setting("logistic_radius_visualization",
+  {"", {"entity-name.roboport"}, " ", {"entity-name.logistic-robot"}, " range."},
+  {"", "custom color for ", {"entity-name.roboport"}, " ", {"entity-name.logistic-robot"}, " range. Hex color format. Default is ff8800."}
+)
+
 add_color_setting("copper_wire-sprite",
   {"", {"item-name.copper-cable"}, " sprite"},
   {"", "custom color for ", {"item-name.copper-cable"}, " between poles. Hex color format. Default is e48b00."}
