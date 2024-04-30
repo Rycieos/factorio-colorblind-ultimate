@@ -22,9 +22,10 @@ function do_replace_or_overlay(name, proto, config_name)
       or setting == Options.icon_and_entity
       then
     if setting ~= Options.entity then
-      replace_icon(obj, CustomIcons[name])
+      local icon = create_custom_icon(name, proto.icon_replacement)
+      replace_icon(obj, icon)
       if is_entity then
-        replace_icon(get_item_from_entity(obj), CustomIcons[name])
+        replace_icon(get_item_from_entity(obj), icon)
       end
     end
     if setting ~= Options.icon then

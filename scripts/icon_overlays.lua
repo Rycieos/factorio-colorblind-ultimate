@@ -63,11 +63,6 @@ local function create_overlay(name, _type, icon)
   Overlays[name] = table_merge(icon, _type)
 end
 
-local function create_custom_overlay(name)
-  local icon = table.deepcopy(CustomIcons[name])
-  Overlays[name .. "-custom"] = create_overlay_from_icons({icon})[1]
-end
-
 local function create_mip(name, path)
   create_overlay(name, BaseOverlays.mip, {
     icon = path,
@@ -138,8 +133,8 @@ create_icon("stone-brick")
 create_icon("sulfuric-acid", BaseIconPath .. "fluid/sulfuric-acid.png")
 create_icon("uranium", BaseIconPath .. "uranium-238.png")
 
-create_custom_overlay("flame")
-create_custom_overlay("water")
+create_icon("flame-custom", IconPath .. "flame.png")
+create_icon("water-custom", IconPath .. "fluid/water.png")
 
 create_text("A")
 create_text("B")

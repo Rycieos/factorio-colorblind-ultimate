@@ -16,7 +16,7 @@ end
 -- is_entity: <bool>: Defaults to (bool)sprite_replacement.
 -- sprite_replacement: <FileName>
 -- hr_sprite_replacement: <FileName>
--- icon_replacement: <bool>
+-- icon_replacement: <bool|string>
 -- icon_overlay: <string>
 -- icon_overlay2 <string>
 -- icon_overlay_from: Array<string>: prototype to copy icon from as an overlay.
@@ -48,12 +48,12 @@ local Prototypes = {
 
   ["signal-each"] = {
     type = "virtual-signal",
-    icon_replacement = true,
+    icon_replacement = "signal/",
     localised_name = {"", {"virtual-signal-name.signal-each"}, " signal"},
   },
   ["signal-everything"] = {
     type = "virtual-signal",
-    icon_replacement = true,
+    icon_replacement = "signal/",
     localised_name = {"", {"virtual-signal-name.signal-everything"}, " signal"},
   },
 
@@ -443,7 +443,7 @@ local Prototypes = {
   ["heavy-oil"] = {
     type = "fluid",
     localised_name = {"fluid-name.heavy-oil"},
-    icon_replacement = true,
+    icon_replacement = "fluid/",
     text_overlay = "H",
     hooks = {
       overlay_fluid_barreling,
@@ -453,7 +453,7 @@ local Prototypes = {
   ["light-oil"] = {
     type = "fluid",
     localised_name = {"fluid-name.light-oil"},
-    icon_replacement = true,
+    icon_replacement = "fluid/",
     text_overlay = "L",
     hooks = {
       overlay_fluid_barreling,
@@ -484,7 +484,7 @@ local Prototypes = {
   ["water"] = {
     type = "fluid",
     localised_name = {"fluid-name.water"},
-    icon_replacement = true,
+    icon_replacement = "fluid/",
     icon_overlay = "water-custom",
     text_overlay = "H2O",
     hooks = {

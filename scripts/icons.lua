@@ -51,49 +51,13 @@ EmptyConstant = {
   icon_mipmaps = 3,
 }
 
-CustomIcons = {}
-
-local function create_custom_icon(name, path)
-  CustomIcons[name] = {
-    icon = IconPath .. (path and path or name) .. ".png",
+function create_custom_icon(name, path)
+  if type(path) ~= "string" then
+    path = ""
+  end
+  return {
+    icon = IconPath .. path .. name .. ".png",
     icon_size = 64,
     icon_mipmaps = 4,
   }
 end
-
-local function create_custom_fluid_icon(name)
-  create_custom_icon(name, "fluid/" .. name)
-end
-
-local function create_custom_signal_icon(name)
-  create_custom_icon(name, "signal/" .. name)
-end
-
-local function create_custom_text_icon(name, path)
-  CustomIcons[name .. "-text"] = {
-    icon = IconPath .. "text/" .. path .. ".png",
-    icon_size = 64,
-    icon_mipmaps = 2,
-  }
-end
-
-create_custom_icon("advanced-circuit")
-create_custom_icon("copper-cable")
-create_custom_icon("copper-plate")
-create_custom_icon("electronic-circuit")
-create_custom_icon("express-loader")
-create_custom_icon("express-transport-belt")
-create_custom_icon("fast-loader")
-create_custom_icon("fast-underground-belt")
-create_custom_icon("green-wire")
-create_custom_icon("transport-belt")
-create_custom_icon("underground-belt")
-
-create_custom_icon("flame")
-
-create_custom_fluid_icon("heavy-oil")
-create_custom_fluid_icon("light-oil")
-create_custom_fluid_icon("water")
-
-create_custom_signal_icon("signal-each")
-create_custom_signal_icon("signal-everything")
