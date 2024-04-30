@@ -8,6 +8,7 @@ cp -r \
   ./info.json \
   ./thumbnail.png \
   ./*.lua \
+  data \
   graphics \
   scenarios \
   scripts \

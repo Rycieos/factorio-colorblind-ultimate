@@ -29,6 +29,12 @@ BaseOverlays = {
     scale = IconScale * 0.5,
     shift = primary_shift,
   },
+  text = {
+    icon_size = 64,
+    icon_mipmaps = 2,
+    scale = IconScale * 0.5,
+    shift = primary_shift,
+  },
   shifted = {
     shift = secondary_shift,
   },
@@ -51,12 +57,14 @@ function create_overlay_from_icons(icons, shift, scale)
 end
 
 Overlays = {}
+TextOverlays = {}
 
 local function create_overlay(name, _type, icon)
   Overlays[name] = table_merge(icon, _type)
 end
 
-local function create_custom_overlay(name, _type, icon)
+local function create_custom_overlay(name)
+  local icon = table.deepcopy(CustomIcons[name])
   Overlays[name .. "-custom"] = create_overlay_from_icons({icon})[1]
 end
 
@@ -83,6 +91,13 @@ local function create_icon(name, path)
     icon = path and path or BaseIconPath .. name .. ".png",
   })
 end
+
+local function create_text(name)
+  TextOverlays[name] = table_merge({
+    icon = IconPath .. "text/" .. name .. ".png",
+  }, BaseOverlays.text)
+end
+
 
 create_mip("blueprint", BaseIconPath .. "shortcut-toolbar/mip/new-blueprint-x32-white.png")
 create_mip("deconstruction-planner", BaseIconPath .. "shortcut-toolbar/mip/new-deconstruction-planner-x32-white.png")
@@ -122,6 +137,31 @@ create_icon("stone-brick")
 create_icon("sulfuric-acid", BaseIconPath .. "fluid/sulfuric-acid.png")
 create_icon("uranium", BaseIconPath .. "uranium-238.png")
 
-for name, icon in pairs(CustomIcons) do
-  create_custom_overlay(name, BaseOverlays.icon, table.deepcopy(icon))
-end
+create_custom_overlay("flame")
+create_custom_overlay("water")
+
+create_text("A")
+create_text("B")
+create_text("C")
+create_text("Cu")
+create_text("D")
+create_text("E")
+create_text("Ex")
+create_text("Fa")
+create_text("Fe")
+create_text("Fi")
+create_text("G")
+create_text("H")
+create_text("L")
+create_text("LH")
+create_text("Lu")
+create_text("M")
+create_text("P")
+create_text("R")
+create_text("S")
+create_text("SF")
+create_text("U")
+
+create_text("H2O")
+-- Manually override scale.
+TextOverlays["H2O"].scale = TextOverlays["H2O"].scale * 2

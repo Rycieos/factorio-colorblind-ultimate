@@ -13,6 +13,8 @@ Options = {
   icon_overlay_icon = "icon-overlay-icon",
   icon_overlay_entity = "icon-overlay-entity",
   text_overlay = "text-overlay",
+  text_overlay_icon = "text-overlay-icon",
+  text_overlay_entity = "text-overlay-entity",
 }
 
 SignalColors = {

@@ -1,7 +1,5 @@
 require("scripts/utils")
 
-SpritePath = ModPath .. "/graphics/entity/"
-
 -- Shifts a sprite based on how large the base sprite is. This will help keep
 -- the target sprite in the same area no matter how weirdly sized the base
 -- sprite is.
@@ -157,7 +155,7 @@ function overlay_sprites(obj, sprite, sprite2)
 end
 
 -- Replace a sprite with a custom sprite.
-function replace_sprite(obj)
+function replace_sprite(obj, filename, hr_filename)
   if obj.type == "underground-belt" then
     for _, _type in pairs({
       "direction_in",
@@ -167,8 +165,8 @@ function replace_sprite(obj)
     }) do
       if obj.structure[_type] then
         local sheet = obj.structure[_type].sheet
-        sheet.filename = SpritePath .. obj.name .. "/" .. obj.name .. "-structure.png"
-        sheet.hr_version.filename = SpritePath .. obj.name .. "/hr-" .. obj.name .. "-structure.png"
+        sheet.filename = filename
+        sheet.hr_version.filename = hr_filename
       end
     end
   end
