@@ -36,6 +36,15 @@ local Prototypes = {
     icon_replacement = true,
     text_overlay = "Cu",
   },
+  ["iron-plate"] = {
+    type = "item",
+    text_overlay = "Fe",
+  },
+  ["stone-brick"] = {
+    type = "item",
+    icon_overlay = "rock-big",
+    text_overlay = "S",
+  },
 
   ["signal-each"] = {
     type = "virtual-signal",
@@ -385,6 +394,11 @@ local Prototypes = {
     text_overlay = "SF",
   },
 
+  ["coal"] = {
+    type = "item",
+    icon_overlay = "flame-custom",
+    text_overlay = "C",
+  },
   ["copper-ore"] = {
     type = "item",
     icon_overlay_from = {"item", "copper-plate"},
