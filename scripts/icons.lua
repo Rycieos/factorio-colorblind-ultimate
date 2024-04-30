@@ -95,6 +95,3 @@ create_custom_fluid_icon("water")
 
 create_custom_signal_icon("signal-each")
 create_custom_signal_icon("signal-everything")
-for _, signal in pairs(SignalColors) do
-  create_custom_signal_icon(signal)
-end
