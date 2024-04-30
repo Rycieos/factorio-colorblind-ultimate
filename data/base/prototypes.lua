@@ -107,12 +107,14 @@ local Prototypes = {
   },
   ["fast-loader"] = {
     type = "loader",
-    is_entity = true,
+    sprite_replacement = SpritePath .. "fast-loader/fast-loader-structure.png",
+    icon_replacement = true,
     icon_overlay = "tier-2",
   },
   ["express-loader"] = {
     type = "loader",
-    is_entity = true,
+    sprite_replacement = SpritePath .. "express-loader/express-loader-structure.png",
+    icon_replacement = true,
     icon_overlay = "tier-3",
   },
   ["splitter"] = {

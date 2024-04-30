@@ -156,7 +156,9 @@ end
 
 -- Replace a sprite with a custom sprite.
 function replace_sprite(obj, filename, hr_filename)
-  if obj.type == "underground-belt" then
+  if obj.type == "underground-belt"
+      or obj.type == "loader"
+      then
     for _, _type in pairs({
       "direction_in",
       "direction_out",
@@ -166,7 +168,9 @@ function replace_sprite(obj, filename, hr_filename)
       if obj.structure[_type] then
         local sheet = obj.structure[_type].sheet
         sheet.filename = filename
-        sheet.hr_version.filename = hr_filename
+        if sheet.hr_version then
+          sheet.hr_version.filename = hr_filename
+        end
       end
     end
   end
