@@ -37,6 +37,32 @@ function overlay_icon(obj, icon, icon2)
   end
 end
 
+-- For some reason, the path to the file in the "dark" version of an icon is
+-- a different field. Probably because it hasn't been changed since it was added.
+function convert_to_dark_background_icon(icon)
+  icon = table.deepcopy(icon)
+  icon.dark_background_icon = icon.icon
+  icon.icon = nil
+  return icon
+end
+
+-- Overlay an icon on top of the base dark icon.
+function overlay_dark_icon(obj, icon, icon2)
+  if not obj.dark_background_icons then
+    obj.dark_background_icons = {{
+      dark_background_icon = obj.dark_background_icon,
+      icon_size = obj.icon_size,
+      icon_mipmaps = obj.icon_mipmaps,
+    }}
+    obj.dark_background_icon = nil
+  end
+  table.insert(obj.dark_background_icons, convert_to_dark_background_icon(icon))
+
+  if icon2 then
+    table.insert(obj.dark_background_icons, convert_to_dark_background_icon(icon2))
+  end
+end
+
 -- Used as a base icon for layering all not full size icons on top.
 EmptyIcon = {
   icon = "__core__/graphics/empty.png",

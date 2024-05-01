@@ -3,6 +3,20 @@ require("scripts.icon_overlays")
 require("scripts.icons")
 require("scripts.sprites")
 
+local function do_overlay_icon(obj, icon, icon2)
+  overlay_icon(obj, icon, icon2)
+  if obj.dark_background_icons or obj.dark_background_icon then
+    overlay_dark_icon(obj, icon, icon2)
+  end
+  if obj.pictures then
+    overlay_sprite_variation(
+      obj.pictures,
+      icon_to_sprite(icon, 0.5),
+      icon2 and icon_to_sprite(icon2, 0.5)
+    )
+  end
+end
+
 function do_replace_or_overlay(name, proto, config_name)
   local setting = config(config_name or name)
   if setting == Options.none then
@@ -54,16 +68,9 @@ function do_replace_or_overlay(name, proto, config_name)
         and setting ~= Options.tier_entity
         and setting ~= Options.text_overlay_entity
         then
-      overlay_icon(obj, icon, icon2)
-      if obj.pictures then
-        overlay_sprite_variation(
-          obj.pictures,
-          icon_to_sprite(icon, 0.5),
-          icon2 and icon_to_sprite(icon2, 0.5)
-        )
-      end
+      do_overlay_icon(obj, icon, icon2)
       if is_entity then
-        overlay_icon(get_item_from_entity(obj), icon, icon2)
+        do_overlay_icon(get_item_from_entity(obj), icon, icon2)
       end
     end
     if setting ~= Options.icon_overlay_icon
