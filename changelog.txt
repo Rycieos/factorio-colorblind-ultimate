@@ -1,4 +1,32 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2024-05-01
+  Major Features:
+    - Major internal refactor to better support mods in the future, as well as
+      supporting text overlays on everything.
+    - Base mod is now an optional dependency.
+
+  Features:
+    - Add more location options for overlays.
+    - Add text overlay options for almost all items.
+    - Add roboport range color options.
+    - Add overlays for iron-plate, stone-brick, and coal.
+    - Add loader custom sprite and icons.
+
+  Changes:
+    - Changed some settings from checkboxes to dropdowns. Factorio is unable
+      to migrate these, so please check your settings after updating.
+    - Replaced font in text icons with font Factorio uses, Titillium Web.
+    - Update test palette scenario to include iron plate, copper plate, stone
+      brick, uranium, uranium fuel cells, uranium ammo types, rocket fuel,
+      nuclear fuel, and loader icons.
+    - Update test palette scenario to include items with glowing icons on the
+      ground.
+
+  Bugfixes:
+    - Fix missing changelog and dependency tree.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2024-04-27
   Features:

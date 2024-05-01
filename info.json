@@ -1,11 +1,11 @@
 {
   "name": "colorblind_ultimate",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "title": "Color Blind Ultimate",
   "author": "rycieos",
   "factorio_version": "1.1",
   "dependencies": ["? base >= 1.1.73"],
-  "description": "Ultimate options for color blindness accessibility. Includes custom icons, sprites, icon and sprite overlays, text overlays, customizable wire colors, customizable map overlay colors, and customizable technology background colors. Everything is customizable. Can be removed without affecting save games.",
+  "description": "Ultimate options for color blindness accessibility. Includes custom icons, sprites, icon and sprite overlays, text overlays, customizable wire colors, customizable game and map overlay colors, and customizable technology background colors. Everything is individually customizable. Can be removed without affecting save games.",
   "homepage": "https://github.com/Rycieos/factorio-colorblind-ultimate",
   "contact": "https://github.com/Rycieos/factorio-colorblind-ultimate/issues/new/choose"
 }

@@ -9,10 +9,10 @@ Includes:
 * icon and sprite overlays
 * text overlays
 * customizable wire colors
-* customizable map overlay colors
+* customizable game and map overlay colors
 * customizable technology background colors
 
-Everything is customizable. Can be removed without affecting save games.
+Everything is individually customizable. Can be removed without affecting save games.
 
 ![Thumbnail](https://raw.githubusercontent.com/Rycieos/factorio-colorblind-ultimate/main/thumbnail.png)
 
