@@ -22,8 +22,8 @@ end
 -- icon_overlay_from: Array<string>: prototype to copy icon from as an overlay.
 -- text_overlay: <string>
 -- text_overlay2 <string>
--- nested_prototypes: Array<string>: prototype names that should be modified if
---   the base prototype is enabled.
+-- nested_prototypes: Array<Array<string>>: prototype {type, name}s that should
+--   be modified if the base prototype is enabled.
 -- hooks: Array<function>
 local Prototypes = {
   ["copper-cable"] = {
@@ -189,6 +189,10 @@ local Prototypes = {
     type = "item",
     icon_overlay = "nuclear",
     text_overlay = "U",
+    -- The only simple recipe in the game that has a separate icon.
+    nested_prototypes = {
+      {"recipe", "nuclear-fuel"},
+    },
   },
   ["uranium-235"] = {
     type = "item",
@@ -268,8 +272,8 @@ local Prototypes = {
     icon_overlay = "effectivity",
     text_overlay = "E",
     nested_prototypes = {
-      "effectivity-module-2",
-      "effectivity-module-3",
+      {"module", "effectivity-module-2"},
+      {"module", "effectivity-module-3"},
     },
   },
   ["productivity-module"] = {
@@ -277,8 +281,8 @@ local Prototypes = {
     icon_overlay = "productivity",
     text_overlay = "P",
     nested_prototypes = {
-      "productivity-module-2",
-      "productivity-module-3",
+      {"module", "productivity-module-2"},
+      {"module", "productivity-module-3"},
     },
   },
   ["speed-module"] = {
@@ -286,8 +290,8 @@ local Prototypes = {
     icon_overlay = "speed",
     text_overlay = "S",
     nested_prototypes = {
-      "speed-module-2",
-      "speed-module-3",
+      {"module", "speed-module-2"},
+      {"module", "speed-module-3"},
     },
   },
 

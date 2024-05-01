@@ -99,8 +99,8 @@ function apply_prototypes(prototypes)
   for name, proto in pairs(prototypes) do
     if do_replace_or_overlay(name, proto) then
       if proto.nested_prototypes then
-        for _, nested_name in ipairs(proto.nested_prototypes) do
-          do_replace_or_overlay(nested_name, proto, name)
+        for _, nested_proto in ipairs(proto.nested_prototypes) do
+          do_replace_or_overlay(nested_proto[2], table_merge(proto, {type = nested_proto[1]}), name)
         end
       end
       if proto.hooks then
