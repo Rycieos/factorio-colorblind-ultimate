@@ -1,6 +1,6 @@
 require("scripts.utils")
 
-function add_replace_setting(name, localised_name)
+function add_bool_setting(name, localised_name, localised_description)
   data:extend({{
     name = config_name(name),
     type = "bool-setting",
@@ -8,19 +8,7 @@ function add_replace_setting(name, localised_name)
     default_value = false,
     order = "b",
     localised_name = localised_name or {"item-name." .. name},
-    localised_description = "a custom icon",
-  }})
-end
-
-function add_overlay_setting(name, localised_name)
-  data:extend({{
-    name = config_name(name),
-    type = "bool-setting",
-    setting_type = "startup",
-    default_value = false,
-    order = "c",
-    localised_name = localised_name or {"item-name." .. name},
-    localised_description = "a custom overlay",
+    localised_description = localised_description or {"colorblind_ultimate-description.custom-overlay"},
   }})
 end
 
@@ -33,7 +21,7 @@ function add_option_setting(name, localised_name, options)
     allowed_values = {Options.none, table.unpack(options)},
     order = "d",
     localised_name = localised_name,
-    localised_description = "a custom icon, overlay, or text overlay",
+    localised_description = {"colorblind_ultimate-description.custom-overlay-all"},
   }})
 end
 
@@ -97,8 +85,10 @@ data:extend({
     minimum_value = 0.1,
     maximum_value = 1.0,
     order = "aa",
-    localised_name = "Icon scale",
-    localised_description = "scaling for icons overlaid the base icon",
+    localised_name = {"",
+      {"gui-blueprint.icon"}, " ",
+      {"gui-map-generator.scale"},
+    },
   },
   {
     name = config_name("overlay-corner"),
@@ -107,7 +97,6 @@ data:extend({
     default_value = "lower-left",
     allowed_values = keys(Offsets),
     order = "ab",
-    localised_name = "Overlay location",
   },
   {
     name = config_name("secondary-overlay-corner"),
@@ -116,7 +105,5 @@ data:extend({
     default_value = "upper-left",
     allowed_values = keys(Offsets),
     order = "ab",
-    localised_name = "Secondary overlay location",
-    localised_description = "for icons that need more than one overlay",
   },
 })

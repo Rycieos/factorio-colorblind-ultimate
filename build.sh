@@ -10,6 +10,7 @@ cp -r \
   ./*.lua \
   data \
   graphics \
+  locale \
   scenarios \
   scripts \
   "$dir/"

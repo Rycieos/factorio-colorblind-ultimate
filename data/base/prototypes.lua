@@ -49,12 +49,12 @@ local Prototypes = {
   ["signal-each"] = {
     type = "virtual-signal",
     icon_replacement = "signal/",
-    localised_name = {"", {"virtual-signal-name.signal-each"}, " signal"},
+    localised_name = {"", {"virtual-signal-name.signal-each"}, " ", {"item-group-name.signals"}},
   },
   ["signal-everything"] = {
     type = "virtual-signal",
     icon_replacement = "signal/",
-    localised_name = {"", {"virtual-signal-name.signal-everything"}, " signal"},
+    localised_name = {"", {"virtual-signal-name.signal-everything"}, " ", {"item-group-name.signals"}},
   },
 
   ["electronic-circuit"] = {

@@ -1,6 +1,6 @@
 require("data.core.constants")
 
-local function add_color_setting(name, localised_name, localised_description)
+local function add_color_setting(name, localised_name, default)
   data:extend({{
     name = config_name(name .. "-color"),
     type = "string-setting",
@@ -9,92 +9,128 @@ local function add_color_setting(name, localised_name, localised_description)
     default_value = "",
     order = "q",
     localised_name = localised_name,
-    localised_description = localised_description,
+    localised_description = {"colorblind_ultimate-description.custom-color", localised_name, default},
   }})
 end
 
-local function add_bg_color_setting(name, default, localised_name)
+local function add_bg_color_setting(name, default, localised_name, allowed_values)
   data:extend({{
     name = config_name(name .. "-background-color"),
     type = "string-setting",
     setting_type = "startup",
     default_value = default,
-    allowed_values = keys(NewSlotBackgrounds),
+    allowed_values = allowed_values or keys(NewSlotBackgrounds),
     order = "z",
-    localised_name = localised_name .. " background color",
+    localised_name = localised_name,
   }})
 end
 
-add_bg_color_setting("available-technology", "light_orange", "Available technology")
-add_bg_color_setting("conditionally-available-technology", "orange", "Conditionally available technology")
-add_bg_color_setting("unavailable-technology", "red", "Unavailable technology")
-add_bg_color_setting("researched-technology", "green", "Researched technology")
-add_bg_color_setting("disabled-technology", "grey", "Disabled technology")
 
-add_color_setting("artillery_range",
-  {"technology-name.artillery-shell-range"},
-  {"", "custom color for ", {"technology-name.artillery-shell-range"}, " on the map. Hex color format. Default is cc4040ff."}
-)
+add_bg_color_setting("available-technology", "light_orange", {"",
+  {"gui-technology-preview.status-available"}, " ",
+  {"gui-map-generator.technology-difficulty-group-tile"}, " ",
+  {"colorblind_ultimate-word.background-color"},
+})
+add_bg_color_setting("conditionally-available-technology", "orange", {"",
+  {"colorblind_ultimate-word.status-conditionally-available"}, " ",
+  {"gui-map-generator.technology-difficulty-group-tile"}, " ",
+  {"colorblind_ultimate-word.background-color"},
+})
+add_bg_color_setting("unavailable-technology", "red", {"",
+  {"gui-technology-preview.status-not-available"}, " ",
+  {"gui-map-generator.technology-difficulty-group-tile"}, " ",
+  {"colorblind_ultimate-word.background-color"},
+})
+add_bg_color_setting("researched-technology", "green", {"",
+  {"gui-technology-preview.status-researched"}, " ",
+  {"gui-map-generator.technology-difficulty-group-tile"}, " ",
+  {"colorblind_ultimate-word.background-color"},
+})
+add_bg_color_setting("disabled-technology", "grey", {"",
+  {"gui-technology-preview.status-disabled"}, " ",
+  {"gui-map-generator.technology-difficulty-group-tile"}, " ",
+  {"colorblind_ultimate-word.background-color"},
+})
+
+add_color_setting("artillery_range", {"technology-name.artillery-shell-range"}, "cc4040ff")
 add_color_setting("capsule_range",
-  {"", {"ammo-category-name.capsule"}, " range"},
-  "custom color for capsules/grenades range visualization in game. Hex color format. Default is 0d190d26."
+  {"",
+    {"ammo-category-name.capsule"}, " ",
+    {"description.range"},
+  },
+  "0d190d26"
 )
-add_color_setting("enemy",
-  {"autoplace-control-names.enemy-base"},
-  {"", "custom color for ", {"autoplace-control-names.enemy-base"}, " on the map. Hex color format. Default is ff1919."}
-)
-add_color_setting("pollution",
-  {"item-name.pollution"},
-  {"", "custom color for ", {"item-name.pollution"}, " on the map. Hex color format. Default is 8c000095."}
-)
+add_color_setting("enemy", {"autoplace-control-names.enemy-base"}, "ff1919")
+add_color_setting("pollution", {"item-name.pollution"}, "8c000095")
 add_color_setting("turret_range",
-  "Turret range",
-  "custom color for turret range visualization in game. Hex color format. Default is 0d190d26."
+  {"",
+    {"tooltip-category.turret"}, " ",
+    {"description.range"}, " ",
+    {"colorblind_ultimate-word.in-game"},
+  },
+  "0d190d26"
 )
 add_color_setting("turret_range_map",
-  "Turret range on map",
-  "custom color for turret range on the map. Hex color format. Default is cc4040ff."
+  {"",
+    {"tooltip-category.turret"}, " ",
+    {"description.range"}, " ",
+    {"colorblind_ultimate-word.on-map"},
+  },
+  "cc4040ff"
 )
 
 add_color_setting("construction_radius_visualization",
-  {"", {"entity-name.roboport"}, " ", {"entity-name.construction-robot"}, " range."},
-  {"", "custom color for ", {"entity-name.roboport"}, " ", {"entity-name.construction-robot"}, " range. Hex color format. Default is 83d937."}
+  {"",
+    {"entity-name.roboport"}, " ",
+    {"entity-name.construction-robot"}, " ",
+    {"description.range"},
+  },
+  "83d937"
 )
 add_color_setting("logistic_radius_visualization",
-  {"", {"entity-name.roboport"}, " ", {"entity-name.logistic-robot"}, " range."},
-  {"", "custom color for ", {"entity-name.roboport"}, " ", {"entity-name.logistic-robot"}, " range. Hex color format. Default is ff8800."}
+  {"",
+    {"entity-name.roboport"}, " ",
+    {"entity-name.logistic-robot"}, " ",
+    {"description.range"},
+  },
+  "ff8800"
 )
 
 add_color_setting("copper_wire-sprite",
-  {"", {"item-name.copper-cable"}, " sprite"},
-  {"", "custom color for ", {"item-name.copper-cable"}, " between poles. Hex color format. Default is e48b00."}
+  {"",
+    {"item-name.copper-cable"}, " ",
+    {"tips-and-tricks-item-name.electric-pole-connections"},
+  },
+  "e48b00"
 )
 add_color_setting("green_wire-sprite",
-  {"", {"item-name.green-wire"}, " sprite"},
-  {"", "custom color for ", {"item-name.green-wire"}, " between poles. Hex color format. Default is 619d3d."}
+  {"",
+    {"item-name.green-wire"}, " ",
+    {"tips-and-tricks-item-name.electric-pole-connections"},
+  },
+  "619d3d"
 )
 add_color_setting("red_wire-sprite",
-  {"", {"item-name.red-wire"}, " sprite"},
-  {"", "custom color for ", {"item-name.red-wire"}, " between poles. Hex color format. Default is de3b1d."}
+  {"",
+    {"item-name.red-wire"}, " ",
+    {"tips-and-tricks-item-name.electric-pole-connections"},
+  },
+  "de3b1d"
 )
 
-data:extend({
-  {
-    name = config_name("green-circuit-background-color"),
-    type = "string-setting",
-    setting_type = "startup",
-    default_value = "green",
-    allowed_values = keys(OldButtonBackgrounds),
-    order = "r",
-    localised_name = "Green circuit background color",
+add_bg_color_setting("green-circuit", "green",
+  {"",
+    {"item-name.green-wire"}, " ",
+    {"gui-control-behavior.circuit-network"}, " ",
+    {"colorblind_ultimate-word.background-color"},
   },
-  {
-    name = config_name("red-circuit-background-color"),
-    type = "string-setting",
-    setting_type = "startup",
-    default_value = "red",
-    allowed_values = keys(OldButtonBackgrounds),
-    order = "r",
-    localised_name = "Red circuit background color",
+  keys(OldButtonBackgrounds)
+)
+add_bg_color_setting("red-circuit", "red",
+  {"",
+    {"item-name.red-wire"}, " ",
+    {"gui-control-behavior.circuit-network"}, " ",
+    {"colorblind_ultimate-word.background-color"},
   },
-})
+  keys(OldButtonBackgrounds)
+)
