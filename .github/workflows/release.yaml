@@ -12,6 +12,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Install Lua
+      uses: leafo/gh-actions-lua@v10.0.0
+      with:
+        luaVersion: 5.2.4
+
     - name: Package
       id: build
       run: ./build.sh

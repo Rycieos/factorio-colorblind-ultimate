@@ -15,6 +15,9 @@ cp -r \
   scripts \
   "$dir/"
 
+lua -E "$dir"/locale/generate-locale.lua "$dir"/locale/*/setting-options.cfg
+rm "$dir"/locale/generate-locale.lua
+
 zip -r "${dir}.zip" "$dir"
 
 rm -r "$dir/"
