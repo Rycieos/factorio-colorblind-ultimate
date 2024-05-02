@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+Date: 2024-05-02
+  Features:
+    - Localization of dropdown setting options.
+    - Spanish and Russian translations.
+
+  Bugfixes:
+    - Fix nuclear fuel recipe not getting overlay.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 2024-05-01
   Major Features:
