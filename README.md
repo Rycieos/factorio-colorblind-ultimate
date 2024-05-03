@@ -1,3 +1,6 @@
+[![Mod downloads](https://img.shields.io/badge/dynamic/json?color=orange&label=Factorio&query=downloads_count&suffix=%20downloads&url=https%3A%2F%2Fmods.factorio.com%2Fapi%2Fmods%2Fcolorblind_ultimate)](https://mods.factorio.com/mod/colorblind_ultimate)
+[![Crowdin](https://img.shields.io/badge/Crowdin-Translate-brightgreen)](https://crowdin.com/project/colorblind_ultimate)
+
 # Color Blind Ultimate
 
 A mod for [Factorio](https://factorio.com/) that provides accessibility options
