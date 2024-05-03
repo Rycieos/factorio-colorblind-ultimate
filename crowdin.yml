@@ -1,0 +1,37 @@
+preserve_hierarchy: true
+pull_request_labels:
+  - crowdin
+  - localization
+files:
+  - source: /locale/en/locale.cfg
+    dest: locale.ini
+    translation: /locale/%two_letters_code%/%original_file_name%
+    type: ini
+    languages_mapping:
+      # Crowdin has no filename option for the style Factorio uses, despite
+      # having a page that has them: https://developer.crowdin.com/language-codes/
+      # Which is where the keys in this table come from...
+      two_letters_code:
+        es-ES: es-ES
+        fy-NL: fy-NL
+        ga-IE: ga-IE
+        pt-BR: pt-BR
+        pt-PT: pt-PT
+        sv-SE: sv-SE
+        zh-CN: zh-CN
+        zh-TW: zh-TW
+
+  - source: /locale/en/setting-options.cfg
+    dest: setting-options.ini
+    translation: /locale/%two_letters_code%/%original_file_name%
+    type: ini
+    languages_mapping:
+      two_letters_code:
+        es-ES: es-ES
+        fy-NL: fy-NL
+        ga-IE: ga-IE
+        pt-BR: pt-BR
+        pt-PT: pt-PT
+        sv-SE: sv-SE
+        zh-CN: zh-CN
+        zh-TW: zh-TW
