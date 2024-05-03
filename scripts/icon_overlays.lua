@@ -9,7 +9,7 @@ BaseOverlays = {
     icon_size = 32,
     icon_mipmaps = 2,
     scale = 1,
-    shift = {0, 0},
+    shift = { 0, 0 },
   },
   constant = {
     icon_size = 128,
@@ -47,10 +47,10 @@ function create_overlay_from_icons(icons, shift, scale)
   for _, icon in ipairs(icons) do
     icon.scale = (icon.scale or 32 / icon.icon_size) * scale
 
-    local original_shift = icon.shift or {0, 0}
+    local original_shift = icon.shift or { 0, 0 }
     icon.shift = {
       original_shift[1] * 0.5 + shift[1],
-      original_shift[2] * 0.5 + shift[2]
+      original_shift[2] * 0.5 + shift[2],
     }
   end
   return icons
@@ -92,7 +92,6 @@ local function create_text(name)
     icon = IconPath .. "text/" .. name .. ".png",
   }, BaseOverlays.text)
 end
-
 
 create_mip("blueprint", BaseIconPath .. "shortcut-toolbar/mip/new-blueprint-x32-white.png")
 create_mip("deconstruction-planner", BaseIconPath .. "shortcut-toolbar/mip/new-deconstruction-planner-x32-white.png")

@@ -9,8 +9,8 @@ function do_replace_wire_sprite(name)
   if setting ~= "" then
     local color = util.color(setting)
     local sprite = data.raw["utility-sprites"].default[name]
-    sprite.filename = ModPath.."/graphics/base-wire.png"
-    sprite.hr_version.filename = ModPath.."/graphics/hr-base-wire.png"
+    sprite.filename = ModPath .. "/graphics/base-wire.png"
+    sprite.hr_version.filename = ModPath .. "/graphics/hr-base-wire.png"
     sprite.tint = color
     sprite.hr_version.tint = color
   end
@@ -37,7 +37,7 @@ function do_replace_robot_range_sprite(name)
   if setting ~= "" then
     local color = util.color(setting)
     local sprite = data.raw["utility-sprites"].default[name]
-    sprite.filename = ModPath.."/graphics/visualization-radius.png"
+    sprite.filename = ModPath .. "/graphics/visualization-radius.png"
     sprite.tint = color
   end
 end
@@ -77,7 +77,11 @@ function do_replace_tech_background(config_name, default, tech_name)
 end
 
 do_replace_tech_background("available-technology-background-color", "light_orange", "available_technology_slot")
-do_replace_tech_background("conditionally-available-technology-background-color", "orange", "conditionally_available_technology_slot")
+do_replace_tech_background(
+  "conditionally-available-technology-background-color",
+  "orange",
+  "conditionally_available_technology_slot"
+)
 do_replace_tech_background("unavailable-technology-background-color", "red", "unavailable_technology_slot")
 do_replace_tech_background("researched-technology-background-color", "green", "researched_technology_slot")
 do_replace_tech_background("disabled-technology-background-color", "grey", "disabled_technology_slot")

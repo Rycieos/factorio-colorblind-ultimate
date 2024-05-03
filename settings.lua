@@ -1,28 +1,32 @@
 require("scripts.utils")
 
 function add_bool_setting(name, localised_name, localised_description)
-  data:extend({{
-    name = config_name(name),
-    type = "bool-setting",
-    setting_type = "startup",
-    default_value = false,
-    order = "b",
-    localised_name = localised_name or {"item-name." .. name},
-    localised_description = localised_description or {"colorblind_ultimate-description.custom-overlay"},
-  }})
+  data:extend({
+    {
+      name = config_name(name),
+      type = "bool-setting",
+      setting_type = "startup",
+      default_value = false,
+      order = "b",
+      localised_name = localised_name or { "item-name." .. name },
+      localised_description = localised_description or { "colorblind_ultimate-description.custom-overlay" },
+    },
+  })
 end
 
 function add_option_setting(name, localised_name, options)
-  data:extend({{
-    name = config_name(name),
-    type = "string-setting",
-    setting_type = "startup",
-    default_value = Options.none,
-    allowed_values = {Options.none, table.unpack(options)},
-    order = "d",
-    localised_name = localised_name,
-    localised_description = {"colorblind_ultimate-description.custom-overlay-all"},
-  }})
+  data:extend({
+    {
+      name = config_name(name),
+      type = "string-setting",
+      setting_type = "startup",
+      default_value = Options.none,
+      allowed_values = { Options.none, table.unpack(options) },
+      order = "d",
+      localised_name = localised_name,
+      localised_description = { "colorblind_ultimate-description.custom-overlay-all" },
+    },
+  })
 end
 
 function settings_from_prototypes(prototypes)
@@ -61,8 +65,9 @@ function settings_from_prototypes(prototypes)
       end
     end
 
-    add_option_setting(name,
-      proto.localised_name or {((is_entity and "entity" or "item") .. "-name." .. name)},
+    add_option_setting(
+      name,
+      proto.localised_name or { ((is_entity and "entity" or "item") .. "-name." .. name) },
       allowed_values
     )
   end
@@ -72,7 +77,7 @@ require("data.core.settings")
 
 for _, mod in ipairs(Mods) do
   if mods[mod] then
-    require("data."..mod..".settings")
+    require("data." .. mod .. ".settings")
   end
 end
 
@@ -85,10 +90,7 @@ data:extend({
     minimum_value = 0.1,
     maximum_value = 1.0,
     order = "aa",
-    localised_name = {"",
-      {"gui-blueprint.icon"}, " ",
-      {"gui-map-generator.scale"},
-    },
+    localised_name = { "", { "gui-blueprint.icon" }, " ", { "gui-map-generator.scale" } },
   },
   {
     name = config_name("overlay-corner"),

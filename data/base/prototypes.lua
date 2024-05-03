@@ -49,12 +49,12 @@ local Prototypes = {
   ["signal-each"] = {
     type = "virtual-signal",
     icon_replacement = "signal/",
-    localised_name = {"", {"virtual-signal-name.signal-each"}, " ", {"item-group-name.signals"}},
+    localised_name = { "", { "virtual-signal-name.signal-each" }, " ", { "item-group-name.signals" } },
   },
   ["signal-everything"] = {
     type = "virtual-signal",
     icon_replacement = "signal/",
-    localised_name = {"", {"virtual-signal-name.signal-everything"}, " ", {"item-group-name.signals"}},
+    localised_name = { "", { "virtual-signal-name.signal-everything" }, " ", { "item-group-name.signals" } },
   },
 
   ["electronic-circuit"] = {
@@ -191,7 +191,7 @@ local Prototypes = {
     text_overlay = "U",
     -- The only simple recipe in the game that has a separate icon.
     nested_prototypes = {
-      {"recipe", "nuclear-fuel"},
+      { "recipe", "nuclear-fuel" },
     },
   },
   ["uranium-235"] = {
@@ -272,8 +272,8 @@ local Prototypes = {
     icon_overlay = "effectivity",
     text_overlay = "E",
     nested_prototypes = {
-      {"module", "effectivity-module-2"},
-      {"module", "effectivity-module-3"},
+      { "module", "effectivity-module-2" },
+      { "module", "effectivity-module-3" },
     },
   },
   ["productivity-module"] = {
@@ -281,8 +281,8 @@ local Prototypes = {
     icon_overlay = "productivity",
     text_overlay = "P",
     nested_prototypes = {
-      {"module", "productivity-module-2"},
-      {"module", "productivity-module-3"},
+      { "module", "productivity-module-2" },
+      { "module", "productivity-module-3" },
     },
   },
   ["speed-module"] = {
@@ -290,8 +290,8 @@ local Prototypes = {
     icon_overlay = "speed",
     text_overlay = "S",
     nested_prototypes = {
-      {"module", "speed-module-2"},
-      {"module", "speed-module-3"},
+      { "module", "speed-module-2" },
+      { "module", "speed-module-3" },
     },
   },
 
@@ -407,17 +407,17 @@ local Prototypes = {
   },
   ["copper-ore"] = {
     type = "item",
-    icon_overlay_from = {"item", "copper-plate"},
+    icon_overlay_from = { "item", "copper-plate" },
     text_overlay = "Cu",
   },
   ["iron-ore"] = {
     type = "item",
-    icon_overlay_from = {"item", "iron-plate"},
+    icon_overlay_from = { "item", "iron-plate" },
     text_overlay = "Fe",
   },
   ["stone"] = {
     type = "item",
-    icon_overlay_from = {"item", "stone-brick"},
+    icon_overlay_from = { "item", "stone-brick" },
     text_overlay = "S",
   },
   ["uranium-ore"] = {
@@ -428,7 +428,7 @@ local Prototypes = {
 
   ["crude-oil"] = {
     type = "fluid",
-    localised_name = {"fluid-name.crude-oil"},
+    localised_name = { "fluid-name.crude-oil" },
     icon_overlay = "pumpjack",
     text_overlay = "C",
     hooks = {
@@ -437,7 +437,7 @@ local Prototypes = {
   },
   ["lubricant"] = {
     type = "fluid",
-    localised_name = {"fluid-name.lubricant"},
+    localised_name = { "fluid-name.lubricant" },
     icon_overlay = "iron-gear-wheel",
     text_overlay = "Lu",
     hooks = {
@@ -446,7 +446,7 @@ local Prototypes = {
   },
   ["heavy-oil"] = {
     type = "fluid",
-    localised_name = {"fluid-name.heavy-oil"},
+    localised_name = { "fluid-name.heavy-oil" },
     icon_replacement = "fluid/",
     text_overlay = "H",
     hooks = {
@@ -456,7 +456,7 @@ local Prototypes = {
   },
   ["light-oil"] = {
     type = "fluid",
-    localised_name = {"fluid-name.light-oil"},
+    localised_name = { "fluid-name.light-oil" },
     icon_replacement = "fluid/",
     text_overlay = "L",
     hooks = {
@@ -466,18 +466,18 @@ local Prototypes = {
   },
   ["petroleum-gas"] = {
     type = "fluid",
-    localised_name = {"fluid-name.petroleum-gas"},
+    localised_name = { "fluid-name.petroleum-gas" },
     icon_overlay = "petroleum-gas",
     text_overlay = "P",
     hooks = {
-      remove_overlay,  -- need the overlay to apply to barrels, but not the fluid.
+      remove_overlay, -- need the overlay to apply to barrels, but not the fluid.
       overlay_fluid_barreling,
       replace_solid_fuel_recipe,
     },
   },
   ["sulfuric-acid"] = {
     type = "fluid",
-    localised_name = {"fluid-name.sulfuric-acid"},
+    localised_name = { "fluid-name.sulfuric-acid" },
     icon_overlay = "sulfuric-acid",
     text_overlay = "S",
     hooks = {
@@ -487,7 +487,7 @@ local Prototypes = {
   },
   ["water"] = {
     type = "fluid",
-    localised_name = {"fluid-name.water"},
+    localised_name = { "fluid-name.water" },
     icon_replacement = "fluid/",
     icon_overlay = "water-custom",
     text_overlay = "H2O",

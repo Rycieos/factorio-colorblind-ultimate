@@ -18,7 +18,7 @@ end
 
 require("settings")
 
-for _, lang_file in pairs({...}) do
+for _, lang_file in pairs({ ... }) do
   local file = io.open(lang_file, "r")
   local strings = file:read("*all")
   file:close()

@@ -17,16 +17,17 @@ Options = {
   text_overlay_entity = "text-overlay-entity",
 }
 
+-- stylua: ignore
 Offsets = {
-  ["upper-left"]  = {-8, -8},
-  ["upper-right"] = {8, -8},
-  ["lower-left"]  = {-8, 8},
-  ["lower-right"] = {8, 8},
-  ["upper"]       = {0, -8},
-  ["right"]       = {8, 0},
-  ["left"]        = {-8, 0},
-  ["lower"]       = {0, 8},
-  ["center"]      = {0, 0},
+  ["upper-left"]  = { -8, -8 },
+  ["upper-right"] = {  8, -8 },
+  ["lower-left"]  = { -8,  8 },
+  ["lower-right"] = {  8,  8 },
+  ["upper"]       = {  0, -8 },
+  ["right"]       = {  8,  0 },
+  ["left"]        = { -8,  0 },
+  ["lower"]       = {  0,  8 },
+  ["center"]      = {  0,  0 },
 }
 
 Mods = {
@@ -36,10 +37,10 @@ Mods = {
 -- Merge two tables, with t2 overriding values from t1.
 function table_merge(t1, t2)
   local t = {}
-  for k,v in pairs(t1) do
+  for k, v in pairs(t1) do
     t[k] = v
   end
-  for k,v in pairs(t2) do
+  for k, v in pairs(t2) do
     t[k] = v
   end
   return t
@@ -48,7 +49,7 @@ end
 function keys(table)
   local keys = {}
   for key, _ in pairs(table) do
-    keys[#keys+1] = key
+    keys[#keys + 1] = key
   end
   return keys
 end

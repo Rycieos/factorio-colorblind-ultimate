@@ -6,7 +6,7 @@ CoreIconPath = "__core__/graphics/icons/"
 
 -- Overwrite a default icon.
 function replace_icon(obj, icon)
-  obj.icons = {icon}
+  obj.icons = { icon }
   obj.icon = nil
 end
 
@@ -16,11 +16,11 @@ function icons_from_obj(obj)
   if obj.icons then
     return table.deepcopy(obj.icons)
   else
-    return {{
+    return { {
       icon = obj.icon,
       icon_size = obj.icon_size,
       icon_mipmaps = obj.icon_mipmaps,
-    }}
+    } }
   end
 end
 
@@ -49,11 +49,13 @@ end
 -- Overlay an icon on top of the base dark icon.
 function overlay_dark_icon(obj, icon, icon2)
   if not obj.dark_background_icons then
-    obj.dark_background_icons = {{
-      dark_background_icon = obj.dark_background_icon,
-      icon_size = obj.icon_size,
-      icon_mipmaps = obj.icon_mipmaps,
-    }}
+    obj.dark_background_icons = {
+      {
+        dark_background_icon = obj.dark_background_icon,
+        icon_size = obj.icon_size,
+        icon_mipmaps = obj.icon_mipmaps,
+      },
+    }
     obj.dark_background_icon = nil
   end
   table.insert(obj.dark_background_icons, convert_to_dark_background_icon(icon))

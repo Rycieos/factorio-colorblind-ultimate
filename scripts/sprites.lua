@@ -12,13 +12,13 @@ local function shift_overlay_sprite(base_sprite, target_sprite)
     base_sprite.shift[1] + target_sprite.shift[1] * (base_sprite.width or base_sprite.size) / 32,
     base_sprite.shift[2] + target_sprite.shift[2] * (base_sprite.height or base_sprite.size) / 32,
   }
-  return table_merge(target_sprite, {shift = shift})
+  return table_merge(target_sprite, { shift = shift })
 end
 
 -- Overlay a sprite object with one or two sprites in layers.
 local function overlay_sprite(obj, sprite, sprite2)
   if not obj.layers then
-    obj.layers = {table.deepcopy(obj)}
+    obj.layers = { table.deepcopy(obj) }
   end
   table.insert(obj.layers, sprite)
   if sprite2 then
@@ -46,7 +46,8 @@ local function overlay_animation(obj, sprite, sprite2)
   local props = {
     repeat_count = base.frame_count,
   }
-  overlay_sprite(obj,
+  overlay_sprite(
+    obj,
     table_merge(shift_overlay_sprite(base, sprite), props),
     sprite2 and table_merge(shift_overlay_sprite(base, sprite2), props)
   )
@@ -76,7 +77,7 @@ end
 -- they are all exactly the same.
 local function overlay_belt_animation(obj, sprite)
   if not obj.layers then
-    obj.layers = {table.deepcopy(obj)}
+    obj.layers = { table.deepcopy(obj) }
   end
   local props = {
     frame_count = 1,
@@ -87,10 +88,10 @@ local function overlay_belt_animation(obj, sprite)
     direction_count = 20,
     filenames = {},
   }
-  for i=1, 12 do
+  for i = 1, 12 do
     table.insert(props.filenames, sprite.filename)
   end
-  for i=1, 8 do
+  for i = 1, 8 do
     table.insert(props.filenames, EmptyConstant.icon)
   end
   table.insert(obj.layers, table_merge(sprite, props))
@@ -99,13 +100,13 @@ end
 -- Overlay a static sprite over a Sprite4Way.
 local function overlay_sprite4way(obj, sprite, sprite2)
   if obj.sheet and not obj.sheets then
-    obj.sheets = {obj.sheet}
+    obj.sheets = { obj.sheet }
     obj.sheet = nil
   end
   if obj.sheets then
-    table.insert(obj.sheets, table_merge(sprite, {frames = 1}))
+    table.insert(obj.sheets, table_merge(sprite, { frames = 1 }))
     if sprite2 then
-      table.insert(obj.sheets, table_merge(sprite2, {frames = 1}))
+      table.insert(obj.sheets, table_merge(sprite2, { frames = 1 }))
     end
   else
     for _, _type in pairs({
@@ -114,7 +115,8 @@ local function overlay_sprite4way(obj, sprite, sprite2)
       "west",
       "south",
     }) do
-      overlay_sprite(obj[_type],
+      overlay_sprite(
+        obj[_type],
         shift_overlay_sprite(obj[_type], sprite),
         sprite2 and shift_overlay_sprite(obj[_type], sprite2)
       )
@@ -156,9 +158,7 @@ end
 
 -- Replace a sprite with a custom sprite.
 function replace_sprite(obj, filename, hr_filename)
-  if obj.type == "underground-belt"
-      or obj.type == "loader"
-      then
+  if obj.type == "underground-belt" or obj.type == "loader" then
     for _, _type in pairs({
       "direction_in",
       "direction_out",
