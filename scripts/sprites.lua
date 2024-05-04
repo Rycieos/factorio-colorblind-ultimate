@@ -33,7 +33,7 @@ function overlay_sprite_variation(obj, sprite, sprite2)
   if obj.filename or obj.layers then
     overlay_sprite(obj, sprite, sprite2)
   else
-    for _, picture in ipairs(obj) do
+    for _, picture in pairs(obj) do
       overlay_sprite(picture, sprite, sprite2)
     end
   end

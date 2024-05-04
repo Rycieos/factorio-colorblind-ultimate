@@ -7,6 +7,15 @@ add_bool_setting(
   { "colorblind_ultimate-description.custom-icon" }
 )
 
+add_option_setting(
+  "filled-barrels",
+  { "", { "gui.all" }, " ", { "item-name.filled-barrel", { "ammo-category-name.fluid" } } },
+  {
+    "fluid-icon",
+    "fluid-overlay",
+  }
+)
+
 add_bool_setting(
   "rail-chain-signal-blue",
   { "", { "entity-name.rail-chain-signal" }, " ", { "virtual-signal-name.signal-blue" } }

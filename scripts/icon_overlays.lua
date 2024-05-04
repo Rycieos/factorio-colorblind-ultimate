@@ -41,19 +41,10 @@ BaseOverlays = {
 }
 
 function create_overlay_from_icons(icons, shift, scale)
-  shift = shift or primary_shift
-  scale = scale or IconScale
-
-  for _, icon in ipairs(icons) do
-    icon.scale = (icon.scale or 32 / icon.icon_size) * scale
-
-    local original_shift = icon.shift or { 0, 0 }
-    icon.shift = {
-      original_shift[1] * 0.5 + shift[1],
-      original_shift[2] * 0.5 + shift[2],
-    }
-  end
-  return icons
+  return util.combine_icons({}, icons, {
+    shift = shift or primary_shift,
+    scale = scale or IconScale,
+  })
 end
 
 Overlays = {}
@@ -120,7 +111,6 @@ create_icon("explosives")
 create_icon("inserter")
 create_icon("iron-gear-wheel")
 create_icon("iron-plate")
-create_icon("petroleum-gas", BaseIconPath .. "fluid/petroleum-gas.png")
 create_icon("piercing", BaseIconPath .. "iron-stick.png")
 create_icon("piercing-rounds-magazine")
 create_icon("processing-unit")

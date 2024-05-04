@@ -75,8 +75,8 @@ end
 
 require("data.core.settings")
 
-for _, mod in ipairs(Mods) do
-  if mods[mod] then
+for mod, mod_stages in pairs(Mods) do
+  if mods[mod] and mod_stages.settings then
     require("data." .. mod .. ".settings")
   end
 end

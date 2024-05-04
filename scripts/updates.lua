@@ -15,7 +15,7 @@ end
 
 function do_replace_or_overlay(name, proto, config_name)
   local setting = config(config_name or name)
-  if setting == Options.none then
+  if not setting or setting == Options.none then
     return false
   end
 
@@ -71,9 +71,6 @@ function do_replace_or_overlay(name, proto, config_name)
       and setting ~= Options.tier_icon
       and setting ~= Options.text_overlay_icon
     then
-      if not icon then
-        log(name)
-      end
       overlay_sprites(obj, icon_to_sprite(icon), icon2 and icon_to_sprite(icon2))
     end
   end
@@ -93,12 +90,12 @@ function apply_prototypes(prototypes)
   for name, proto in pairs(prototypes) do
     if do_replace_or_overlay(name, proto) then
       if proto.nested_prototypes then
-        for _, nested_proto in ipairs(proto.nested_prototypes) do
+        for _, nested_proto in pairs(proto.nested_prototypes) do
           do_replace_or_overlay(nested_proto[2], table_merge(proto, { type = nested_proto[1] }), name)
         end
       end
       if proto.hooks then
-        for _, hook in ipairs(proto.hooks) do
+        for _, hook in pairs(proto.hooks) do
           hook(name, proto)
         end
       end

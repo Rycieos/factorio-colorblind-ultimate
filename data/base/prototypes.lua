@@ -2,12 +2,6 @@ require("scripts/utils")
 
 SpritePath = ModPath .. "/graphics/entity/"
 
-local function remove_overlay(name, proto)
-  if config(name) == Options.icon_overlay then
-    table.remove(data.raw[proto.type][name].icons)
-  end
-end
-
 -- <Prototype>:
 -- Fields:
 -- <key>: <string> Factorio prototype name.
@@ -431,18 +425,12 @@ local Prototypes = {
     localised_name = { "fluid-name.crude-oil" },
     icon_overlay = "pumpjack",
     text_overlay = "C",
-    hooks = {
-      overlay_fluid_barreling,
-    },
   },
   ["lubricant"] = {
     type = "fluid",
     localised_name = { "fluid-name.lubricant" },
     icon_overlay = "iron-gear-wheel",
     text_overlay = "Lu",
-    hooks = {
-      overlay_fluid_barreling,
-    },
   },
   ["heavy-oil"] = {
     type = "fluid",
@@ -450,7 +438,6 @@ local Prototypes = {
     icon_replacement = "fluid/",
     text_overlay = "H",
     hooks = {
-      overlay_fluid_barreling,
       replace_solid_fuel_recipe,
     },
   },
@@ -460,30 +447,21 @@ local Prototypes = {
     icon_replacement = "fluid/",
     text_overlay = "L",
     hooks = {
-      overlay_fluid_barreling,
       replace_solid_fuel_recipe,
     },
   },
   ["petroleum-gas"] = {
     type = "fluid",
     localised_name = { "fluid-name.petroleum-gas" },
-    icon_overlay = "petroleum-gas",
     text_overlay = "P",
     hooks = {
-      remove_overlay, -- need the overlay to apply to barrels, but not the fluid.
-      overlay_fluid_barreling,
       replace_solid_fuel_recipe,
     },
   },
   ["sulfuric-acid"] = {
     type = "fluid",
     localised_name = { "fluid-name.sulfuric-acid" },
-    icon_overlay = "sulfuric-acid",
     text_overlay = "S",
-    hooks = {
-      remove_overlay,
-      overlay_fluid_barreling,
-    },
   },
   ["water"] = {
     type = "fluid",
@@ -491,9 +469,6 @@ local Prototypes = {
     icon_replacement = "fluid/",
     icon_overlay = "water-custom",
     text_overlay = "H2O",
-    hooks = {
-      overlay_fluid_barreling,
-    },
   },
 }
 

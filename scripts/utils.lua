@@ -31,7 +31,11 @@ Offsets = {
 }
 
 Mods = {
-  "base",
+  ["base"] = {
+    data = true,
+    updates = true,
+    settings = true,
+  },
 }
 
 -- Merge two tables, with t2 overriding values from t1.
@@ -55,12 +59,12 @@ function keys(table)
 end
 
 function data:get(_type, name)
-  local obj = self.raw[_type][name]
-  if not obj then
+  local types = self.raw[_type]
+  if not types or not types[name] then
     log("Warning: prototype [" .. _type .. "][" .. name .. "] not found")
     return false
   end
-  return obj
+  return types[name]
 end
 
 -- Get the item object that corresponds to the entity object.

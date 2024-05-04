@@ -28,8 +28,9 @@ end
 function overlay_icon(obj, icon, icon2)
   if not obj.icons then
     obj.icons = icons_from_obj(obj)
-    obj.icon = nil
   end
+  -- Some mods (including base mod) mistakenly check this field first.
+  obj.icon = nil
   table.insert(obj.icons, icon)
 
   if icon2 then
@@ -56,8 +57,8 @@ function overlay_dark_icon(obj, icon, icon2)
         icon_mipmaps = obj.icon_mipmaps,
       },
     }
-    obj.dark_background_icon = nil
   end
+  obj.dark_background_icon = nil
   table.insert(obj.dark_background_icons, convert_to_dark_background_icon(icon))
 
   if icon2 then

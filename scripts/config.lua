@@ -1,7 +1,8 @@
 require("scripts/utils")
 
 function config(name)
-  return settings.startup[config_name(name)].value
+  local setting = settings.startup[config_name(name)]
+  return setting and setting.value
 end
 
 IconScale = config("scale")
