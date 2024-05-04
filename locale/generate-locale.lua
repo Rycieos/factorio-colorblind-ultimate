@@ -1,14 +1,11 @@
 #!/usr/bin/env lua
 
+data = {}
 require("scripts.utils")
 
 -- Define Factorio settings stage API.
-mods = {}
-for _, mod in ipairs(Mods) do
-  mods[mod] = true
-end
+mods = Mods
 
-data = {}
 settings = {}
 function data:extend(array)
   for _, setting in ipairs(array) do

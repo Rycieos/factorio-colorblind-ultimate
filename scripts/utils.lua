@@ -54,9 +54,18 @@ function keys(table)
   return keys
 end
 
+function data:get(_type, name)
+  local obj = self.raw[_type][name]
+  if not obj then
+    log("Warning: prototype [" .. _type .. "][" .. name .. "] not found")
+    return false
+  end
+  return obj
+end
+
 -- Get the item object that corresponds to the entity object.
 function get_item_from_entity(obj)
-  return data.raw["item"][obj.minable.result]
+  return data:get("item", obj.minable.result)
 end
 
 function config_name(name)

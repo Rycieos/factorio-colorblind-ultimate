@@ -19,9 +19,8 @@ function do_replace_or_overlay(name, proto, config_name)
     return false
   end
 
-  local obj = data.raw[proto.type][name]
+  local obj = data:get(proto.type, name)
   if not obj then
-    log("Warning: object [" .. proto.type .. "][" .. name .. "] not found")
     return false
   end
 
@@ -48,9 +47,10 @@ function do_replace_or_overlay(name, proto, config_name)
       icon = TextOverlays[proto.text_overlay]
       icon2 = proto.text_overlay2 and table_merge(TextOverlays[proto.text_overlay2], BaseOverlays.shifted)
     elseif proto.icon_overlay_from then
-      icon, icon2 = table.unpack(
-        create_overlay_from_icons(icons_from_obj(data.raw[proto.icon_overlay_from[1]][proto.icon_overlay_from[2]]))
-      )
+      local from_obj = data:get(proto.icon_overlay_from[1], proto.icon_overlay_from[2])
+      if from_obj then
+        icon, icon2 = table.unpack(create_overlay_from_icons(icons_from_obj(from_obj)))
+      end
     else
       icon = Overlays[proto.icon_overlay]
       icon2 = proto.icon_overlay2 and table_merge(Overlays[proto.icon_overlay2], BaseOverlays.shifted)
