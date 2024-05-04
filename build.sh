@@ -1,6 +1,10 @@
 #!/bin/sh
 
-dir="colorblind_ultimate_1.3.1"
+info="$(cat info.json)"
+version="${info##*'"version": "'}"
+version="${version%%'"'*}"
+
+dir="colorblind_ultimate_$version"
 mkdir -p "$dir"
 
 cp -r \

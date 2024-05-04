@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.0
+Date: 2024-05-04
+  Features:
+    - Option for overlaying fluid barrels separately from fluids.
+
+  Bugfixes:
+    - Improve general compatibility with other mods.
+    - Fix spelling errors in Spanish locale.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.3.1
 Date: 2024-05-02
   Features:
