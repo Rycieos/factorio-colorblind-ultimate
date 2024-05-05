@@ -1,18 +1,7 @@
 require("data.core.constants")
 
-local function add_color_setting(name, localised_name, default)
-  data:extend({
-    {
-      name = config_name(name .. "-color"),
-      type = "string-setting",
-      setting_type = "startup",
-      allow_blank = true,
-      default_value = "",
-      order = "q",
-      localised_name = localised_name,
-      localised_description = { "colorblind_ultimate-description.custom-color", localised_name, default },
-    },
-  })
+local function add_core_color_setting(name, localised_name)
+  add_color_setting(name, localised_name, DefaultColors[name])
 end
 
 local function add_bg_color_setting(name, default, localised_name, allowed_values)
@@ -70,46 +59,39 @@ add_bg_color_setting("disabled-technology", "grey", {
   { "colorblind_ultimate-word.background-color" },
 })
 
-add_color_setting("artillery_range", { "technology-name.artillery-shell-range" }, "cc4040ff")
-add_color_setting("capsule_range", { "", { "ammo-category-name.capsule" }, " ", { "description.range" } }, "0d190d26")
-add_color_setting("enemy", { "autoplace-control-names.enemy-base" }, "ff1919")
-add_color_setting("pollution", { "item-name.pollution" }, "8c000095")
-add_color_setting(
+add_core_color_setting("artillery_range", { "technology-name.artillery-shell-range" })
+add_core_color_setting("capsule_range", { "", { "ammo-category-name.capsule" }, " ", { "description.range" } })
+add_core_color_setting("enemy", { "autoplace-control-names.enemy-base" })
+add_core_color_setting("pollution", { "item-name.pollution" })
+add_core_color_setting(
   "turret_range",
-  { "", { "tooltip-category.turret" }, " ", { "description.range" }, " ", { "colorblind_ultimate-word.in-game" } },
-  "0d190d26"
+  { "", { "tooltip-category.turret" }, " ", { "description.range" }, " ", { "colorblind_ultimate-word.in-game" } }
 )
-add_color_setting(
+add_core_color_setting(
   "turret_range_map",
-  { "", { "tooltip-category.turret" }, " ", { "description.range" }, " ", { "colorblind_ultimate-word.on-map" } },
-  "cc4040ff"
+  { "", { "tooltip-category.turret" }, " ", { "description.range" }, " ", { "colorblind_ultimate-word.on-map" } }
 )
 
-add_color_setting(
+add_core_color_setting(
   "construction_radius_visualization",
-  { "", { "entity-name.roboport" }, " ", { "entity-name.construction-robot" }, " ", { "description.range" } },
-  "83d937"
+  { "", { "entity-name.roboport" }, " ", { "entity-name.construction-robot" }, " ", { "description.range" } }
 )
-add_color_setting(
+add_core_color_setting(
   "logistic_radius_visualization",
-  { "", { "entity-name.roboport" }, " ", { "entity-name.logistic-robot" }, " ", { "description.range" } },
-  "ff8800"
+  { "", { "entity-name.roboport" }, " ", { "entity-name.logistic-robot" }, " ", { "description.range" } }
 )
 
-add_color_setting(
+add_core_color_setting(
   "copper_wire-sprite",
-  { "", { "item-name.copper-cable" }, " ", { "tips-and-tricks-item-name.electric-pole-connections" } },
-  "e48b00"
+  { "", { "item-name.copper-cable" }, " ", { "tips-and-tricks-item-name.electric-pole-connections" } }
 )
-add_color_setting(
+add_core_color_setting(
   "green_wire-sprite",
-  { "", { "item-name.green-wire" }, " ", { "tips-and-tricks-item-name.electric-pole-connections" } },
-  "619d3d"
+  { "", { "item-name.green-wire" }, " ", { "tips-and-tricks-item-name.electric-pole-connections" } }
 )
-add_color_setting(
+add_core_color_setting(
   "red_wire-sprite",
-  { "", { "item-name.red-wire" }, " ", { "tips-and-tricks-item-name.electric-pole-connections" } },
-  "de3b1d"
+  { "", { "item-name.red-wire" }, " ", { "tips-and-tricks-item-name.electric-pole-connections" } }
 )
 
 add_bg_color_setting("green-circuit", "green", {

@@ -77,15 +77,6 @@ function do_replace_or_overlay(name, proto, config_name)
   return true
 end
 
-function do_replace_color(name, color)
-  local setting = config(name .. "-color")
-  if setting ~= "" then
-    for key, value in pairs(util.color(setting)) do
-      color[key] = value
-    end
-  end
-end
-
 function apply_prototypes(prototypes)
   for name, proto in pairs(prototypes) do
     if do_replace_or_overlay(name, proto) then

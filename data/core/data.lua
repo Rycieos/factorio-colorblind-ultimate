@@ -3,17 +3,30 @@ require("scripts.updates")
 require("scripts.utils")
 require("data.core.constants")
 
+local function do_if_color_setting(name, func)
+  local setting = config(name .. "-color")
+  if setting and not color_equals(setting, DefaultColors[name]) then
+    func(setting)
+  end
+end
+
+local function do_replace_color(name, obj)
+  do_if_color_setting(name, function(color)
+    for key, value in pairs(color) do
+      obj[key] = value
+    end
+  end)
+end
+
 -- Custom power pole wire sprites.
 function do_replace_wire_sprite(name)
-  local setting = config(name .. "-sprite-color")
-  if setting ~= "" then
-    local color = util.color(setting)
+  do_if_color_setting(name .. "-sprite", function(color)
     local sprite = data.raw["utility-sprites"].default[name]
     sprite.filename = ModPath .. "/graphics/base-wire.png"
     sprite.hr_version.filename = ModPath .. "/graphics/hr-base-wire.png"
     sprite.tint = color
     sprite.hr_version.tint = color
-  end
+  end)
 end
 
 do_replace_wire_sprite("copper_wire")
@@ -33,13 +46,11 @@ do_replace_button_background("red-circuit-background-color", "red", "red_circuit
 
 -- Custom roboport range sprites.
 function do_replace_robot_range_sprite(name)
-  local setting = config(name .. "-color")
-  if setting ~= "" then
-    local color = util.color(setting)
+  do_if_color_setting(name, function(color)
     local sprite = data.raw["utility-sprites"].default[name]
     sprite.filename = ModPath .. "/graphics/visualization-radius.png"
     sprite.tint = color
-  end
+  end)
 end
 
 do_replace_robot_range_sprite("construction_radius_visualization")

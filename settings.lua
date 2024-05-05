@@ -29,6 +29,19 @@ function add_option_setting(name, localised_name, options)
   })
 end
 
+function add_color_setting(name, localised_name, default)
+  data:extend({
+    {
+      name = config_name(name .. "-color"),
+      type = "color-setting",
+      setting_type = "startup",
+      default_value = default,
+      order = "q",
+      localised_name = localised_name,
+    },
+  })
+end
+
 function settings_from_prototypes(prototypes)
   for name, proto in pairs(prototypes) do
     local allowed_values = {}

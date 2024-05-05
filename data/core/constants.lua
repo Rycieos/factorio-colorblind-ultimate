@@ -1,3 +1,20 @@
+DefaultColors = {
+  ["copper_wire-sprite"] = { r = 228, g = 139, b = 0, a = 255 },
+  ["green_wire-sprite"] = { r = 97, g = 157, b = 61, a = 255 },
+  ["red_wire-sprite"] = { r = 222, g = 59, b = 29, a = 255 },
+
+  -- Copied directly from data/core/prototypes/utility-constants.lua.
+  artillery_range = { r = 0.8, g = 0.25, b = 0.25, a = 1 },
+  capsule_range = { r = 0.05, g = 0.1, b = 0.05, a = 0.15 },
+  enemy = { r = 1, g = 0.1, b = 0.1, a = 1 },
+  pollution = { r = 140, g = 0, b = 0, a = 149 },
+  turret_range = { r = 0.05, g = 0.1, b = 0.05, a = 0.15 },
+  turret_range_map = { r = 0.8, g = 0.25, b = 0.25, a = 1 },
+
+  construction_radius_visualization = { r = 131, g = 217, b = 55, a = 255 },
+  logistic_radius_visualization = { r = 255, g = 136, b = 0, a = 255 },
+}
+
 -- From core/graphics/gui.png
 OldButtonBackgrounds = {
   blue = { 221, 72 },

@@ -75,3 +75,33 @@ end
 function config_name(name)
   return Mod .. "__" .. name
 end
+
+function normalize_color(color)
+  color = {
+    r = color.r or color[1] or 0,
+    g = color.g or color[2] or 0,
+    b = color.b or color[3] or 0,
+    a = color.a or color[4],
+  }
+  if color.r > 1 or color.g > 1 or color.b > 1 or (color.a and color.a > 1) then
+    color.a = color.a or 255
+    return color
+  else
+    return {
+      r = color.r * 255,
+      g = color.g * 255,
+      b = color.b * 255,
+      a = (color.a or 1) * 255,
+    }
+  end
+end
+
+function color_equals(color1, color2, epsilon)
+  color1 = normalize_color(color1)
+  color2 = normalize_color(color2)
+  epsilon = epsilon or 1
+  return math.abs(color1.r - color2.r) < epsilon
+    and math.abs(color1.g - color2.g) < epsilon
+    and math.abs(color1.b - color2.b) < epsilon
+    and math.abs(color1.a - color2.a) < epsilon
+end
