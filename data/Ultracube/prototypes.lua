@@ -1,6 +1,13 @@
 require("scripts/utils")
 
+local BasePrototypes = require("data.base.prototypes")
+
 local Prototypes = {
+  ["cube-nuclear-fuel"] = table_merge(BasePrototypes["nuclear-fuel"], {
+    config_from = "nuclear-fuel",
+    nested_prototypes = {},
+  }),
+
   ["cube-deep-solution"] = {
     type = "fluid",
     localised_name = { "fluid-name.cube-deep-solution" },
@@ -66,6 +73,10 @@ local Prototypes = {
     localised_name = { "fluid-name.cube-mineral-water" },
     text_overlay = "M",
   },
+  ["cube-sulfuric-acid"] = table_merge(BasePrototypes["sulfuric-acid"], {
+    config_from = "sulfuric-acid",
+    type = "recipe",
+  }),
   ["cube-unstable-gas"] = {
     type = "fluid",
     localised_name = { "fluid-name.cube-unstable-gas" },

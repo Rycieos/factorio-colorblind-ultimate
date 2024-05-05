@@ -150,10 +150,3 @@ if config("water") ~= Options.none then
     )
   end
 end
-
-if config("sulfuric-acid") ~= Options.none then
-  local recipe = data:get("recipe", "cube-sulfuric-acid")
-  if recipe then
-    replace_icons(recipe, icons_from_obj(data.raw.fluid["sulfuric-acid"]))
-  end
-end
