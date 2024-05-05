@@ -5,9 +5,13 @@ BaseIconPath = "__base__/graphics/icons/"
 CoreIconPath = "__core__/graphics/icons/"
 
 -- Overwrite a default icon.
-function replace_icon(obj, icon)
-  obj.icons = { icon }
+function replace_icons(obj, icons)
+  obj.icons = icons
   obj.icon = nil
+end
+
+function replace_icon(obj, icon)
+  replace_icons(obj, { icon })
 end
 
 -- Get an array of icons from an object, even if the array formatted "icons"

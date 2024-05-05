@@ -2,23 +2,6 @@ require("scripts/utils")
 
 SpritePath = ModPath .. "/graphics/entity/"
 
--- <Prototype>:
--- Fields:
--- <key>: <string> Factorio prototype name.
--- type: <string> Factorio prototype type. Required.
--- localised_name: <LocalisedString>: Defaults to {"<is_entity and "entity" or "item">-name.<name>"}.
--- is_entity: <bool>: Defaults to (bool)sprite_replacement.
--- sprite_replacement: <FileName>
--- hr_sprite_replacement: <FileName>
--- icon_replacement: <bool|string>
--- icon_overlay: <string>
--- icon_overlay2 <string>
--- icon_overlay_from: Array<string>: prototype to copy icon from as an overlay.
--- text_overlay: <string>
--- text_overlay2 <string>
--- nested_prototypes: Array<Array<string>>: prototype {type, name}s that should
---   be modified if the base prototype is enabled.
--- hooks: Array<function>
 local Prototypes = {
   ["copper-cable"] = {
     type = "item",
