@@ -35,6 +35,7 @@ Mods = {
     data = true,
     updates = true,
     settings = true,
+    order = "b",
   },
 }
 

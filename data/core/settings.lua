@@ -12,7 +12,7 @@ local function add_bg_color_setting(name, default, localised_name, allowed_value
       setting_type = "startup",
       default_value = default,
       allowed_values = allowed_values or keys(NewSlotBackgrounds),
-      order = "z",
+      order = order_prefix .. "z",
       localised_name = localised_name,
     },
   })

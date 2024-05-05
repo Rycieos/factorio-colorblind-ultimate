@@ -7,7 +7,7 @@ function add_bool_setting(name, localised_name, localised_description)
       type = "bool-setting",
       setting_type = "startup",
       default_value = false,
-      order = "b",
+      order = order_prefix .. "b",
       localised_name = localised_name or { "item-name." .. name },
       localised_description = localised_description or { "colorblind_ultimate-description.custom-overlay" },
     },
@@ -22,7 +22,7 @@ function add_option_setting(name, localised_name, options)
       setting_type = "startup",
       default_value = Options.none,
       allowed_values = { Options.none, table.unpack(options) },
-      order = "d",
+      order = order_prefix .. "d",
       localised_name = localised_name,
       localised_description = { "colorblind_ultimate-description.custom-overlay-all" },
     },
@@ -36,7 +36,7 @@ function add_color_setting(name, localised_name, default)
       type = "color-setting",
       setting_type = "startup",
       default_value = default,
-      order = "q",
+      order = order_prefix .. "c",
       localised_name = localised_name,
     },
   })
@@ -86,10 +86,12 @@ function settings_from_prototypes(prototypes)
   end
 end
 
+order_prefix = "ac"
 require("data.core.settings")
 
 for mod, mod_stages in pairs(Mods) do
   if mods[mod] and mod_stages.settings then
+    order_prefix = mod_stages.order
     require("data." .. mod .. ".settings")
   end
 end
