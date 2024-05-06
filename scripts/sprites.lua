@@ -44,7 +44,7 @@ end
 local function overlay_animation(obj, sprite, sprite2)
   local base = obj.layers and obj.layers[1] or obj
   local props = {
-    repeat_count = base.frame_count,
+    repeat_count = (base.frame_count or 1) * (base.repeat_count or 1),
   }
   overlay_sprite(
     obj,
@@ -126,7 +126,17 @@ end
 
 function overlay_sprites(obj, sprite, sprite2)
   if obj.animation then
-    overlay_animation(obj.animation, sprite, sprite2)
+    if obj.animation.north then
+      overlay_animation4way(obj.animation, sprite, sprite2)
+    else
+      overlay_animation(obj.animation, sprite, sprite2)
+    end
+  end
+  if obj.graphics_set then
+    overlay_sprites(obj.graphics_set, sprite, sprite2)
+  end
+  if obj.wet_mining_graphics_set then
+    overlay_sprites(obj.wet_mining_graphics_set, sprite, sprite2)
   end
   if obj.platform_picture then
     overlay_sprite4way(obj.platform_picture, sprite, sprite2)

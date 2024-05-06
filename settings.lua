@@ -44,45 +44,47 @@ end
 
 function settings_from_prototypes(prototypes)
   for name, proto in pairs(prototypes) do
-    local allowed_values = {}
-    local is_entity = proto.is_entity or proto.sprite_replacement
-    if proto.icon_replacement then
-      table.insert(allowed_values, Options.icon)
+    if not proto.config_from then
+      local allowed_values = {}
+      local is_entity = proto.is_entity or proto.sprite_replacement
+      if proto.icon_replacement then
+        table.insert(allowed_values, Options.icon)
+        if proto.sprite_replacement then
+          table.insert(allowed_values, Options.icon_and_entity)
+        end
+      end
       if proto.sprite_replacement then
-        table.insert(allowed_values, Options.icon_and_entity)
+        table.insert(allowed_values, Options.entity)
       end
-    end
-    if proto.sprite_replacement then
-      table.insert(allowed_values, Options.entity)
-    end
-    if proto.icon_overlay or proto.icon_overlay_from then
-      if proto.icon_overlay and string.sub(proto.icon_overlay, 1, 5) == "tier-" then
-        table.insert(allowed_values, Options.tier)
-        if is_entity then
-          table.insert(allowed_values, Options.tier_icon)
-          table.insert(allowed_values, Options.tier_entity)
-        end
-      else
-        table.insert(allowed_values, Options.icon_overlay)
-        if is_entity then
-          table.insert(allowed_values, Options.icon_overlay_icon)
-          table.insert(allowed_values, Options.icon_overlay_entity)
+      if proto.icon_overlay or proto.icon_overlay_from then
+        if proto.icon_overlay and string.sub(proto.icon_overlay, 1, 5) == "tier-" then
+          table.insert(allowed_values, Options.tier)
+          if is_entity then
+            table.insert(allowed_values, Options.tier_icon)
+            table.insert(allowed_values, Options.tier_entity)
+          end
+        else
+          table.insert(allowed_values, Options.icon_overlay)
+          if is_entity then
+            table.insert(allowed_values, Options.icon_overlay_icon)
+            table.insert(allowed_values, Options.icon_overlay_entity)
+          end
         end
       end
-    end
-    if proto.text_overlay then
-      table.insert(allowed_values, Options.text_overlay)
-      if is_entity then
-        table.insert(allowed_values, Options.text_overlay_icon)
-        table.insert(allowed_values, Options.text_overlay_entity)
+      if proto.text_overlay then
+        table.insert(allowed_values, Options.text_overlay)
+        if is_entity then
+          table.insert(allowed_values, Options.text_overlay_icon)
+          table.insert(allowed_values, Options.text_overlay_entity)
+        end
       end
-    end
 
-    add_option_setting(
-      name,
-      proto.localised_name or { ((is_entity and "entity" or "item") .. "-name." .. name) },
-      allowed_values
-    )
+      add_option_setting(
+        name,
+        proto.localised_name or { ((is_entity and "entity" or "item") .. "-name." .. name) },
+        allowed_values
+      )
+    end
   end
 end
 

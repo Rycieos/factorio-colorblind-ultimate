@@ -14,7 +14,8 @@ local function do_overlay_icon(obj, icon, icon2)
 end
 
 function do_replace_or_overlay(name, proto, config_name)
-  local setting = config(config_name or name)
+  config_name = config_name or name
+  local setting = config(config_name)
   if not setting or setting == Options.none then
     return false
   end
@@ -28,7 +29,7 @@ function do_replace_or_overlay(name, proto, config_name)
 
   if setting == Options.icon or setting == Options.entity or setting == Options.icon_and_entity then
     if setting ~= Options.entity then
-      local icon = create_custom_icon(name, proto.icon_replacement)
+      local icon = create_custom_icon(config_name, proto.icon_replacement)
       replace_icon(obj, icon)
       if is_entity then
         replace_icon(get_item_from_entity(obj), icon)
@@ -77,12 +78,34 @@ function do_replace_or_overlay(name, proto, config_name)
   return true
 end
 
+-- <Prototype>:
+-- Fields:
+-- <key>: <string> Factorio prototype name.
+-- type: <string> Factorio prototype type. Required.
+-- localised_name: <LocalisedString>: Defaults to {"<is_entity and "entity" or "item">-name.<name>"}.
+-- config_from: <string>: Config setting to check for enabling instead of own key.
+-- is_entity: <bool>: Defaults to (bool)sprite_replacement.
+-- sprite_replacement: <FileName>
+-- hr_sprite_replacement: <FileName>
+-- icon_replacement: <bool|string>
+-- icon_overlay: <string>
+-- icon_overlay2 <string>
+-- icon_overlay_from: Array<string>: prototype {type, name} to copy icon from as an overlay.
+-- text_overlay: <string>
+-- text_overlay2 <string>
+-- nested_prototypes: Array<Array<string>>: prototype {type, name}s that should
+--   be modified if the base prototype is enabled.
+-- hooks: Array<function>
 function apply_prototypes(prototypes)
   for name, proto in pairs(prototypes) do
-    if do_replace_or_overlay(name, proto) then
+    if do_replace_or_overlay(name, proto, proto.config_from) then
       if proto.nested_prototypes then
         for _, nested_proto in pairs(proto.nested_prototypes) do
-          do_replace_or_overlay(nested_proto[2], table_merge(proto, { type = nested_proto[1] }), name)
+          do_replace_or_overlay(
+            nested_proto[2],
+            table_merge(proto, { type = nested_proto[1] }),
+            proto.config_from or name
+          )
         end
       end
       if proto.hooks then

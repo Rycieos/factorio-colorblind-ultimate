@@ -37,6 +37,12 @@ Mods = {
     settings = true,
     order = "b",
   },
+  ["Ultracube"] = {
+    data = true,
+    updates = true,
+    settings = true,
+    order = "ultra",
+  },
 }
 
 -- Merge two tables, with t2 overriding values from t1.
