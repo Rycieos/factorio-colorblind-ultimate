@@ -100,6 +100,9 @@ local Prototypes = {
   ["cube-deep-powder"] = {
     type = "item",
     text_overlay = "D",
+    nested_prototypes = {
+      { "recipe", "cube-deep-core-crushing" },
+    },
   },
 
   ["cube-ghost-wire"] = {
@@ -123,10 +126,16 @@ local Prototypes = {
   ["cube-boson-conduit"] = {
     type = "item",
     text_overlay = "B",
+    nested_prototypes = {
+      { "recipe", "cube-conduit-conversion-a" },
+    },
   },
   ["cube-fermion-conduit"] = {
     type = "item",
     text_overlay = "F",
+    nested_prototypes = {
+      { "recipe", "cube-conduit-conversion-b" },
+    },
   },
 
   ["cube-qubit-0"] = {
@@ -229,6 +238,11 @@ local Prototypes = {
     config_from = "sulfuric-acid",
     type = "recipe",
   }),
+  ["cube-ultradense-sap"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.cube-ultradense-sap" },
+    text_overlay = "U",
+  },
   ["cube-unstable-gas"] = {
     type = "fluid",
     localised_name = { "fluid-name.cube-unstable-gas" },
