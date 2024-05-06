@@ -3,10 +3,48 @@ require("scripts/utils")
 local BasePrototypes = require("data.base.prototypes")
 
 local Prototypes = {
+  ["cube-advanced-circuit"] = table_merge(BasePrototypes["advanced-circuit"], {
+    config_from = "advanced-circuit",
+  }),
+  ["cube-electronic-circuit"] = table_merge(BasePrototypes["electronic-circuit"], {
+    config_from = "electronic-circuit",
+  }),
   ["cube-nuclear-fuel"] = table_merge(BasePrototypes["nuclear-fuel"], {
     config_from = "nuclear-fuel",
     nested_prototypes = {},
   }),
+  ["cube-efficiency-module"] = table_merge(BasePrototypes["effectivity-module"], {
+    config_from = "effectivity-module",
+    nested_prototypes = {
+      { "module", "cube-efficiency-module-v2" },
+      { "module", "cube-efficiency-module-v3" },
+    },
+  }),
+  ["cube-productivity-module"] = table_merge(BasePrototypes["productivity-module"], {
+    config_from = "productivity-module",
+    nested_prototypes = {
+      { "module", "cube-productivity-module-v2" },
+      { "module", "cube-productivity-module-v3" },
+    },
+  }),
+  ["cube-speed-module"] = table_merge(BasePrototypes["speed-module"], {
+    config_from = "speed-module",
+    nested_prototypes = {
+      { "module", "cube-speed-module-v2" },
+      { "module", "cube-speed-module-v3" },
+    },
+  }),
+
+  ["cube-electric-mining-drill"] = {
+    type = "mining-drill",
+    is_entity = true,
+    icon_overlay = "tier-1",
+  },
+  ["cube-electric-mining-drill-mk2"] = {
+    type = "mining-drill",
+    is_entity = true,
+    icon_overlay = "tier-2",
+  },
 
   ["cube-deep-solution"] = {
     type = "fluid",

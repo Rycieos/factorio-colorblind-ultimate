@@ -95,6 +95,7 @@ create_constant("speed", CoreIconPath .. "technology/constants/constant-speed.pn
 create_constant("tier-1", IconPath .. "constants/tier-1.png")
 create_constant("tier-2", IconPath .. "constants/tier-2.png")
 create_constant("tier-3", IconPath .. "constants/tier-3.png")
+create_constant("tier-4", IconPath .. "constants/tier-4.png")
 
 create_tooltip("buffer")
 create_tooltip("consumes")
