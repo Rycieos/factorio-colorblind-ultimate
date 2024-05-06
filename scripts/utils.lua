@@ -39,6 +39,7 @@ Mods = {
   },
   ["Ultracube"] = {
     data = true,
+    updates = true,
     settings = true,
     order = "ultra",
   },

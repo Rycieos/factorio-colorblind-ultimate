@@ -6,7 +6,7 @@
   "factorio_version": "1.1",
   "dependencies": [
       "? base >= 1.1.73",
-      "? Ultracube >= 0.5.0"
+      "? Ultracube >= 0.2.0"
   ],
   "description": "Ultimate options for color blindness accessibility. Includes custom icons, sprites, icon and sprite overlays, text overlays, customizable wire colors, customizable game and map overlay colors, and customizable technology background colors. Everything is individually customizable. Can be removed without affecting save games.",
   "homepage": "https://github.com/Rycieos/factorio-colorblind-ultimate",
