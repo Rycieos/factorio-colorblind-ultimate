@@ -46,6 +46,120 @@ local Prototypes = {
     icon_overlay = "tier-2",
   },
 
+  ["cube-v4-transport-belt"] = {
+    type = "transport-belt",
+    is_entity = true,
+    icon_overlay = "tier-4",
+  },
+  ["cube-v4-underground-belt"] = {
+    type = "underground-belt",
+    is_entity = true,
+    icon_overlay = "tier-4",
+  },
+  ["cube-v4-splitter"] = {
+    type = "splitter",
+    is_entity = true,
+    icon_overlay = "tier-4",
+  },
+
+  ["aai-loader"] = {
+    type = "loader-1x1",
+    is_entity = true,
+    icon_overlay = "tier-1",
+  },
+  ["aai-v2-loader"] = {
+    type = "loader-1x1",
+    is_entity = true,
+    icon_overlay = "tier-2",
+  },
+  ["aai-v3-loader"] = {
+    type = "loader-1x1",
+    is_entity = true,
+    icon_overlay = "tier-3",
+  },
+  ["aai-v4-loader"] = {
+    type = "loader-1x1",
+    is_entity = true,
+    icon_overlay = "tier-4",
+  },
+
+  ["cube-extremely-long-inserter"] = {
+    type = "inserter",
+    is_entity = true,
+    icon_overlay = "filter",
+    icon_overlay2 = "pushes",
+    text_overlay = "Ex",
+  },
+
+  ["cube-uranium-234"] = BasePrototypes["uranium-235"],
+
+  ["cube-calcium"] = {
+    type = "item",
+    text_overlay = "C",
+  },
+  ["cube-deep-powder"] = {
+    type = "item",
+    text_overlay = "D",
+  },
+
+  ["cube-ghost-wire"] = {
+    type = "item",
+    text_overlay = "G",
+  },
+
+  ["cube-bottled-anguish"] = {
+    type = "item",
+    text_overlay = "A",
+  },
+  ["cube-bottled-consciousness"] = {
+    type = "item",
+    text_overlay = "C",
+  },
+  ["cube-bottled-euphoria"] = {
+    type = "item",
+    text_overlay = "E",
+  },
+
+  ["cube-boson-conduit"] = {
+    type = "item",
+    text_overlay = "B",
+  },
+  ["cube-fermion-conduit"] = {
+    type = "item",
+    text_overlay = "F",
+  },
+
+  ["cube-qubit-0"] = {
+    type = "item",
+    text_overlay = "U",
+  },
+  ["cube-qubit-1"] = {
+    type = "item",
+    text_overlay = "D",
+  },
+  ["cube-qubit-2"] = {
+    type = "item",
+    text_overlay = "S",
+  },
+  ["cube-qubit-3"] = {
+    type = "item",
+    text_overlay = "C",
+  },
+  ["cube-qubit-4"] = {
+    type = "item",
+    text_overlay = "T",
+  },
+  ["cube-qubit-5"] = {
+    type = "item",
+    text_overlay = "B",
+  },
+
+  ["cube-ultradense-mineral"] = {
+    type = "item",
+    icon_overlay_from = { "item", "cube-ultradense-utility-cube" },
+    text_overlay = "U",
+  },
+
   ["cube-deep-solution"] = {
     type = "fluid",
     localised_name = { "fluid-name.cube-deep-solution" },
