@@ -1,8 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.0
+Date: 2024-05-07
+  Features:
+    - Options for circuit connection light colors.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.5.0
 Date: 2024-05-06
   Features:
-    - Option for overlaying fluid barrels separately from fluids.
     - Ultracube support. Includes items, fluids, recpies, and entities.
 
   Changes:
