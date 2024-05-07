@@ -1,5 +1,6 @@
 Mod = "colorblind_ultimate"
 ModPath = "__" .. Mod .. "__"
+SpritePath = ModPath .. "/graphics/entity/"
 
 Options = {
   none = "none",

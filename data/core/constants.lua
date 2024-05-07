@@ -3,6 +3,10 @@ DefaultColors = {
   ["green_wire-sprite"] = { r = 97, g = 157, b = 61, a = 255 },
   ["red_wire-sprite"] = { r = 222, g = 59, b = 29, a = 255 },
 
+  circuit_connector_red_light = { r = 255, g = 47, b = 0, a = 255 },
+  circuit_connector_green_light = { r = 0, g = 255, b = 50, a = 255 },
+  circuit_connector_blue_light = { r = 0, g = 255, b = 255, a = 255 },
+
   -- Copied directly from data/core/prototypes/utility-constants.lua.
   artillery_range = { r = 0.8, g = 0.25, b = 0.25, a = 1 },
   capsule_range = { r = 0.05, g = 0.1, b = 0.05, a = 0.15 },

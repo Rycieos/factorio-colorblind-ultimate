@@ -94,6 +94,19 @@ add_core_color_setting(
   { "", { "item-name.red-wire" }, " ", { "tips-and-tricks-item-name.electric-pole-connections" } }
 )
 
+add_core_color_setting(
+  "circuit_connector_red_light",
+  { "", { "gui-control-behavior.circuit-connection" }, " ", { "virtual-signal-name.signal-red" } }
+)
+add_core_color_setting(
+  "circuit_connector_green_light",
+  { "", { "gui-control-behavior.circuit-connection" }, " ", { "virtual-signal-name.signal-green" } }
+)
+add_core_color_setting(
+  "circuit_connector_blue_light",
+  { "", { "gui-control-behavior.circuit-connection" }, " ", { "virtual-signal-name.signal-blue" } }
+)
+
 add_bg_color_setting("green-circuit", "green", {
   "",
   { "item-name.green-wire" },

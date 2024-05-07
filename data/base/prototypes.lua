@@ -1,7 +1,5 @@
 require("scripts/utils")
 
-SpritePath = ModPath .. "/graphics/entity/"
-
 local Prototypes = {
   ["copper-cable"] = {
     type = "item",
