@@ -7,7 +7,7 @@ function add_bool_setting(name, localised_name, localised_description)
       type = "bool-setting",
       setting_type = "startup",
       default_value = false,
-      order = order_prefix .. "b",
+      order = order_prefix .. name .. "b",
       localised_name = localised_name or { "item-name." .. name },
       localised_description = localised_description or { "colorblind_ultimate-description.custom-overlay" },
     },
@@ -22,7 +22,7 @@ function add_option_setting(name, localised_name, options)
       setting_type = "startup",
       default_value = Options.none,
       allowed_values = { Options.none, table.unpack(options) },
-      order = order_prefix .. "d",
+      order = order_prefix .. name .. "d",
       localised_name = localised_name,
       localised_description = { "colorblind_ultimate-description.custom-overlay-all" },
     },
@@ -47,43 +47,46 @@ function settings_from_prototypes(prototypes)
     if not proto.config_from then
       local allowed_values = {}
       local is_entity = proto.is_entity or proto.sprite_replacement
+      local localised_name = proto.localised_name or { ((is_entity and "entity" or "item") .. "-name." .. name) }
       if proto.icon_replacement then
-        table.insert(allowed_values, Options.icon)
-        if proto.sprite_replacement then
-          table.insert(allowed_values, Options.icon_and_entity)
-        end
+        add_bool_setting(
+          name .. "-icon-replacement",
+          { "", localised_name, ": ", { "colorblind_ultimate-description.icon-replacement" } },
+          { "colorblind_ultimate-description.custom-icon" }
+        )
       end
       if proto.sprite_replacement then
-        table.insert(allowed_values, Options.entity)
+        add_bool_setting(
+          name .. "-sprite-replacement",
+          { "", localised_name, ": ", { "colorblind_ultimate-description.sprite-replacement" } },
+          { "colorblind_ultimate-description.custom-sprite" }
+        )
       end
       if proto.icon_overlay or proto.icon_overlay_from then
         if proto.icon_overlay and string.sub(proto.icon_overlay, 1, 5) == "tier-" then
           table.insert(allowed_values, Options.tier)
-          if is_entity then
-            table.insert(allowed_values, Options.tier_icon)
-            table.insert(allowed_values, Options.tier_entity)
-          end
         else
           table.insert(allowed_values, Options.icon_overlay)
-          if is_entity then
-            table.insert(allowed_values, Options.icon_overlay_icon)
-            table.insert(allowed_values, Options.icon_overlay_entity)
-          end
         end
       end
       if proto.text_overlay then
         table.insert(allowed_values, Options.text_overlay)
-        if is_entity then
-          table.insert(allowed_values, Options.text_overlay_icon)
-          table.insert(allowed_values, Options.text_overlay_entity)
-        end
       end
 
-      add_option_setting(
-        name,
-        proto.localised_name or { ((is_entity and "entity" or "item") .. "-name." .. name) },
-        allowed_values
-      )
+      if next(allowed_values) ~= nil then
+        add_option_setting(
+          name .. "-icon-overlay",
+          { "", localised_name, ": ", { "colorblind_ultimate-description.icon-overlay" } },
+          allowed_values
+        )
+        if is_entity then
+          add_option_setting(
+            name .. "-sprite-overlay",
+            { "", localised_name, ": ", { "colorblind_ultimate-description.sprite-overlay" } },
+            allowed_values
+          )
+        end
+      end
     end
   end
 end
