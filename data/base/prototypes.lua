@@ -215,8 +215,7 @@ local Prototypes = {
     type = "ammo",
     icon_overlay = "nuclear",
     icon_overlay2 = "explosives",
-    text_overlay = "U",
-    text_overlay2 = "Ex",
+    text_overlay = "ExU",
   },
 
   ["cliff-explosives"] = {
