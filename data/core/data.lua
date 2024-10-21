@@ -16,9 +16,7 @@ function do_replace_wire_sprite(name)
   do_if_color_setting(name .. "-sprite", function(color)
     local sprite = data.raw["utility-sprites"].default[name]
     sprite.filename = ModPath .. "/graphics/base-wire.png"
-    sprite.hr_version.filename = ModPath .. "/graphics/hr-base-wire.png"
     sprite.tint = color
-    sprite.hr_version.tint = color
   end)
 end
 
@@ -54,7 +52,7 @@ local chart_colors = data.raw["utility-constants"].default.chart
 do_replace_color("artillery_range", chart_colors.artillery_range_color)
 do_replace_color("capsule_range", data.raw["utility-constants"].default.capsule_range_visualization_color)
 do_replace_color("enemy", chart_colors.default_enemy_color)
-do_replace_color("pollution", chart_colors.pollution_color)
+--do_replace_color("pollution", chart_colors.pollution_color)
 do_replace_color("turret_range", data.raw["utility-constants"].default.turret_range_visualization_color)
 do_replace_color("turret_range_map", chart_colors.turret_range_color)
 

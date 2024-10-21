@@ -167,7 +167,7 @@ function overlay_sprites(obj, sprite, sprite2)
 end
 
 -- Replace a sprite with a custom sprite.
-function replace_sprite(obj, filename, hr_filename)
+function replace_sprite(obj, filename)
   if obj.type == "underground-belt" or obj.type == "loader" then
     for _, _type in pairs({
       "direction_in",
@@ -178,9 +178,6 @@ function replace_sprite(obj, filename, hr_filename)
       if obj.structure[_type] then
         local sheet = obj.structure[_type].sheet
         sheet.filename = filename
-        if sheet.hr_version then
-          sheet.hr_version.filename = hr_filename
-        end
       end
     end
   end

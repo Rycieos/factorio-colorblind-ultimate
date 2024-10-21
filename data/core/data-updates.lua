@@ -89,13 +89,15 @@ if next(circuit_connector_replacements) ~= nil then
 
   for _, _type in pairs(data.raw) do
     for _, prototype in pairs(_type) do
-      sprites = prototype.circuit_connector_sprites
-      if sprites then
-        if sprites.led_blue then
-          replace_circuit_connector_sprites(sprites)
-        else
-          for _, sprite in pairs(prototype.circuit_connector_sprites) do
-            replace_circuit_connector_sprites(sprite)
+      if prototype.circuit_connector then
+        sprites = prototype.circuit_connector.sprites
+        if sprites then
+          if sprites.led_blue then
+            replace_circuit_connector_sprites(sprites)
+          else
+            for _, sprite in pairs(prototype.circuit_connector_sprites) do
+              replace_circuit_connector_sprites(sprite)
+            end
           end
         end
       end

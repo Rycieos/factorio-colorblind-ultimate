@@ -62,7 +62,7 @@ add_bg_color_setting("disabled-technology", "grey", {
 add_core_color_setting("artillery_range", { "technology-name.artillery-shell-range" })
 add_core_color_setting("capsule_range", { "", { "ammo-category-name.capsule" }, " ", { "description.range" } })
 add_core_color_setting("enemy", { "autoplace-control-names.enemy-base" })
-add_core_color_setting("pollution", { "item-name.pollution" })
+--add_core_color_setting("pollution", { "item-name.pollution" })
 add_core_color_setting(
   "turret_range",
   { "", { "tooltip-category.turret" }, " ", { "description.range" }, " ", { "colorblind_ultimate-word.in-game" } }

@@ -15,11 +15,11 @@ local Prototypes = {
     type = "item",
     text_overlay = "Fe",
   },
-  ["stone-brick"] = {
-    type = "item",
-    icon_overlay = "rock-big",
-    text_overlay = "S",
-  },
+  --["stone-brick"] = {
+  --  type = "item",
+  --  icon_overlay = "rock-big",
+  --  text_overlay = "S",
+  --},
 
   ["signal-each"] = {
     type = "virtual-signal",
@@ -127,14 +127,12 @@ local Prototypes = {
   ["underground-belt"] = {
     type = "underground-belt",
     sprite_replacement = SpritePath .. "underground-belt/underground-belt-structure.png",
-    hr_sprite_replacement = SpritePath .. "underground-belt/hr-underground-belt-structure.png",
     icon_replacement = true,
     icon_overlay = "tier-1",
   },
   ["fast-underground-belt"] = {
     type = "underground-belt",
     sprite_replacement = SpritePath .. "fast-underground-belt/fast-underground-belt-structure.png",
-    hr_sprite_replacement = SpritePath .. "fast-underground-belt/hr-fast-underground-belt-structure.png",
     icon_replacement = true,
     icon_overlay = "tier-2",
   },
@@ -144,31 +142,31 @@ local Prototypes = {
     icon_overlay = "tier-3",
   },
 
-  ["blueprint"] = {
-    type = "blueprint",
-    icon_overlay = "blueprint",
-    text_overlay = "B",
-  },
-  ["deconstruction-planner"] = {
-    type = "deconstruction-item",
-    icon_overlay = "deconstruction-planner",
-    text_overlay = "D",
-  },
-  ["upgrade-planner"] = {
-    type = "upgrade-item",
-    icon_overlay = "upgrade-planner",
-    text_overlay = "U",
-  },
+  --["blueprint"] = {
+  --  type = "blueprint",
+  --  icon_overlay = "blueprint",
+  --  text_overlay = "B",
+  --},
+  --["deconstruction-planner"] = {
+  --  type = "deconstruction-item",
+  --  icon_overlay = "deconstruction-planner",
+  --  text_overlay = "D",
+  --},
+  --["upgrade-planner"] = {
+  --  type = "upgrade-item",
+  --  icon_overlay = "upgrade-planner",
+  --  text_overlay = "U",
+  --},
 
-  ["nuclear-fuel"] = {
-    type = "item",
-    icon_overlay = "nuclear",
-    text_overlay = "U",
-    -- The only simple recipe in the game that has a separate icon.
-    nested_prototypes = {
-      { "recipe", "nuclear-fuel" },
-    },
-  },
+  --["nuclear-fuel"] = {
+  --  type = "item",
+  --  icon_overlay = "nuclear",
+  --  text_overlay = "U",
+  --  -- The only simple recipe in the game that has a separate icon.
+  --  --nested_prototypes = {
+  --  --  { "recipe", "nuclear-fuel" },
+  --  --},
+  --},
   ["uranium-235"] = {
     type = "item",
     icon_overlay = "nuclear",
@@ -241,13 +239,13 @@ local Prototypes = {
     text_overlay = "S",
   },
 
-  ["effectivity-module"] = {
+  ["efficiency-module"] = {
     type = "module",
-    icon_overlay = "effectivity",
+    icon_overlay = "efficiency",
     text_overlay = "E",
     nested_prototypes = {
-      { "module", "effectivity-module-2" },
-      { "module", "effectivity-module-3" },
+      { "module", "efficiency-module-2" },
+      { "module", "efficiency-module-3" },
     },
   },
   ["productivity-module"] = {
@@ -359,6 +357,12 @@ local Prototypes = {
     is_entity = true,
     icon_overlay = "pushes",
     text_overlay = "LH",
+  },
+  ["bulk-inserter"] = {
+    type = "inserter",
+    is_entity = true,
+    icon_overlay = "storage",
+    text_overlay = "B",
   },
   ["stack-inserter"] = {
     type = "inserter",

@@ -35,7 +35,7 @@ function do_replace_sprite(name, proto, config_name, obj)
     return false
   end
 
-  replace_sprite(obj, proto.sprite_replacement, proto.hr_sprite_replacement)
+  replace_sprite(obj, proto.sprite_replacement)
   return true
 end
 
@@ -109,7 +109,6 @@ end
 -- config_from: <string>: Config setting to check for enabling instead of own key.
 -- is_entity: <bool>: Defaults to (bool)sprite_replacement.
 -- sprite_replacement: <FileName>
--- hr_sprite_replacement: <FileName>
 -- icon_replacement: <bool|string>
 -- icon_overlay: <string>
 -- icon_overlay2 <string>

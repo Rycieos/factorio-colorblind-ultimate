@@ -89,7 +89,7 @@ create_mip("deconstruction-planner", BaseIconPath .. "shortcut-toolbar/mip/new-d
 create_mip("upgrade-planner", BaseIconPath .. "shortcut-toolbar/mip/new-upgrade-planner-x32-white.png")
 create_mip("no-entry", IconPath .. "mip/no-entry.png")
 
-create_constant("effectivity", CoreIconPath .. "technology/constants/constant-battery.png")
+create_constant("efficiency", CoreIconPath .. "technology/constants/constant-battery.png")
 create_constant("productivity", CoreIconPath .. "technology/constants/constant-mining-productivity.png")
 create_constant("speed", CoreIconPath .. "technology/constants/constant-speed.png")
 create_constant("tier-1", IconPath .. "constants/tier-1.png")

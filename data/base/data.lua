@@ -87,33 +87,38 @@ if
   or config("rail-chain-signal-red")
   or config("rail-chain-signal-yellow")
 then
-  local prototype = data:get("rail-chain-signal", "rail-chain-signal")
+  local prototype = data:get("rail-signal", "rail-chain-signal")
   if prototype then
     local stripe = {
       filename = SpritePath .. "rail-chain-signal/rail-chain-signal.png",
-      width_in_frames = 1,
-    }
-    local hr_stripe = {
-      filename = SpritePath .. "rail-chain-signal/hr-rail-chain-signal.png",
       width_in_frames = 1,
     }
     local sprite_sheet = table.deepcopy(prototype.animation.layers[1])
 
     sprite_sheet.stripes = {
       stripe,
-      config("rail-chain-signal-red") and table_merge(stripe, { x = 160 }) or stripe,
-      config("rail-chain-signal-yellow") and table_merge(stripe, { x = 320 }) or stripe,
-      config("rail-chain-signal-green") and table_merge(stripe, { x = 480 }) or stripe,
-      config("rail-chain-signal-blue") and table_merge(stripe, { x = 640 }) or stripe,
-    }
-    sprite_sheet.hr_version.stripes = {
-      hr_stripe,
-      config("rail-chain-signal-red") and table_merge(hr_stripe, { x = 320 }) or hr_stripe,
-      config("rail-chain-signal-yellow") and table_merge(hr_stripe, { x = 640 }) or hr_stripe,
-      config("rail-chain-signal-green") and table_merge(hr_stripe, { x = 960 }) or hr_stripe,
-      config("rail-chain-signal-blue") and table_merge(hr_stripe, { x = 1280 }) or hr_stripe,
+      config("rail-chain-signal-red") and table_merge(stripe, { x = 320 }) or stripe,
+      config("rail-chain-signal-yellow") and table_merge(stripe, { x = 640 }) or stripe,
+      config("rail-chain-signal-green") and table_merge(stripe, { x = 960 }) or stripe,
+      config("rail-chain-signal-blue") and table_merge(stripe, { x = 1280 }) or stripe,
     }
 
     table.insert(prototype.animation.layers, sprite_sheet)
+    --local sprite_sheet = table.deepcopy(prototype.animation)
+
+    --sprite_sheet.stripes = {
+    --  stripe,
+    --  config("rail-chain-signal-red") and table_merge(stripe, { x = 320 }) or stripe,
+    --  config("rail-chain-signal-yellow") and table_merge(stripe, { x = 640 }) or stripe,
+    --  config("rail-chain-signal-green") and table_merge(stripe, { x = 960 }) or stripe,
+    --  config("rail-chain-signal-blue") and table_merge(stripe, { x = 1280 }) or stripe,
+    --}
+
+    --prototype.animation = {
+    --  layers = {
+    --    prototype.animation,
+    --    sprite_sheet,
+    --  }
+    --}
   end
 end

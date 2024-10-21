@@ -20,11 +20,13 @@ function icons_from_obj(obj)
   if obj.icons then
     return table.deepcopy(obj.icons)
   else
-    return { {
-      icon = obj.icon,
-      icon_size = obj.icon_size,
-      icon_mipmaps = obj.icon_mipmaps,
-    } }
+    return {
+      {
+        icon = obj.icon,
+        icon_size = obj.icon_size or 64,
+        --icon_mipmaps = obj.icon_mipmaps,
+      },
+    }
   end
 end
 
@@ -42,31 +44,22 @@ function overlay_icon(obj, icon, icon2)
   end
 end
 
--- For some reason, the path to the file in the "dark" version of an icon is
--- a different field. Probably because it hasn't been changed since it was added.
-function convert_to_dark_background_icon(icon)
-  icon = table.deepcopy(icon)
-  icon.dark_background_icon = icon.icon
-  icon.icon = nil
-  return icon
-end
-
 -- Overlay an icon on top of the base dark icon.
 function overlay_dark_icon(obj, icon, icon2)
   if not obj.dark_background_icons then
     obj.dark_background_icons = {
       {
-        dark_background_icon = obj.dark_background_icon,
+        icon = obj.dark_background_icon,
         icon_size = obj.icon_size,
-        icon_mipmaps = obj.icon_mipmaps,
+        --icon_mipmaps = obj.icon_mipmaps,
       },
     }
   end
   obj.dark_background_icon = nil
-  table.insert(obj.dark_background_icons, convert_to_dark_background_icon(icon))
+  table.insert(obj.dark_background_icons, icon)
 
   if icon2 then
-    table.insert(obj.dark_background_icons, convert_to_dark_background_icon(icon2))
+    table.insert(obj.dark_background_icons, icon2)
   end
 end
 

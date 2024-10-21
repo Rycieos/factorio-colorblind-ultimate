@@ -13,8 +13,8 @@ local Prototypes = {
     config_from = "nuclear-fuel",
     nested_prototypes = {},
   }),
-  ["cube-efficiency-module"] = table_merge(BasePrototypes["effectivity-module"], {
-    config_from = "effectivity-module",
+  ["cube-efficiency-module"] = table_merge(BasePrototypes["efficiency-module"], {
+    config_from = "efficiency-module",
     nested_prototypes = {
       { "module", "cube-efficiency-module-v2" },
       { "module", "cube-efficiency-module-v3" },
