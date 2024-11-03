@@ -38,6 +38,9 @@ Mods = {
     settings = true,
     order = "b",
   },
+  ["elevated-rails"] = {
+    data = true,
+  },
   ["Ultracube"] = {
     data = true,
     updates = true,
