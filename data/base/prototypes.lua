@@ -267,31 +267,31 @@ local Prototypes = {
     },
   },
 
-  ["logistic-chest-active-provider"] = {
+  ["active-provider-chest"] = {
     type = "logistic-container",
     is_entity = true,
     icon_overlay = "pushes",
     text_overlay = "A",
   },
-  ["logistic-chest-passive-provider"] = {
+  ["passive-provider-chest"] = {
     type = "logistic-container",
     is_entity = true,
     icon_overlay = "generates",
     text_overlay = "P",
   },
-  ["logistic-chest-buffer"] = {
+  ["buffer-chest"] = {
     type = "logistic-container",
     is_entity = true,
     icon_overlay = "buffer",
     text_overlay = "B",
   },
-  ["logistic-chest-requester"] = {
+  ["requester-chest"] = {
     type = "logistic-container",
     is_entity = true,
     icon_overlay = "consumes",
     text_overlay = "R",
   },
-  ["logistic-chest-storage"] = {
+  ["storage-chest"] = {
     type = "logistic-container",
     is_entity = true,
     icon_overlay = "storage",
@@ -346,12 +346,6 @@ local Prototypes = {
     icon_overlay = "speed",
     text_overlay = "Fa",
   },
-  ["filter-inserter"] = {
-    type = "inserter",
-    is_entity = true,
-    icon_overlay = "filter",
-    text_overlay = "Fi",
-  },
   ["long-handed-inserter"] = {
     type = "inserter",
     is_entity = true,
@@ -363,19 +357,6 @@ local Prototypes = {
     is_entity = true,
     icon_overlay = "storage",
     text_overlay = "B",
-  },
-  ["stack-inserter"] = {
-    type = "inserter",
-    is_entity = true,
-    icon_overlay = "storage",
-    text_overlay = "S",
-  },
-  ["stack-filter-inserter"] = {
-    type = "inserter",
-    is_entity = true,
-    icon_overlay = "storage",
-    icon_overlay2 = "filter",
-    text_overlay = "SF",
   },
 
   ["coal"] = {

@@ -9,7 +9,7 @@ add_bool_setting(
 
 add_option_setting(
   "filled-barrels",
-  { "", { "gui.all" }, " ", { "item-name.filled-barrel", { "ammo-category-name.fluid" } } },
+  { "", { "gui.all" }, " ", { "item-name.filled-barrel", { "factoriopedia.fluid" } } },
   {
     "fluid-icon",
     "fluid-overlay",
