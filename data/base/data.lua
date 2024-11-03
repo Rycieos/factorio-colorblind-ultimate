@@ -87,38 +87,22 @@ if
   or config("rail-chain-signal-red")
   or config("rail-chain-signal-yellow")
 then
-  local prototype = data:get("rail-signal", "rail-chain-signal")
+  local prototype = data:get("rail-chain-signal", "rail-chain-signal")
   if prototype then
     local stripe = {
       filename = SpritePath .. "rail-chain-signal/rail-chain-signal.png",
       width_in_frames = 1,
     }
-    local sprite_sheet = table.deepcopy(prototype.animation.layers[1])
+    local animation = prototype.ground_picture_set.structure
+    local sprite_sheet = table.deepcopy(animation.layers[1])
 
     sprite_sheet.stripes = {
-      stripe,
-      config("rail-chain-signal-red") and table_merge(stripe, { x = 320 }) or stripe,
-      config("rail-chain-signal-yellow") and table_merge(stripe, { x = 640 }) or stripe,
-      config("rail-chain-signal-green") and table_merge(stripe, { x = 960 }) or stripe,
-      config("rail-chain-signal-blue") and table_merge(stripe, { x = 1280 }) or stripe,
+      config("rail-chain-signal-red") and table_merge(stripe, { x = 100 }) or stripe,
+      config("rail-chain-signal-yellow") and table_merge(stripe, { x = 200 }) or stripe,
+      config("rail-chain-signal-green") and table_merge(stripe, { x = 300 }) or stripe,
+      config("rail-chain-signal-blue") and table_merge(stripe, { x = 400 }) or stripe,
     }
 
-    table.insert(prototype.animation.layers, sprite_sheet)
-    --local sprite_sheet = table.deepcopy(prototype.animation)
-
-    --sprite_sheet.stripes = {
-    --  stripe,
-    --  config("rail-chain-signal-red") and table_merge(stripe, { x = 320 }) or stripe,
-    --  config("rail-chain-signal-yellow") and table_merge(stripe, { x = 640 }) or stripe,
-    --  config("rail-chain-signal-green") and table_merge(stripe, { x = 960 }) or stripe,
-    --  config("rail-chain-signal-blue") and table_merge(stripe, { x = 1280 }) or stripe,
-    --}
-
-    --prototype.animation = {
-    --  layers = {
-    --    prototype.animation,
-    --    sprite_sheet,
-    --  }
-    --}
+    table.insert(animation.layers, sprite_sheet)
   end
 end
