@@ -36,10 +36,15 @@ Mods = {
     data = true,
     updates = true,
     settings = true,
-    order = "b",
+    order = "ba",
   },
   ["elevated-rails"] = {
     data = true,
+  },
+  ["quality"] = {
+    data = true,
+    settings = true,
+    order = "bb",
   },
   ["Ultracube"] = {
     data = true,
