@@ -116,7 +116,7 @@ data:extend({
     name = config_name("overlay-corner"),
     type = "string-setting",
     setting_type = "startup",
-    default_value = "lower-right",
+    default_value = "upper-left",
     allowed_values = keys(Offsets),
     order = "ab",
   },
