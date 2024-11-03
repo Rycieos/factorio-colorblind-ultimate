@@ -48,12 +48,16 @@ do_replace_robot_range_sprite("construction_radius_visualization")
 do_replace_robot_range_sprite("logistic_radius_visualization")
 
 -- Custom GUI colors
-local chart_colors = data.raw["utility-constants"].default.chart
-do_replace_color("artillery_range", chart_colors.artillery_range_color)
-do_replace_color("capsule_range", data.raw["utility-constants"].default.capsule_range_visualization_color)
+local utility_colors = data.raw["utility-constants"].default
+local chart_colors = utility_colors.chart
+do_replace_color("agricultural_range", utility_colors.agricultural_range_visualization_color)
+do_replace_color("artillery_range", utility_colors.artillery_range_visualization_color)
+do_replace_color("artillery_range_map", chart_colors.artillery_range_color)
+do_replace_color("capsule_range", utility_colors.capsule_range_visualization_color)
 do_replace_color("enemy", chart_colors.default_enemy_color)
+do_replace_color("enemy_territory", chart_colors.default_enemy_territory_color)
 --do_replace_color("pollution", chart_colors.pollution_color)
-do_replace_color("turret_range", data.raw["utility-constants"].default.turret_range_visualization_color)
+do_replace_color("turret_range", utility_colors.turret_range_visualization_color)
 do_replace_color("turret_range_map", chart_colors.turret_range_color)
 
 -- Custom tech background colors

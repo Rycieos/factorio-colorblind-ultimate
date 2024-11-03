@@ -59,9 +59,24 @@ add_bg_color_setting("disabled-technology", "grey", {
   { "colorblind_ultimate-word.background-color" },
 })
 
-add_core_color_setting("artillery_range", { "technology-name.artillery-shell-range" })
+if mods["space-age"] then
+  -- While this functionality is in core, the localization requires Space Age to be loaded.
+  add_core_color_setting("agricultural_range", { "", { "technology-name.agriculture" }, " ", { "description.range" } })
+end
+add_core_color_setting(
+  "artillery_range",
+  { "", { "technology-name.artillery-shell-range" }, " ", { "colorblind_ultimate-word.in-game" } }
+)
+add_core_color_setting(
+  "artillery_range_map",
+  { "", { "technology-name.artillery-shell-range" }, " ", { "colorblind_ultimate-word.on-map" } }
+)
 add_core_color_setting("capsule_range", { "", { "ammo-category-name.capsule" }, " ", { "description.range" } })
 add_core_color_setting("enemy", { "autoplace-control-names.enemy-base" })
+add_core_color_setting(
+  "enemy_territory",
+  { "", { "gui-map-generator.enemy-expansion-group-tile" }, " ", { "description.range" } }
+)
 --add_core_color_setting("pollution", { "item-name.pollution" })
 add_core_color_setting(
   "turret_range",
