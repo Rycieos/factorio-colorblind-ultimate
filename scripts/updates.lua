@@ -9,7 +9,7 @@ local function overlay_all_icons(obj, icon, icon2)
     overlay_dark_icon(obj, icon, icon2)
   end
   if obj.pictures then
-    overlay_sprite_variation(obj.pictures, icon_to_sprite(icon, 0.5), icon2 and icon_to_sprite(icon2, 0.5))
+    overlay_sprite_variation(obj.pictures, icon_to_sprite(icon), icon2 and icon_to_sprite(icon2))
   end
 end
 
