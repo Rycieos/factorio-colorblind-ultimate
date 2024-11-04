@@ -142,21 +142,21 @@ local Prototypes = {
     icon_overlay = "tier-3",
   },
 
-  --["blueprint"] = {
-  --  type = "blueprint",
-  --  icon_overlay = "blueprint",
-  --  text_overlay = "B",
-  --},
-  --["deconstruction-planner"] = {
-  --  type = "deconstruction-item",
-  --  icon_overlay = "deconstruction-planner",
-  --  text_overlay = "D",
-  --},
-  --["upgrade-planner"] = {
-  --  type = "upgrade-item",
-  --  icon_overlay = "upgrade-planner",
-  --  text_overlay = "U",
-  --},
+  ["blueprint"] = {
+    type = "blueprint",
+    icon_overlay = "blueprint",
+    text_overlay = "B",
+  },
+  ["deconstruction-planner"] = {
+    type = "deconstruction-item",
+    icon_overlay = "deconstruction-planner",
+    text_overlay = "D",
+  },
+  ["upgrade-planner"] = {
+    type = "upgrade-item",
+    icon_overlay = "upgrade-planner",
+    text_overlay = "U",
+  },
 
   ["nuclear-fuel"] = {
     type = "item",
