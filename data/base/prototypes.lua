@@ -290,7 +290,7 @@ local Prototypes = {
   ["storage-chest"] = {
     type = "logistic-container",
     is_entity = true,
-    icon_overlay = "storage",
+    icon_overlay = "stack",
     text_overlay = "S",
   },
 
@@ -334,7 +334,7 @@ local Prototypes = {
     type = "inserter",
     is_entity = true,
     icon_overlay = "flame-custom",
-    text_overlay = "B",
+    text_overlay = "Bn",
   },
   ["fast-inserter"] = {
     type = "inserter",
@@ -351,7 +351,7 @@ local Prototypes = {
   ["bulk-inserter"] = {
     type = "inserter",
     is_entity = true,
-    icon_overlay = "storage",
+    icon_overlay = "plus",
     text_overlay = "B",
   },
 

@@ -60,6 +60,13 @@ local Prototypes = {
     icon_replacement = true,
     icon_overlay = "tier-4",
   },
+
+  ["stack-inserter"] = {
+    type = "inserter",
+    is_entity = true,
+    icon_overlay = "stack",
+    text_overlay = "S",
+  },
 }
 
 return Prototypes
