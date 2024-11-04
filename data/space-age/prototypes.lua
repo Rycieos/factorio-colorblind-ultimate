@@ -36,6 +36,30 @@ local Prototypes = {
     icon_overlay = "piercing",
     text_overlay = "R",
   },
+
+  ["turbo-loader"] = {
+    type = "loader",
+    sprite_replacement = SpritePath .. "turbo-loader/turbo-loader-structure.png",
+    icon_replacement = true,
+    icon_overlay = "tier-4",
+  },
+  ["turbo-splitter"] = {
+    type = "splitter",
+    is_entity = true,
+    icon_overlay = "tier-4",
+  },
+  ["turbo-transport-belt"] = {
+    type = "transport-belt",
+    is_entity = true,
+    icon_replacement = true,
+    icon_overlay = "tier-4",
+  },
+  ["turbo-underground-belt"] = {
+    type = "underground-belt",
+    sprite_replacement = SpritePath .. "turbo-underground-belt/turbo-underground-belt-structure.png",
+    icon_replacement = true,
+    icon_overlay = "tier-4",
+  },
 }
 
 return Prototypes
