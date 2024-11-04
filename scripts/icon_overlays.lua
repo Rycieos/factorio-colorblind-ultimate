@@ -47,10 +47,18 @@ BaseOverlays = {
 }
 
 function create_overlay_from_icons(icons, shift, scale)
-  return util.combine_icons({}, icons, {
-    shift = shift or primary_shift,
-    scale = scale or IconScale,
-  })
+  icons = table.deepcopy(icons)
+  shift = shift or primary_shift
+  scale = scale or IconScale
+  for _, icon in ipairs(icons) do
+    icon.scale = (icon.scale or (32 / icon.icon_size)) * scale
+    local original_shift = icon.shift or { 0, 0 }
+    icon.shift = {
+      original_shift[1] * scale + shift[1],
+      original_shift[2] * scale + shift[2],
+    }
+  end
+  return icons
 end
 
 Overlays = {}
