@@ -46,6 +46,11 @@ Mods = {
     settings = true,
     order = "bb",
   },
+  ["space-age"] = {
+    data = true,
+    settings = true,
+    order = "bc",
+  },
   ["Ultracube"] = {
     data = true,
     updates = true,
