@@ -158,15 +158,11 @@ local Prototypes = {
   --  text_overlay = "U",
   --},
 
-  --["nuclear-fuel"] = {
-  --  type = "item",
-  --  icon_overlay = "nuclear",
-  --  text_overlay = "U",
-  --  -- The only simple recipe in the game that has a separate icon.
-  --  --nested_prototypes = {
-  --  --  { "recipe", "nuclear-fuel" },
-  --  --},
-  --},
+  ["nuclear-fuel"] = {
+    type = "item",
+    icon_overlay = "nuclear",
+    text_overlay = "U",
+  },
   ["uranium-235"] = {
     type = "item",
     icon_overlay = "nuclear",
