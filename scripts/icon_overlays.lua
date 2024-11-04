@@ -17,6 +17,12 @@ BaseOverlays = {
     scale = IconScale * 0.4,
     shift = primary_shift,
   },
+  small_constant = {
+    icon_size = 64,
+    icon_mipmaps = 3,
+    scale = IconScale * 0.4,
+    shift = primary_shift,
+  },
   tooltip = {
     icon_size = 40,
     icon_mipmaps = 2,
@@ -66,6 +72,12 @@ local function create_constant(name, path)
   })
 end
 
+local function create_small_constant(name, path)
+  create_overlay(name, BaseOverlays.small_constant, {
+    icon = path,
+  })
+end
+
 local function create_tooltip(name, path)
   create_overlay(name, BaseOverlays.tooltip, {
     icon = path and path or IconPath .. "tooltips/" .. name .. ".png",
@@ -93,10 +105,10 @@ create_constant("efficiency", CoreIconPath .. "technology/constants/constant-bat
 create_constant("productivity", CoreIconPath .. "technology/constants/constant-mining-productivity.png")
 create_constant("speed", CoreIconPath .. "technology/constants/constant-speed.png")
 create_constant("quality", CoreIconPath .. "technology/constants/constant-count.png")
-create_constant("tier-1", IconPath .. "constants/tier-1.png")
-create_constant("tier-2", IconPath .. "constants/tier-2.png")
-create_constant("tier-3", IconPath .. "constants/tier-3.png")
-create_constant("tier-4", IconPath .. "constants/tier-4.png")
+create_small_constant("tier-1", IconPath .. "constants/tier-1.png")
+create_small_constant("tier-2", IconPath .. "constants/tier-2.png")
+create_small_constant("tier-3", IconPath .. "constants/tier-3.png")
+create_small_constant("tier-4", IconPath .. "constants/tier-4.png")
 
 create_tooltip("buffer")
 create_tooltip("consumes")
