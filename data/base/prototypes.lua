@@ -312,12 +312,12 @@ local Prototypes = {
   ["chemical-science-pack"] = {
     type = "tool",
     icon_overlay = "sulfuric-acid",
-    text_overlay = "C",
+    text_overlay = "Ch",
   },
   ["production-science-pack"] = {
     type = "tool",
     icon_overlay = "productivity-module",
-    text_overlay = "P",
+    text_overlay = "Pd",
   },
   ["utility-science-pack"] = {
     type = "tool",
@@ -328,6 +328,9 @@ local Prototypes = {
     type = "tool",
     icon_overlay = "satellite",
     text_overlay = "S",
+    nested_prototypes = {
+      { "recipe", "space-science-pack" },
+    },
   },
 
   ["burner-inserter"] = {

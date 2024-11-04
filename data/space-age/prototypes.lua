@@ -67,6 +67,49 @@ local Prototypes = {
     icon_overlay = "stack",
     text_overlay = "S",
   },
+
+  ["metallurgic-science-pack"] = {
+    type = "tool",
+    icon_overlay = "tungsten-carbide",
+    text_overlay = "T",
+  },
+  ["electromagnetic-science-pack"] = {
+    type = "tool",
+    icon_overlay = "holmium-solution",
+    text_overlay = "E",
+  },
+  ["agricultural-science-pack"] = {
+    type = "tool",
+    icon_overlay = "bioflux",
+    text_overlay = "B",
+  },
+  ["cryogenic-science-pack"] = {
+    type = "tool",
+    icon_overlay = "lithium-plate",
+    text_overlay = "C",
+  },
+  ["promethium-science-pack"] = {
+    type = "tool",
+    icon_overlay = "promethium-asteroid-chunk",
+    text_overlay = "P",
+  },
+
+  --florine
+  --thruster-fuel
+  --thruster-oxidizer
+  --lava
+  --holmium-solution
+  --electrolyte
+  --ammoniacal-solution
+  --fluoroketone-hot
+  --fluoroketone-cold
+  --lithium-brine
+  --
+  --casting-iron
+  --casting-copper
+  --casting-copper-cable
+  --advanced-thruster-fuel
+  --advanced-thruster-oxidizer
 }
 
 return Prototypes

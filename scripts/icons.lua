@@ -3,6 +3,7 @@ require("scripts/utils")
 IconPath = ModPath .. "/graphics/icons/"
 BaseIconPath = "__base__/graphics/icons/"
 CoreIconPath = "__core__/graphics/icons/"
+SpaceIconPath = "__space-age__/graphics/icons/"
 
 -- Overwrite a default icon.
 function replace_icons(obj, icons)
