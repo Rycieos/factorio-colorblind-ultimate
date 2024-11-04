@@ -15,11 +15,11 @@ local Prototypes = {
     type = "item",
     text_overlay = "Fe",
   },
-  --["stone-brick"] = {
-  --  type = "item",
-  --  icon_overlay = "rock-big",
-  --  text_overlay = "S",
-  --},
+  ["stone-brick"] = {
+    type = "item",
+    icon_overlay = "big-rock",
+    text_overlay = "S",
+  },
 
   ["signal-each"] = {
     type = "virtual-signal",
