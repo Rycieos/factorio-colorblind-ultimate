@@ -1,4 +1,34 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 2024-11-05
+  Major Features:
+    - Now (only) compatible with Factorio 2.0.
+    - Support for Elevated Rails expansion mod.
+    - Support for Quality expansion mod.
+    - Support for Space Age expansion mod.
+    - Ability to select replacement and overlay at the same time. This will
+      reset some current settings, so make note of them before updating.
+
+  Minor Features:
+    - Icons based on items used as overlays are now taken from the item where
+      possible to preserve changes made by other mods.
+
+  Changes:
+    - Default overlay location is now upper left to avoid conflict with
+      Quality.
+    - Default secondary overlay location is now upper right.
+    - Explosive uranium cannon shell now has "ExU" text instead of "Ex" and
+      "U'.
+    - Stack icon moved to Stack inserter. Bulk inserter now has a plus icon.
+    - Chemical science pack now has "Ch" text instead of "C".
+    - Production science pack now has "Pd" text instead of "P".
+    - Burner inserter now has "Bn" text instead of "B".
+    - Custom tooltip icons now have black outline.
+
+  Locale:
+    - Added Romanian.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.6.0
 Date: 2024-05-07
   Features:
@@ -30,6 +60,8 @@ Version: 1.3.1
 Date: 2024-05-02
   Features:
     - Localization of dropdown setting options.
+
+  Locale:
     - Spanish and Russian translations.
 
   Bugfixes:
