@@ -17,7 +17,7 @@ local Prototypes = {
   },
   ["stone-brick"] = {
     type = "item",
-    icon_overlay = "big-rock",
+    icon_overlay_from = { "simple-entity", "big-rock" },
     text_overlay = "S",
   },
 
@@ -214,18 +214,18 @@ local Prototypes = {
 
   ["cliff-explosives"] = {
     type = "capsule",
-    icon_overlay = "cliff",
+    icon_overlay_from = { "cliff", "cliff" },
     text_overlay = "C",
   },
 
   ["piercing-rounds-magazine"] = {
     type = "ammo",
-    icon_overlay = "piercing",
+    icon_overlay_from = { "item", "iron-stick" },
     text_overlay = "P",
   },
   ["piercing-shotgun-shell"] = {
     type = "ammo",
-    icon_overlay = "piercing",
+    icon_overlay_from = { "item", "iron-stick" },
     text_overlay = "P",
   },
 
@@ -296,32 +296,32 @@ local Prototypes = {
 
   ["automation-science-pack"] = {
     type = "tool",
-    icon_overlay = "iron-gear-wheel",
+    icon_overlay_from = { "item", "iron-gear-wheel" },
     text_overlay = "A",
   },
   ["logistic-science-pack"] = {
     type = "tool",
-    icon_overlay = "inserter",
+    icon_overlay_from = { "item", "inserter" },
     text_overlay = "L",
   },
   ["military-science-pack"] = {
     type = "tool",
-    icon_overlay = "piercing-rounds-magazine",
+    icon_overlay_from = { "ammo", "piercing-rounds-magazine" },
     text_overlay = "M",
   },
   ["chemical-science-pack"] = {
     type = "tool",
-    icon_overlay = "sulfuric-acid",
+    icon_overlay_from = { "fluid", "sulfuric-acid" },
     text_overlay = "Ch",
   },
   ["production-science-pack"] = {
     type = "tool",
-    icon_overlay = "productivity-module",
+    icon_overlay_from = { "module", "productivity-module" },
     text_overlay = "Pd",
   },
   ["utility-science-pack"] = {
     type = "tool",
-    icon_overlay = "processing-unit",
+    icon_overlay_from = { "item", "processing-unit" },
     text_overlay = "U",
   },
   ["space-science-pack"] = {
@@ -380,20 +380,20 @@ local Prototypes = {
   },
   ["uranium-ore"] = {
     type = "item",
-    icon_overlay = "uranium",
+    icon_overlay_from = { "item", "uranium-238" },
     text_overlay = "U",
   },
 
   ["crude-oil"] = {
     type = "fluid",
     localised_name = { "fluid-name.crude-oil" },
-    icon_overlay = "pumpjack",
+    icon_overlay_from = { "item", "pumpjack" },
     text_overlay = "C",
   },
   ["lubricant"] = {
     type = "fluid",
     localised_name = { "fluid-name.lubricant" },
-    icon_overlay = "iron-gear-wheel",
+    icon_overlay_from = { "item", "iron-gear-wheel" },
     text_overlay = "Lu",
   },
   ["heavy-oil"] = {

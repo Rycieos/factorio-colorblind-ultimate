@@ -33,7 +33,7 @@ local Prototypes = {
 
   ["railgun-ammo"] = {
     type = "ammo",
-    icon_overlay = "piercing",
+    icon_overlay_from = { "item", "iron-stick" },
     text_overlay = "R",
   },
 
@@ -68,29 +68,38 @@ local Prototypes = {
     text_overlay = "S",
   },
 
+  ["space-science-pack"] = {
+    type = "tool",
+    config_from = "space-science-pack",
+    icon_overlay_from = { "item", "carbon" },
+    text_overlay = "S",
+    nested_prototypes = {
+      { "recipe", "space-science-pack" },
+    },
+  },
   ["metallurgic-science-pack"] = {
     type = "tool",
-    icon_overlay = "tungsten-carbide",
+    icon_overlay_from = { "item", "tungsten-carbide" },
     text_overlay = "T",
   },
   ["electromagnetic-science-pack"] = {
     type = "tool",
-    icon_overlay = "holmium-solution",
+    icon_overlay_from = { "fluid", "holmium-solution" },
     text_overlay = "E",
   },
   ["agricultural-science-pack"] = {
     type = "tool",
-    icon_overlay = "bioflux",
+    icon_overlay_from = { "capsule", "bioflux" },
     text_overlay = "B",
   },
   ["cryogenic-science-pack"] = {
     type = "tool",
-    icon_overlay = "lithium-plate",
+    icon_overlay_from = { "item", "lithium-plate" },
     text_overlay = "C",
   },
   ["promethium-science-pack"] = {
     type = "tool",
-    icon_overlay = "promethium-asteroid-chunk",
+    icon_overlay_from = { "item", "promethium-asteroid-chunk" },
     text_overlay = "P",
   },
 
