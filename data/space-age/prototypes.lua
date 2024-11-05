@@ -103,17 +103,67 @@ local Prototypes = {
     text_overlay = "P",
   },
 
-  --florine
-  --thruster-fuel
-  --thruster-oxidizer
-  --lava
-  --holmium-solution
-  --electrolyte
-  --ammoniacal-solution
-  --fluoroketone-hot
-  --fluoroketone-cold
-  --lithium-brine
-  --
+  ["fluorine"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.fluorine" },
+    icon_overlay_from = { "resource", "fluorine-vent" },
+    text_overlay = "F",
+  },
+  ["lithium-brine"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.lithium-brine" },
+    icon_overlay_from = { "item", "lithium" },
+    text_overlay = "Li",
+  },
+  ["thruster-fuel"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.thruster-fuel" },
+    icon_overlay = "flame-custom",
+    text_overlay = "F",
+  },
+  ["thruster-oxidizer"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.thruster-oxidizer" },
+    icon_overlay = "water-custom",
+    text_overlay = "O",
+  },
+  ["electrolyte"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.electrolyte" },
+    icon_overlay_from = { "item", "supercapacitor" },
+    text_overlay = "E",
+  },
+  ["holmium-solution"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.holmium-solution" },
+    icon_overlay_from = { "item", "holmium-ore" },
+    text_overlay = "Ho",
+  },
+  ["lava"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.lava" },
+    icon_overlay_from = { "item", "stone" },
+    text_overlay = "La",
+  },
+  ["ammoniacal-solution"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.ammoniacal-solution" },
+    icon_overlay_from = { "fluid", "ammonia" },
+    text_overlay = "A",
+  },
+  ["fluoroketone-hot"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.fluoroketone-hot" },
+    icon_overlay = "flame-custom",
+    text_overlay = "Fh",
+  },
+  ["fluoroketone-cold"] = {
+    type = "fluid",
+    localised_name = { "fluid-name.fluoroketone-cold" },
+    icon_overlay_from = { "item", "cryogenic-plant" },
+    text_overlay = "Fc",
+  },
+
   --casting-iron
   --casting-copper
   --casting-copper-cable
