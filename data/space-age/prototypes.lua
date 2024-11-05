@@ -163,12 +163,6 @@ local Prototypes = {
     icon_overlay_from = { "item", "cryogenic-plant" },
     text_overlay = "Fc",
   },
-
-  --casting-iron
-  --casting-copper
-  --casting-copper-cable
-  --advanced-thruster-fuel
-  --advanced-thruster-oxidizer
 }
 
 return Prototypes
