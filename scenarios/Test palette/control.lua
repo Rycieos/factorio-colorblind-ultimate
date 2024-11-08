@@ -8,7 +8,7 @@ local on_player_created = function(event)
     character.destroy()
   end
 
-  local r = global.chart_distance or 200
+  local r = storage.chart_distance or 200
   player.force.chart(
     player.surface,
     { { player.position.x - r, player.position.y - r }, { player.position.x + r, player.position.y + r } }
