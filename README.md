@@ -35,3 +35,8 @@ adds, you can submit a [suggestion
 issue](https://github.com/Rycieos/factorio-colorblind-ultimate/issues/new?labels=enhancement%2Ctriage&template=suggestion.yml)
 requesting mod support. Be specific about which icons and/or sprites you have
 difficulty with.
+
+
+### Credits
+
+* FlamingCarrot for the color signal icons (https://mods.factorio.com/mod/ColourBlindSignals)
