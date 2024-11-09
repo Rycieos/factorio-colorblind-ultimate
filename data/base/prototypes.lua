@@ -301,31 +301,37 @@ local Prototypes = {
   },
   ["logistic-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay_from = { "item", "inserter" },
     text_overlay = "L",
   },
   ["military-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay_from = { "ammo", "piercing-rounds-magazine" },
     text_overlay = "M",
   },
   ["chemical-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay_from = { "fluid", "sulfuric-acid" },
     text_overlay = "Ch",
   },
   ["production-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay_from = { "module", "productivity-module" },
     text_overlay = "Pd",
   },
   ["utility-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay_from = { "item", "processing-unit" },
     text_overlay = "U",
   },
   ["space-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay = "satellite",
     text_overlay = "S",
     nested_prototypes = {

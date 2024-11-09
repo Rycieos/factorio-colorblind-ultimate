@@ -40,3 +40,5 @@ difficulty with.
 ### Credits
 
 * FlamingCarrot for the color signal icons (https://mods.factorio.com/mod/ColourBlindSignals)
+* ©Hornwitser for the science pack icons (https://mods.factorio.com/mod/quality_glassware)
+  ([License](https://creativecommons.org/licenses/by-sa/4.0/))

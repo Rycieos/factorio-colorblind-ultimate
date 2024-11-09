@@ -71,6 +71,7 @@ local Prototypes = {
   ["space-science-pack"] = {
     type = "tool",
     config_from = "space-science-pack",
+    icon_replacement = true,
     icon_overlay_from = { "item", "carbon" },
     text_overlay = "S",
     nested_prototypes = {
@@ -84,21 +85,25 @@ local Prototypes = {
   },
   ["electromagnetic-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay_from = { "fluid", "holmium-solution" },
     text_overlay = "E",
   },
   ["agricultural-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay_from = { "capsule", "bioflux" },
     text_overlay = "B",
   },
   ["cryogenic-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay_from = { "item", "lithium-plate" },
     text_overlay = "C",
   },
   ["promethium-science-pack"] = {
     type = "tool",
+    icon_replacement = true,
     icon_overlay_from = { "item", "promethium-asteroid-chunk" },
     text_overlay = "P",
   },
