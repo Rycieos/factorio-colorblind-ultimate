@@ -37,3 +37,5 @@ add_bool_setting(
   "train-stop-signal-red",
   { "", { "entity-name.train-stop" }, " ", { "virtual-signal-name.signal-red" } }
 )
+
+add_color_setting("pollution", { "airborne-pollutant-name.pollution" }, { r = 140, g = 0, b = 0, a = 149 })

@@ -14,7 +14,6 @@ DefaultColors = {
   capsule_range = { r = 0.05, g = 0.1, b = 0.05, a = 0.15 },
   enemy = { r = 1, g = 0.1, b = 0.1, a = 1 },
   enemy_territory = { r = 0.3, g = 0.03, b = 0.03, a = 0.3 },
-  --pollution = { r = 140, g = 0, b = 0, a = 149 },
   turret_range = { r = 0.05, g = 0.1, b = 0.05, a = 0.15 },
   turret_range_map = { r = 0.8, g = 0.25, b = 0.25, a = 1 },
 

@@ -16,3 +16,10 @@ end
 do_replace_casting("copper-plate", "copper")
 do_replace_casting("copper-cable", "copper-cable")
 do_replace_casting("iron-plate", "iron")
+
+if config("spores-color") then
+  local prototype = data:get("airborne-pollutant", "spores")
+  if prototype and not color_equals(config("spores-color"), prototype.chart_color) then
+    prototype.chart_color = config("spores-color")
+  end
+end

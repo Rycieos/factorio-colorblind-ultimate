@@ -56,7 +56,6 @@ do_replace_color("artillery_range_map", chart_colors.artillery_range_color)
 do_replace_color("capsule_range", utility_colors.capsule_range_visualization_color)
 do_replace_color("enemy", chart_colors.default_enemy_color)
 do_replace_color("enemy_territory", chart_colors.default_enemy_territory_color)
---do_replace_color("pollution", chart_colors.pollution_color)
 do_replace_color("turret_range", utility_colors.turret_range_visualization_color)
 do_replace_color("turret_range_map", chart_colors.turret_range_color)
 
