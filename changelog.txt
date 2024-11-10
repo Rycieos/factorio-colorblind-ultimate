@@ -4,24 +4,25 @@ Date: 09. 11. 2024
   Info:
     - Updated by Fr_Dae
   Changes:
-    - add Fr Localisation
-    - add icon on desc
-    - clean up of info.json
+    - Add Fr Localisation
+    - Add icon on desc
+    - Clean up of info.json
+    - Change iso 8601 date format for "factorio" standart (dd. mm. yyyy)
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.0
-Date: 2024-11-08
+Date: 08. 11. 2024
   Features:
     - Custom icons for science packs. (Credit: Hornwitser)
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.1
-Date: 2024-11-08
+Date: 08. 11. 2024
   Bugfixes:
     - Crash when loading test palette scenario.
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.0
-Date: 2024-11-05
+Date: 05. 05. 2024
   Major Features:
     - Now (only) compatible with Factorio 2.0.
     - Support for Elevated Rails expansion mod.
@@ -51,13 +52,13 @@ Date: 2024-11-05
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.6.0
-Date: 2024-05-07
+Date: 07. 05. 2024
   Features:
     - Options for circuit connection light colors.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.5.0
-Date: 2024-05-06
+Date: 06. 05. 2024
   Features:
     - Ultracube support. Includes items, fluids, recpies, and entities.
 
@@ -68,7 +69,7 @@ Date: 2024-05-06
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.4.0
-Date: 2024-05-04
+Date: 04. 05. 2024
   Features:
     - Option for overlaying fluid barrels separately from fluids.
 
@@ -78,7 +79,7 @@ Date: 2024-05-04
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.1
-Date: 2024-05-02
+Date: 02. 05. 2024
   Features:
     - Localization of dropdown setting options.
 
@@ -90,7 +91,7 @@ Date: 2024-05-02
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.0
-Date: 2024-05-01
+Date: 01. 05. 2024
   Major Features:
     - Major internal refactor to better support mods in the future, as well as
       supporting text overlays on everything.
@@ -118,7 +119,7 @@ Date: 2024-05-01
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
-Date: 2024-04-27
+Date: 27. 04. 2024
   Features:
     - Add setting for customizing capsule overlay color.
 
@@ -131,12 +132,12 @@ Date: 2024-04-27
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
-Date: 2024-04-27
+Date: 07. 04. 2024
   Major Features:
     - Added mod options for customizing overlay corner location.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
-Date: 2024-04-26
+Date: 26. 04 2024
   Major Features:
     - Initial release.
