@@ -77,7 +77,6 @@ add_core_color_setting(
   "enemy_territory",
   { "", { "gui-map-generator.enemy-expansion-group-tile" }, " ", { "description.range" } }
 )
---add_core_color_setting("pollution", { "item-name.pollution" })
 add_core_color_setting(
   "turret_range",
   { "", { "tooltip-category.turret" }, " ", { "description.range" }, " ", { "colorblind_ultimate-word.in-game" } }

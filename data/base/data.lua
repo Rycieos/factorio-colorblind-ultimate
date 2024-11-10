@@ -106,3 +106,10 @@ then
     table.insert(animation.layers, sprite_sheet)
   end
 end
+
+if config("pollution-color") then
+  local prototype = data:get("airborne-pollutant", "pollution")
+  if prototype and not color_equals(config("pollution-color"), prototype.chart_color) then
+    prototype.chart_color = config("pollution-color")
+  end
+end
