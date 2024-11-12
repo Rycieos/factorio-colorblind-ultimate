@@ -1,19 +1,19 @@
 {
-    "name": "colorblind_ultimate",
-    "title": "♿Color Blind Ultimate ♿",
-    "description": "♿ Ultimate options for color blindness accessibility. \n  Includes custom icons, sprites, icon and sprite overlays, text overlays, customizable wire colors, customizable game and map overlay colors, and customizable technology background colors. Everything is individually customizable. \n Can be removed without affecting save games.",
-
-    "author": "rycieos",
-    "homepage": "https://github.com/Rycieos/factorio-colorblind-ultimate",
-    "contact": "https://github.com/Rycieos/factorio-colorblind-ultimate/issues/new/choose"
-
-    "version": "2.1.1",
-    "factorio_version": "2.0",
-    "dependencies": [
-    "base",
-    "? elevated-rails >= 2.0.7",
-    "? quality >= 2.0.7",
-    "? space-age >= 2.0.7",
-    "? Ultracube >= 0.2.0"
-    ]
+  "name": "colorblind_ultimate",
+  "title": "♿Color Blind Ultimate ♿",
+  "description": "♿ Ultimate options for color blindness accessibility. \n  Includes custom icons, sprites, icon and sprite overlays, text overlays, customizable wire colors, customizable game and map overlay colors, and customizable technology background colors. Everything is individually customizable. \n Can be removed without affecting save games.",
+  
+  "author": "rycieos",
+  "homepage": "https://github.com/Rycieos/factorio-colorblind-ultimate",
+  "contact": "https://github.com/Rycieos/factorio-colorblind-ultimate/issues/new/choose"
+  
+  "version": "2.1.1",
+  "factorio_version": "2.0",
+  "dependencies": [
+  "base",
+  "? elevated-rails >= 2.0.7",
+  "? quality >= 2.0.7",
+  "? space-age >= 2.0.7",
+  "? Ultracube >= 0.2.0"
+  ]
 }
