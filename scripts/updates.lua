@@ -3,6 +3,16 @@ require("scripts.icon_overlays")
 require("scripts.icons")
 require("scripts.sprites")
 
+function update_resource_color(name)
+  local setting = config(name .. "-map-color")
+  if setting then
+    local prototype = data:get("resource", name)
+    if prototype and not color_equals(setting, prototype.map_color) then
+      prototype.map_color = setting
+    end
+  end
+end
+
 local function overlay_all_icons(obj, icon, icon2)
   overlay_icon(obj, icon, icon2)
   if obj.dark_background_icons or obj.dark_background_icon then

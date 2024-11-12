@@ -107,9 +107,16 @@ then
   end
 end
 
-if config("pollution-color") then
+if config("pollution-map-color") then
   local prototype = data:get("airborne-pollutant", "pollution")
-  if prototype and not color_equals(config("pollution-color"), prototype.chart_color) then
-    prototype.chart_color = config("pollution-color")
+  if prototype and not color_equals(config("pollution-map-color"), prototype.chart_color) then
+    prototype.chart_color = config("pollution-map-color")
   end
 end
+
+update_resource_color("coal")
+update_resource_color("copper-ore")
+update_resource_color("crude-oil")
+update_resource_color("iron-ore")
+update_resource_color("stone")
+update_resource_color("uranium-ore")

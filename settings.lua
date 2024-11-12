@@ -42,6 +42,19 @@ function add_color_setting(name, localised_name, default)
   })
 end
 
+function add_map_color_setting(name, default, localised_name)
+  data:extend({
+    {
+      name = config_name(name .. "-map-color"),
+      type = "color-setting",
+      setting_type = "startup",
+      default_value = default,
+      order = order_prefix .. "b" .. name .. "e",
+      localised_name = { "", localised_name or { "entity-name." .. name }, " ", { "colorblind_ultimate-word.on-map" } },
+    },
+  })
+end
+
 function settings_from_prototypes(prototypes)
   for name, proto in pairs(prototypes) do
     if not proto.config_from then

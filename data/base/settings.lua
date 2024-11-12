@@ -38,4 +38,13 @@ add_bool_setting(
   { "", { "entity-name.train-stop" }, " ", { "virtual-signal-name.signal-red" } }
 )
 
-add_color_setting("pollution", { "airborne-pollutant-name.pollution" }, { r = 140, g = 0, b = 0, a = 149 })
+-- Source: __base__/prototypes/pollution.lua
+add_map_color_setting("pollution", { r = 140, g = 0, b = 0, a = 149 }, { "airborne-pollutant-name.pollution" })
+
+-- Source: __base__/prototypes/entity/resources.lua
+add_map_color_setting("coal", { r = 0, g = 0, b = 0 })
+add_map_color_setting("copper-ore", { r = 0.803, g = 0.388, b = 0.215 })
+add_map_color_setting("crude-oil", { r = 0.78, g = 0.2, b = 0.77 })
+add_map_color_setting("iron-ore", { r = 0.415, g = 0.525, b = 0.580 })
+add_map_color_setting("stone", { r = 0.690, g = 0.611, b = 0.427 })
+add_map_color_setting("uranium-ore", { r = 0, g = 0.7, b = 0 })
