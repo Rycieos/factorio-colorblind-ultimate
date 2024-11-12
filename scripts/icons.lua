@@ -65,10 +65,11 @@ function overlay_dark_icon(obj, icon, icon2)
 end
 
 -- Used as a base icon for layering all not full size icons on top.
+-- It is not quite completely empty to allow for shading.
+-- https://forums.factorio.com/viewtopic.php?f=48&t=69221&start=20#p450447
 EmptyIcon = {
-  icon = "__core__/graphics/empty.png",
-  icon_size = 1,
-  scale = 32,
+  icon = IconPath .. "empty.png",
+  icon_size = 32,
 }
 
 -- Used as a base icon RotatedAnimations that need the same size everywhere.
