@@ -1,3 +1,5 @@
+require("data.space-age.constants")
+
 local prototypes = require("data.space-age.prototypes")
 settings_from_prototypes(prototypes)
 
@@ -11,3 +13,12 @@ add_map_color_setting("lithium-brine", { r = 0.7, g = 1.0, b = 0.6 })
 add_map_color_setting("scrap", { r = 0.9, g = 0.9, b = 0.9 })
 add_map_color_setting("sulfuric-acid-geyser", { r = 0.78, g = 0.78, b = 0.1 })
 add_map_color_setting("tungsten-ore", { r = 98 / 256, g = 86 / 256, b = 150 / 256, a = 1.000 })
+
+add_color_setting("asteroid-collector-visualization", SpaceAgeDefaultColors["asteroid-collector-visualization"], {
+  "",
+  { "entity-name.asteroid-collector" },
+  " ",
+  { "description.range" },
+  " ",
+  { "gui-interface-settings.visualization" },
+})

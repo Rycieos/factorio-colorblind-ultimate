@@ -120,3 +120,22 @@ update_resource_color("crude-oil")
 update_resource_color("iron-ore")
 update_resource_color("stone")
 update_resource_color("uranium-ore")
+
+local color = config("beacon-visualization-color")
+if color and not color_equals(color, BaseDefaultColors["beacon-visualization"]) then
+  update_radius_visualization_color("beacon", "beacon", color)
+end
+
+color = config("electric-pole-visualization-color")
+if color and not color_equals(color, BaseDefaultColors["electric-pole-visualization"]) then
+  update_radius_visualization_color("electric-pole", "small-electric-pole", color)
+  update_radius_visualization_color("electric-pole", "medium-electric-pole", color)
+  update_radius_visualization_color("electric-pole", "big-electric-pole", color)
+  update_radius_visualization_color("electric-pole", "substation", color)
+end
+
+color = config("mining-drill-visualization-color")
+if color and not color_equals(color, BaseDefaultColors["mining-drill-visualization"]) then
+  update_radius_visualization_color("mining-drill", "electric-mining-drill", color)
+  update_radius_visualization_color("mining-drill", "pumpjack", color)
+end

@@ -29,7 +29,7 @@ function add_option_setting(name, localised_name, options)
   })
 end
 
-function add_color_setting(name, localised_name, default)
+function add_color_setting(name, default, localised_name)
   data:extend({
     {
       name = config_name(name .. "-color"),

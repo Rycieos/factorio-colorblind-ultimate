@@ -13,6 +13,15 @@ function update_resource_color(name)
   end
 end
 
+function update_radius_visualization_color(_type, name, color)
+  local prototype = data:get(_type, name)
+  if prototype then
+    local sprite = prototype.radius_visualisation_picture
+    sprite.filename = ModPath .. "/graphics/visualization-radius.png"
+    sprite.tint = color
+  end
+end
+
 local function overlay_all_icons(obj, icon, icon2)
   overlay_icon(obj, icon, icon2)
   if obj.dark_background_icons or obj.dark_background_icon then

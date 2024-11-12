@@ -1,3 +1,5 @@
+require("data.base.constants")
+
 local prototypes = require("data.base.prototypes")
 settings_from_prototypes(prototypes)
 
@@ -48,3 +50,22 @@ add_map_color_setting("crude-oil", { r = 0.78, g = 0.2, b = 0.77 })
 add_map_color_setting("iron-ore", { r = 0.415, g = 0.525, b = 0.580 })
 add_map_color_setting("stone", { r = 0.690, g = 0.611, b = 0.427 })
 add_map_color_setting("uranium-ore", { r = 0, g = 0.7, b = 0 })
+
+add_color_setting(
+  "beacon-visualization",
+  BaseDefaultColors["beacon-visualization"],
+  { "", { "entity-name.beacon" }, " ", { "description.range" }, " ", { "gui-interface-settings.visualization" } }
+)
+add_color_setting("electric-pole-visualization", BaseDefaultColors["electric-pole-visualization"], {
+  "",
+  { "tips-and-tricks-item-name.electric-network" },
+  " ",
+  { "description.range" },
+  " ",
+  { "gui-interface-settings.visualization" },
+})
+add_color_setting(
+  "mining-drill-visualization",
+  BaseDefaultColors["mining-drill-visualization"],
+  { "", { "description.mining-area" }, " ", { "description.range" }, " ", { "gui-interface-settings.visualization" } }
+)

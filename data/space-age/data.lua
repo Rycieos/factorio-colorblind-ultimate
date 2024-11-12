@@ -2,6 +2,8 @@ require("scripts.icons")
 require("scripts.icon_overlays")
 require("scripts.fluids")
 require("scripts.updates")
+require("data.base.constants")
+require("data.space-age.constants")
 
 local prototypes = require("data.space-age.prototypes")
 apply_prototypes(prototypes)
@@ -30,3 +32,13 @@ update_resource_color("lithium-brine")
 update_resource_color("scrap")
 update_resource_color("sulfuric-acid-geyser")
 update_resource_color("tungsten-ore")
+
+local color = config("mining-drill-visualization-color")
+if color and not color_equals(color, BaseDefaultColors["mining-drill-visualization"]) then
+  update_radius_visualization_color("mining-drill", "big-mining-drill", color)
+end
+
+color = config("asteroid-collector-visualization-color")
+if color and not color_equals(color, SpaceAgeDefaultColors["asteroid-collector-visualization"]) then
+  update_radius_visualization_color("asteroid-collector", "asteroid-collector", color)
+end

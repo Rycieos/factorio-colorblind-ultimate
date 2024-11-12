@@ -1,7 +1,7 @@
 require("data.core.constants")
 
 local function add_core_color_setting(name, localised_name)
-  add_color_setting(name, localised_name, DefaultColors[name])
+  add_color_setting(name, DefaultColors[name], localised_name)
 end
 
 local function add_bg_color_setting(name, default, localised_name, allowed_values)
@@ -86,14 +86,26 @@ add_core_color_setting(
   { "", { "tooltip-category.turret" }, " ", { "description.range" }, " ", { "colorblind_ultimate-word.on-map" } }
 )
 
-add_core_color_setting(
-  "construction_radius_visualization",
-  { "", { "entity-name.roboport" }, " ", { "entity-name.construction-robot" }, " ", { "description.range" } }
-)
-add_core_color_setting(
-  "logistic_radius_visualization",
-  { "", { "entity-name.roboport" }, " ", { "entity-name.logistic-robot" }, " ", { "description.range" } }
-)
+add_core_color_setting("construction_radius_visualization", {
+  "",
+  { "entity-name.roboport" },
+  " ",
+  { "entity-name.construction-robot" },
+  " ",
+  { "description.range" },
+  " ",
+  { "gui-interface-settings.visualization" },
+})
+add_core_color_setting("logistic_radius_visualization", {
+  "",
+  { "entity-name.roboport" },
+  " ",
+  { "entity-name.logistic-robot" },
+  " ",
+  { "description.range" },
+  " ",
+  { "gui-interface-settings.visualization" },
+})
 
 add_core_color_setting(
   "copper_wire-sprite",
