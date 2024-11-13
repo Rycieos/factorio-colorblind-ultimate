@@ -50,7 +50,6 @@ do_replace_robot_range_sprite("logistic_radius_visualization")
 -- Custom GUI colors
 local utility_colors = data.raw["utility-constants"].default
 local chart_colors = utility_colors.chart
-do_replace_color("agricultural_range", utility_colors.agricultural_range_visualization_color)
 do_replace_color("artillery_range", utility_colors.artillery_range_visualization_color)
 do_replace_color("artillery_range_map", chart_colors.artillery_range_color)
 do_replace_color("capsule_range", utility_colors.capsule_range_visualization_color)

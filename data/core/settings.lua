@@ -59,14 +59,6 @@ add_bg_color_setting("disabled-technology", "technology", "grey", {
   { "colorblind_ultimate-word.background-color" },
 })
 
-if mods["space-age"] then
-  -- While this functionality is in core, the localization requires Space Age to be loaded.
-  add_core_color_setting(
-    "agricultural_range",
-    "radius-visualization",
-    { "", { "technology-name.agriculture" }, " ", { "description.range" } }
-  )
-end
 add_core_color_setting(
   "artillery_range",
   "turret-range",

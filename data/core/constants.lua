@@ -8,7 +8,6 @@ DefaultColors = {
   circuit_connector_blue_light = { r = 0, g = 255, b = 255, a = 255 },
 
   -- Copied directly from data/core/prototypes/utility-constants.lua.
-  agricultural_range = { r = 0.05, g = 0.1, b = 0.05, a = 0.15 },
   artillery_range = { r = 0.12, g = 0.0375, b = 0.0375, a = 0.15 },
   artillery_range_map = { r = 0.8, g = 0.25, b = 0.25, a = 1 },
   capsule_range = { r = 0.05, g = 0.1, b = 0.05, a = 0.15 },
