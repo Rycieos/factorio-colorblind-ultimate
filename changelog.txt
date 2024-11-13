@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.2.1
+Date: 2024-11-13
+  Changes:
+    - Improve order of settings to group by similarity.
+    - Remove agricultural range setting as it does nothing. There is currently
+      no way to change the color of the range squares of the agricultural
+      tower.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.2.0
 Date: 2024-11-12
   Features:
