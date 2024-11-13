@@ -1,4 +1,25 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.2.0
+Date: 2024-11-12
+  Features:
+    - Pollution chart color.
+    - Spores chart color.
+    - Minable resources chart colors.
+    - Beacon radius visualization color.
+    - Electric pole radius visualization color.
+    - Mining drill radius visualization color.
+    - Asteroid collector radius visualization color.
+
+  Changes:
+    - Update test palette scenario to include minable resources.
+
+  Bugfixes:
+    - Composite recipe icons missing drop shadow.
+
+  Locale:
+    - Added French (Credit: Fr_Dae)
+
+---------------------------------------------------------------------------------------------------
 Version: 2.1.0
 Date: 2024-11-08
   Features:
@@ -38,7 +59,7 @@ Date: 2024-11-05
     - Custom tooltip icons now have black outline.
 
   Locale:
-    - Added Romanian.
+    - Added Romanian (Credit: DoomTheEpic)
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.6.0
