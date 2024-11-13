@@ -95,10 +95,12 @@ local Prototypes = {
 
   ["cube-calcium"] = {
     type = "item",
+    order = "item-basic",
     text_overlay = "C",
   },
   ["cube-deep-powder"] = {
     type = "item",
+    order = "item-basic",
     text_overlay = "D",
     nested_prototypes = {
       { "recipe", "cube-deep-core-crushing" },
@@ -107,24 +109,29 @@ local Prototypes = {
 
   ["cube-ghost-wire"] = {
     type = "item",
+    order = "item-wire",
     text_overlay = "G",
   },
 
   ["cube-bottled-anguish"] = {
     type = "item",
+    order = "item-bottle",
     text_overlay = "A",
   },
   ["cube-bottled-consciousness"] = {
     type = "item",
+    order = "item-bottle",
     text_overlay = "C",
   },
   ["cube-bottled-euphoria"] = {
     type = "item",
+    order = "item-bottle",
     text_overlay = "E",
   },
 
   ["cube-boson-conduit"] = {
     type = "item",
+    order = "item-quantum",
     text_overlay = "B",
     nested_prototypes = {
       { "recipe", "cube-conduit-conversion-a" },
@@ -132,6 +139,7 @@ local Prototypes = {
   },
   ["cube-fermion-conduit"] = {
     type = "item",
+    order = "item-quantum",
     text_overlay = "F",
     nested_prototypes = {
       { "recipe", "cube-conduit-conversion-b" },
@@ -140,31 +148,38 @@ local Prototypes = {
 
   ["cube-qubit-0"] = {
     type = "item",
+    order = "item-quantum",
     text_overlay = "U",
   },
   ["cube-qubit-1"] = {
     type = "item",
+    order = "item-quantum",
     text_overlay = "D",
   },
   ["cube-qubit-2"] = {
     type = "item",
+    order = "item-quantum",
     text_overlay = "S",
   },
   ["cube-qubit-3"] = {
     type = "item",
+    order = "item-quantum",
     text_overlay = "C",
   },
   ["cube-qubit-4"] = {
     type = "item",
+    order = "item-quantum",
     text_overlay = "T",
   },
   ["cube-qubit-5"] = {
     type = "item",
+    order = "item-quantum",
     text_overlay = "B",
   },
 
   ["cube-ultradense-mineral"] = {
     type = "item",
+    order = "item-advanced",
     icon_overlay_from = { "item", "cube-ultradense-utility-cube" },
     text_overlay = "U",
   },

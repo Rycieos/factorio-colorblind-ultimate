@@ -3,20 +3,24 @@ require("scripts/utils")
 local Prototypes = {
   ["copper-cable"] = {
     type = "item",
+    order = "item-wire",
     icon_replacement = true,
     text_overlay = "Cu",
   },
   ["copper-plate"] = {
     type = "item",
+    order = "item-basic",
     icon_replacement = true,
     text_overlay = "Cu",
   },
   ["iron-plate"] = {
     type = "item",
+    order = "item-basic",
     text_overlay = "Fe",
   },
   ["stone-brick"] = {
     type = "item",
+    order = "item-basic",
     icon_overlay_from = { "simple-entity", "big-rock" },
     text_overlay = "S",
   },
@@ -34,29 +38,34 @@ local Prototypes = {
 
   ["electronic-circuit"] = {
     type = "item",
+    order = "item-circuit1",
     icon_replacement = true,
     icon_overlay = "tier-1",
     text_overlay = "E",
   },
   ["advanced-circuit"] = {
     type = "item",
+    order = "item-circuit2",
     icon_replacement = true,
     icon_overlay = "tier-2",
     text_overlay = "A",
   },
   ["processing-unit"] = {
     type = "item",
+    order = "item-circuit3",
     icon_overlay = "tier-3",
     text_overlay = "P",
   },
 
   ["green-wire"] = {
     type = "item",
+    order = "item-wire",
     icon_replacement = true,
     text_overlay = "G",
   },
   ["red-wire"] = {
     type = "item",
+    order = "item-wire",
     text_overlay = "R",
   },
 
@@ -144,32 +153,38 @@ local Prototypes = {
 
   ["blueprint"] = {
     type = "blueprint",
+    order = "planner",
     icon_overlay = "blueprint",
     text_overlay = "B",
   },
   ["deconstruction-planner"] = {
     type = "deconstruction-item",
+    order = "planner",
     icon_overlay = "deconstruction-planner",
     text_overlay = "D",
   },
   ["upgrade-planner"] = {
     type = "upgrade-item",
+    order = "planner",
     icon_overlay = "upgrade-planner",
     text_overlay = "U",
   },
 
   ["nuclear-fuel"] = {
     type = "item",
+    order = "item-nuclear",
     icon_overlay = "nuclear",
     text_overlay = "U",
   },
   ["uranium-235"] = {
     type = "item",
+    order = "item-nuclear",
     icon_overlay = "nuclear",
     text_overlay = "U",
   },
   ["uranium-fuel-cell"] = {
     type = "item",
+    order = "item-nuclear",
     icon_overlay = "nuclear",
     text_overlay = "U",
   },
@@ -366,26 +381,31 @@ local Prototypes = {
 
   ["coal"] = {
     type = "item",
+    order = "item-resource",
     icon_overlay = "flame-custom",
     text_overlay = "C",
   },
   ["copper-ore"] = {
     type = "item",
+    order = "item-resource",
     icon_overlay_from = { "item", "copper-plate" },
     text_overlay = "Cu",
   },
   ["iron-ore"] = {
     type = "item",
+    order = "item-resource",
     icon_overlay_from = { "item", "iron-plate" },
     text_overlay = "Fe",
   },
   ["stone"] = {
     type = "item",
+    order = "item-resource",
     icon_overlay_from = { "item", "stone-brick" },
     text_overlay = "S",
   },
   ["uranium-ore"] = {
     type = "item",
+    order = "item-resource",
     icon_overlay_from = { "item", "uranium-238" },
     text_overlay = "U",
   },

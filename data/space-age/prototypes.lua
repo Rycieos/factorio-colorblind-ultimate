@@ -22,11 +22,13 @@ local Prototypes = {
 
   ["holmium-plate"] = {
     type = "item",
+    order = "item-basic",
     icon_overlay_from = { "fluid", "holmium-solution" },
     text_overlay = "H",
   },
   ["fusion-power-cell"] = {
     type = "item",
+    order = "item-advanced",
     icon_overlay_from = { "fluid", "ammonia" },
     text_overlay = "F",
   },

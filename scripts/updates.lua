@@ -126,6 +126,7 @@ end
 -- type: <string> Factorio prototype type. Required.
 -- localised_name: <LocalisedString>: Defaults to {"<is_entity and "entity" or "item">-name.<name>"}.
 -- config_from: <string>: Config setting to check for enabling instead of own key.
+-- order: <Order>: Used to sort settings.
 -- is_entity: <bool>: Defaults to (bool)sprite_replacement.
 -- sprite_replacement: <FileName>
 -- icon_replacement: <bool|string>

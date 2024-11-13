@@ -1,20 +1,23 @@
 require("scripts.utils")
 
-function add_bool_setting(name, localised_name, localised_description)
+-- Settings order:
+-- <mod_prefix><setting_group>[<order_override or prototype_type>][<name>]<setting_type>
+
+function add_bool_setting(name, order_type, localised_name, localised_description)
   data:extend({
     {
       name = config_name(name),
       type = "bool-setting",
       setting_type = "startup",
       default_value = false,
-      order = order_prefix .. "b" .. name .. "b",
+      order = order_prefix .. "b[" .. order_type .. "][" .. name .. "]b",
       localised_name = localised_name or { "item-name." .. name },
       localised_description = localised_description or { "colorblind_ultimate-description.custom-overlay" },
     },
   })
 end
 
-function add_option_setting(name, localised_name, options)
+function add_option_setting(name, order_type, localised_name, options)
   data:extend({
     {
       name = config_name(name),
@@ -22,34 +25,34 @@ function add_option_setting(name, localised_name, options)
       setting_type = "startup",
       default_value = Options.none,
       allowed_values = { Options.none, table.unpack(options) },
-      order = order_prefix .. "b" .. name .. "d",
+      order = order_prefix .. "b[" .. order_type .. "][" .. name .. "]d",
       localised_name = localised_name,
       localised_description = { "colorblind_ultimate-description.custom-overlay-all" },
     },
   })
 end
 
-function add_color_setting(name, default, localised_name)
+function add_color_setting(name, order_type, default, localised_name)
   data:extend({
     {
       name = config_name(name .. "-color"),
       type = "color-setting",
       setting_type = "startup",
       default_value = default,
-      order = order_prefix .. "a",
+      order = order_prefix .. "a[" .. order_type .. "][" .. name .. "]",
       localised_name = localised_name,
     },
   })
 end
 
-function add_map_color_setting(name, default, localised_name)
+function add_map_color_setting(name, order_type, default, localised_name)
   data:extend({
     {
       name = config_name(name .. "-map-color"),
       type = "color-setting",
       setting_type = "startup",
       default_value = default,
-      order = order_prefix .. "b" .. name .. "e",
+      order = order_prefix .. "c[" .. order_type .. "][" .. name .. "]",
       localised_name = { "", localised_name or { "entity-name." .. name }, " ", { "colorblind_ultimate-word.on-map" } },
     },
   })
@@ -64,6 +67,7 @@ function settings_from_prototypes(prototypes)
       if proto.icon_replacement then
         add_bool_setting(
           name .. "-icon-replacement",
+          proto.order or proto.type,
           { "", localised_name, ": ", { "colorblind_ultimate-description.icon-replacement" } },
           { "colorblind_ultimate-description.custom-icon" }
         )
@@ -71,6 +75,7 @@ function settings_from_prototypes(prototypes)
       if proto.sprite_replacement then
         add_bool_setting(
           name .. "-sprite-replacement",
+          proto.order or proto.type,
           { "", localised_name, ": ", { "colorblind_ultimate-description.sprite-replacement" } },
           { "colorblind_ultimate-description.custom-sprite" }
         )
@@ -89,12 +94,14 @@ function settings_from_prototypes(prototypes)
       if next(allowed_values) ~= nil then
         add_option_setting(
           name .. "-icon-overlay",
+          proto.order or proto.type,
           { "", localised_name, ": ", { "colorblind_ultimate-description.icon-overlay" } },
           allowed_values
         )
         if is_entity then
           add_option_setting(
             name .. "-sprite-overlay",
+            proto.order or proto.type,
             { "", localised_name, ": ", { "colorblind_ultimate-description.sprite-overlay" } },
             allowed_values
           )
