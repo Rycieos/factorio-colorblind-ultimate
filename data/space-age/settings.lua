@@ -27,3 +27,8 @@ add_color_setting(
     { "gui-interface-settings.visualization" },
   }
 )
+
+add_color_setting("yumako-fruit", "plant", SpaceAgeDefaultColors["yumako-fruit"], {
+  "",
+  { "entity-name.yumako-tree" },
+})

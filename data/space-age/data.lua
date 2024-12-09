@@ -42,3 +42,15 @@ color = config("asteroid-collector-visualization-color")
 if color and not color_equals(color, SpaceAgeDefaultColors["asteroid-collector-visualization"]) then
   update_radius_visualization_color("asteroid-collector", "asteroid-collector", color)
 end
+
+color = config("yumako-fruit-color")
+if color and not color_equals(color, SpaceAgeDefaultColors["yumako-fruit"]) then
+  local prototype = data:get("plant", "yumako-tree")
+  if prototype then
+    prototype.colors = { color }
+    for _, variation in pairs(prototype.variations) do
+      variation.leaves.filename = SpritePath .. "/yumako-tree/yumako-tree-harvest.png"
+      variation.normal.filename = SpritePath .. "/yumako-tree/yumako-tree-normal.png"
+    end
+  end
+end
