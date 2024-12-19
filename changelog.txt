@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.4.0
+Date: 2024-12-19
+  Features:
+    - Agricultural tower visualizations custom icons for each color. Note that
+      unlike all other settings, these are runtime settings, and can be
+      changed per player. Also note that due to API limitations they only
+      appear when selecting (hovering) an already placed or ghosted entity,
+      not when one is in the cursor.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.3.0
 Date: 2024-12-09
   Features:
