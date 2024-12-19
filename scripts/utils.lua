@@ -49,6 +49,7 @@ Mods = {
   ["space-age"] = {
     data = true,
     settings = true,
+    control = true,
     order = "bc",
   },
   ["Ultracube"] = {
@@ -79,13 +80,15 @@ function keys(table)
   return keys
 end
 
-function data:get(_type, name)
-  local types = self.raw[_type]
-  if not types or not types[name] then
-    log("Warning: prototype [" .. _type .. "][" .. name .. "] not found")
-    return false
+if data then
+  function data:get(_type, name)
+    local types = self.raw[_type]
+    if not types or not types[name] then
+      log("Warning: prototype [" .. _type .. "][" .. name .. "] not found")
+      return false
+    end
+    return types[name]
   end
-  return types[name]
 end
 
 -- Get the item object that corresponds to the entity object.

@@ -54,3 +54,32 @@ if color and not color_equals(color, SpaceAgeDefaultColors["yumako-fruit"]) then
     end
   end
 end
+
+-- Draw helper for agricultural tower.
+-- As it is a runtime setting per user, we need to load it always.
+data:extend({
+  {
+    type = "sprite",
+    name = ModPath .. "green-check",
+    filename = ModPath .. "/graphics/icons/mip/green-check.png",
+    size = 32,
+    scale = 0.5,
+    mipmap_count = 2,
+  },
+  {
+    type = "sprite",
+    name = ModPath .. "warning",
+    filename = ModPath .. "/graphics/icons/mip/warning.png",
+    size = 32,
+    scale = 0.5,
+    mipmap_count = 2,
+  },
+  {
+    type = "sprite",
+    name = ModPath .. "no-entry",
+    filename = ModPath .. "/graphics/icons/mip/no-entry.png",
+    size = 32,
+    scale = 0.5,
+    mipmap_count = 2,
+  },
+})
