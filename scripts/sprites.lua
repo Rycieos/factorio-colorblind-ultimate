@@ -9,8 +9,8 @@ local function shift_overlay_sprite(base_sprite, target_sprite)
   end
 
   local shift = {
-    -(base_sprite.shift[1] or 0) + target_sprite.shift[1] * (base_sprite.width or base_sprite.size) / 64,
-    -(base_sprite.shift[2] or 0) + target_sprite.shift[2] * (base_sprite.height or base_sprite.size) / 64,
+    (base_sprite.shift[1] or 0) + target_sprite.shift[1] * (base_sprite.width or base_sprite.size) / 64,
+    (base_sprite.shift[2] or 0) + target_sprite.shift[2] * (base_sprite.height or base_sprite.size) / 64,
   }
   return table_merge(target_sprite, { shift = shift })
 end
