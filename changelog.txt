@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.4.2
+Date: 2025-03-19
+  Changes:
+    - Update tooltip icons to match new Factorio signal icons in 2.0.34.
+    - Change productivity module icon from mining to recipe productivity icon.
+
+  Bugfixes:
+    - Test palette scenario now compatible with Factorio 2.0.7 and up.
+    - Crash on Factorio 2.0.34 and up when planner icons enabled.
+    - Undersized icons for modules since 2.0.34.
+    - Incorrect position for train stop no-entry red light overlay.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.4.1
 Date: 2025-02-14
   Locale:
