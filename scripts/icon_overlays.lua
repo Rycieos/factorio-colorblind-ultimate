@@ -92,6 +92,12 @@ local function create_tooltip(name, path)
   })
 end
 
+local function create_large_tooltip(name, path)
+  create_overlay(name, BaseOverlays.icon, {
+    icon = path and path or IconPath .. "tooltips/" .. name .. ".png",
+  })
+end
+
 local function create_icon(name, path)
   create_overlay(name, BaseOverlays.icon, {
     icon = path and path or BaseIconPath .. name .. ".png",
@@ -107,26 +113,27 @@ end
 create_mip("no-entry", IconPath .. "mip/no-entry.png")
 
 create_constant("efficiency", CoreIconPath .. "technology/constants/constant-battery.png")
-create_constant("productivity", CoreIconPath .. "technology/constants/constant-mining-productivity.png")
-create_constant("speed", CoreIconPath .. "technology/constants/constant-speed.png")
+create_constant("productivity", CoreIconPath .. "technology/constants/constant-recipe-productivity.png")
+create_constant("speed-constant", CoreIconPath .. "technology/constants/constant-speed.png")
 create_constant("quality", CoreIconPath .. "technology/constants/constant-count.png")
 create_small_constant("tier-1", IconPath .. "constants/tier-1.png")
 create_small_constant("tier-2", IconPath .. "constants/tier-2.png")
 create_small_constant("tier-3", IconPath .. "constants/tier-3.png")
 create_small_constant("tier-4", IconPath .. "constants/tier-4.png")
 
-create_tooltip("buffer")
-create_tooltip("consumes")
+create_large_tooltip("buffer")
+create_large_tooltip("input")
 create_tooltip("filter")
-create_tooltip("generates")
+create_large_tooltip("fire")
+create_large_tooltip("output")
 create_tooltip("nuclear", BaseIconPath .. "tooltips/tooltip-category-nuclear.png")
-create_tooltip("plus")
-create_tooltip("pushes")
-create_tooltip("stack")
+create_large_tooltip("plus")
+create_large_tooltip("pushes")
+create_large_tooltip("snowflake")
+create_large_tooltip("speed")
+create_large_tooltip("stack")
 
 create_icon("explosives")
-create_icon("flame-custom", IconPath .. "flame.png")
-create_icon("satellite")
 create_icon("water-custom", IconPath .. "fluid/water.png")
 
 create_text("A")

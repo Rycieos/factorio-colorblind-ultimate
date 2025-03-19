@@ -100,7 +100,7 @@ local Prototypes = {
   ["cryogenic-science-pack"] = {
     type = "tool",
     icon_replacement = true,
-    icon_overlay_from = { "item", "lithium-plate" },
+    icon_overlay = "snowflake",
     text_overlay = "C",
   },
   ["promethium-science-pack"] = {
@@ -161,13 +161,13 @@ local Prototypes = {
   ["fluoroketone-hot"] = {
     type = "fluid",
     localised_name = { "fluid-name.fluoroketone-hot" },
-    icon_overlay = "flame-custom",
+    icon_overlay = "fire",
     text_overlay = "Fh",
   },
   ["fluoroketone-cold"] = {
     type = "fluid",
     localised_name = { "fluid-name.fluoroketone-cold" },
-    icon_overlay_from = { "item", "cryogenic-plant" },
+    icon_overlay = "snowflake",
     text_overlay = "Fc",
   },
 }

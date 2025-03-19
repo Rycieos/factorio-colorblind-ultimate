@@ -270,7 +270,7 @@ local Prototypes = {
   },
   ["speed-module"] = {
     type = "module",
-    icon_overlay = "speed",
+    icon_overlay = "speed-constant",
     text_overlay = "S",
     nested_prototypes = {
       { "module", "speed-module-2" },
@@ -287,7 +287,7 @@ local Prototypes = {
   ["passive-provider-chest"] = {
     type = "logistic-container",
     is_entity = true,
-    icon_overlay = "generates",
+    icon_overlay = "output",
     text_overlay = "P",
   },
   ["buffer-chest"] = {
@@ -299,7 +299,7 @@ local Prototypes = {
   ["requester-chest"] = {
     type = "logistic-container",
     is_entity = true,
-    icon_overlay = "consumes",
+    icon_overlay = "input",
     text_overlay = "R",
   },
   ["storage-chest"] = {
@@ -347,7 +347,7 @@ local Prototypes = {
   ["space-science-pack"] = {
     type = "tool",
     icon_replacement = true,
-    icon_overlay = "satellite",
+    icon_overlay_from = { "item", "satellite" },
     text_overlay = "S",
     nested_prototypes = {
       { "recipe", "space-science-pack" },
@@ -357,7 +357,7 @@ local Prototypes = {
   ["burner-inserter"] = {
     type = "inserter",
     is_entity = true,
-    icon_overlay = "flame-custom",
+    icon_overlay = "fire",
     text_overlay = "Bn",
   },
   ["fast-inserter"] = {
@@ -382,7 +382,7 @@ local Prototypes = {
   ["coal"] = {
     type = "item",
     order = "item-resource",
-    icon_overlay = "flame-custom",
+    icon_overlay = "fire",
     text_overlay = "C",
   },
   ["copper-ore"] = {
