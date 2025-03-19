@@ -154,19 +154,19 @@ local Prototypes = {
   ["blueprint"] = {
     type = "blueprint",
     order = "planner",
-    icon_overlay = "blueprint",
+    icon_overlay_from = { "shortcut", "give-blueprint", { 0, 0 }, 1 },
     text_overlay = "B",
   },
   ["deconstruction-planner"] = {
     type = "deconstruction-item",
     order = "planner",
-    icon_overlay = "deconstruction-planner",
+    icon_overlay_from = { "shortcut", "give-deconstruction-planner", { 0, 0 }, 1 },
     text_overlay = "D",
   },
   ["upgrade-planner"] = {
     type = "upgrade-item",
     order = "planner",
-    icon_overlay = "upgrade-planner",
+    icon_overlay_from = { "shortcut", "give-upgrade-planner", { 0, 0 }, 1 },
     text_overlay = "U",
   },
 

@@ -104,9 +104,6 @@ local function create_text(name)
   }, BaseOverlays.text)
 end
 
-create_mip("blueprint", BaseIconPath .. "shortcut-toolbar/mip/new-blueprint-x32.png")
-create_mip("deconstruction-planner", BaseIconPath .. "shortcut-toolbar/mip/new-deconstruction-planner-x32.png")
-create_mip("upgrade-planner", BaseIconPath .. "shortcut-toolbar/mip/new-upgrade-planner-x32.png")
 create_mip("no-entry", IconPath .. "mip/no-entry.png")
 
 create_constant("efficiency", CoreIconPath .. "technology/constants/constant-battery.png")

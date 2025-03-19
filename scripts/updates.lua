@@ -66,7 +66,9 @@ function create_overlays(setting, proto)
   elseif proto.icon_overlay_from then
     local from_obj = data:get(proto.icon_overlay_from[1], proto.icon_overlay_from[2])
     if from_obj then
-      icon, icon2 = table.unpack(create_overlay_from_icons(icons_from_obj(from_obj)))
+      icon, icon2 = table.unpack(
+        create_overlay_from_icons(icons_from_obj(from_obj), proto.icon_overlay_from[3], proto.icon_overlay_from[4])
+      )
     end
   else
     icon = Overlays[proto.icon_overlay]
@@ -132,7 +134,7 @@ end
 -- icon_replacement: <bool|string>
 -- icon_overlay: <string>
 -- icon_overlay2 <string>
--- icon_overlay_from: Array<string>: prototype {type, name} to copy icon from as an overlay.
+-- icon_overlay_from: Array<string>: prototype {type, name, <shift>, <scale>} to copy icon from as an overlay.
 -- text_overlay: <string>
 -- text_overlay2 <string>
 -- nested_prototypes: Array<Array<string>>: prototype {type, name}s that should
