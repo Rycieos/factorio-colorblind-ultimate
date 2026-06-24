@@ -72,7 +72,7 @@ local prototypes = {
   },
 
   ["space-science-pack"] = {
-    type = "tool",
+    type = "item",
     config_from = "space-science-pack",
     icon_replacement = true,
     icon_overlay_from = { "item", "carbon" },
@@ -82,30 +82,30 @@ local prototypes = {
     },
   },
   ["metallurgic-science-pack"] = {
-    type = "tool",
+    type = "item",
     icon_overlay_from = { "item", "tungsten-carbide" },
     text_overlay = "T",
   },
   ["electromagnetic-science-pack"] = {
-    type = "tool",
+    type = "item",
     icon_replacement = true,
     icon_overlay_from = { "fluid", "holmium-solution" },
     text_overlay = "E",
   },
   ["agricultural-science-pack"] = {
-    type = "tool",
+    type = "item",
     icon_replacement = true,
     icon_overlay_from = { "capsule", "bioflux" },
     text_overlay = "B",
   },
   ["cryogenic-science-pack"] = {
-    type = "tool",
+    type = "item",
     icon_replacement = true,
     icon_overlay = "snowflake",
     text_overlay = "C",
   },
   ["promethium-science-pack"] = {
-    type = "tool",
+    type = "item",
     icon_replacement = true,
     icon_overlay_from = { "item", "promethium-asteroid-chunk" },
     text_overlay = "P",

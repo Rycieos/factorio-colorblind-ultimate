@@ -162,6 +162,7 @@ end
 ---|data.LogisticContainerPrototype
 ---|data.MiningDrillGraphicsSet
 ---|data.MiningDrillPrototype
+---|data.RobotDoorSpecification
 ---|data.SplitterPrototype
 ---|data.TrainStopLight
 ---|data.TransportBeltConnectablePrototype
@@ -179,7 +180,11 @@ function overlay_sprites(obj, sprite, sprite2)
     overlay_animation4way(obj.animation, sprite, sprite2)
   end
   overlay_sprites(obj.graphics_set, sprite, sprite2)
+  overlay_sprites(obj.graphics_set_flipped, sprite, sprite2)
   overlay_sprites(obj.wet_mining_graphics_set, sprite, sprite2)
+  overlay_sprites(obj.wet_mining_graphics_set_flipped, sprite, sprite2)
+  overlay_sprites(obj.robot_door, sprite, sprite2)
+  overlay_sprite4way(obj.picture, sprite, sprite2)
   overlay_sprite4way(obj.platform_picture, sprite, sprite2)
   overlay_sprite4way(obj.red_picture, sprite, sprite2)
   local structure = obj.structure
