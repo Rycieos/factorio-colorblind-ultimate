@@ -116,10 +116,13 @@ local function overlay_belt_animation(obj, sprite)
 end
 
 -- Overlay a static sprite over a Sprite4Way.
----@param obj data.Sprite4Way
+---@param obj? data.Sprite4Way
 ---@param sprite data.Sprite
 ---@param sprite2? data.Sprite
 local function overlay_sprite4way(obj, sprite, sprite2)
+  if not obj then
+    return
+  end
   if obj.sheet and not obj.sheets then
     obj.sheets = { obj.sheet }
     obj.sheet = nil
@@ -136,11 +139,17 @@ local function overlay_sprite4way(obj, sprite, sprite2)
       "west",
       "south",
     }) do
-      overlay_sprite(
-        obj[_type],
-        shift_overlay_sprite(obj[_type], sprite),
-        sprite2 and shift_overlay_sprite(obj[_type], sprite2)
-      )
+      if obj[_type] then
+        overlay_sprite(
+          obj[_type],
+          shift_overlay_sprite(obj[_type], sprite),
+          sprite2 and shift_overlay_sprite(obj[_type], sprite2)
+        )
+      end
+    end
+    if obj.filename or obj.layers then
+      ---@cast obj data.Sprite
+      overlay_sprite(obj, shift_overlay_sprite(obj, sprite), sprite2 and shift_overlay_sprite(obj, sprite2))
     end
   end
 end
@@ -159,31 +168,20 @@ end
 ---|data.UndergroundBeltPrototype
 
 -- Overlay sprites over a prototype that may have animations or sprites.
----@param obj SpriteObj
+---@param obj? SpriteObj
 ---@param sprite data.Sprite
 ---@param sprite2? data.Sprite
 function overlay_sprites(obj, sprite, sprite2)
-  local animation = obj.animation
-  if animation then
-    if animation.north then
-      overlay_animation4way(animation, sprite, sprite2)
-    else
-      ---@cast animation data.Animation
-      overlay_animation(animation, sprite, sprite2)
-    end
+  if not obj then
+    return
   end
-  if obj.graphics_set then
-    overlay_sprites(obj.graphics_set, sprite, sprite2)
+  if obj.animation then
+    overlay_animation4way(obj.animation, sprite, sprite2)
   end
-  if obj.wet_mining_graphics_set then
-    overlay_sprites(obj.wet_mining_graphics_set, sprite, sprite2)
-  end
-  if obj.platform_picture then
-    overlay_sprite4way(obj.platform_picture, sprite, sprite2)
-  end
-  if obj.red_picture then
-    overlay_sprite4way(obj.red_picture, sprite, sprite2)
-  end
+  overlay_sprites(obj.graphics_set, sprite, sprite2)
+  overlay_sprites(obj.wet_mining_graphics_set, sprite, sprite2)
+  overlay_sprite4way(obj.platform_picture, sprite, sprite2)
+  overlay_sprite4way(obj.red_picture, sprite, sprite2)
   local structure = obj.structure
   if structure then
     for _, _type in pairs({
@@ -192,9 +190,7 @@ function overlay_sprites(obj, sprite, sprite2)
       "direction_out",
       "direction_out_side_loading",
     }) do
-      if structure[_type] then
-        overlay_sprite4way(structure[_type], sprite, sprite2)
-      end
+      overlay_sprite4way(structure[_type], sprite, sprite2)
     end
     if obj.structure.north then
       ---@cast structure data.Animation4Way
