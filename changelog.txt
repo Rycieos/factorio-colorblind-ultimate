@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.8.0
+Date: 2026-08-21
+  Features:
+    - Add settings to change tint of enemy spawners.
+    - Add color options for colored slot and button backgrounds. This feature
+      is not perfect, and I would appreciate feedback.
+
+  Changes:
+    - Red and green circuit network slot backgrounds are now color options
+      instead of dropdowns.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.7.0
 Date: 2026-06-24
   Features:
