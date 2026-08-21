@@ -70,39 +70,34 @@ add_map_color_setting("uranium-ore", "resource", { r = 0, g = 0.7, b = 0 })
 add_color_setting(
   "beacon-visualization",
   "range-visualization",
-  BaseDefaultColors["beacon-visualization"],
+  DefaultColors["beacon-visualization"],
   { "", { "entity-name.beacon" }, " ", { "description.range" }, " ", { "gui-interface-settings.visualization" } }
 )
-add_color_setting(
-  "electric-pole-visualization",
-  "range-visualization",
-  BaseDefaultColors["electric-pole-visualization"],
-  {
-    "",
-    { "tips-and-tricks-item-name.electric-network" },
-    " ",
-    { "description.range" },
-    " ",
-    { "gui-interface-settings.visualization" },
-  }
-)
+add_color_setting("electric-pole-visualization", "range-visualization", DefaultColors["electric-pole-visualization"], {
+  "",
+  { "tips-and-tricks-item-name.electric-network" },
+  " ",
+  { "description.range" },
+  " ",
+  { "gui-interface-settings.visualization" },
+})
 add_color_setting(
   "mining-drill-visualization",
   "range-visualization",
-  BaseDefaultColors["mining-drill-visualization"],
+  DefaultColors["mining-drill-visualization"],
   { "", { "description.mining-area" }, " ", { "description.range" }, " ", { "gui-interface-settings.visualization" } }
 )
 
-add_color_setting("acid-splash", "sticker", BaseDefaultColors["acid-splash"], { "", { "entity-name.acid-splash" } })
+add_color_setting("acid-splash", "sticker", DefaultColors["acid-splash"], { "", { "entity-name.acid-splash" } })
 add_color_setting(
   "acid-stream",
   "sticker",
-  BaseDefaultColors["acid-stream"],
+  DefaultColors["acid-stream"],
   { "", { "entity-name.acid-splash" }, " stream" }
 )
 add_color_setting(
   "acid-sticker",
   "sticker",
-  BaseDefaultColors["acid-sticker"],
+  DefaultColors["acid-sticker"],
   { "", { "entity-name.acid-splash" }, " sticker" }
 )

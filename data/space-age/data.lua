@@ -38,7 +38,7 @@ update_resource_color("tungsten-ore")
 
 local color = config("mining-drill-visualization-color") --[[@as Color|false]]
 
-if color and not color_equals(color, BaseDefaultColors["mining-drill-visualization"]) then
+if color and not color_equals(color, DefaultColors["mining-drill-visualization"]) then
   update_radius_visualization_color("mining-drill", "big-mining-drill", color)
 end
 

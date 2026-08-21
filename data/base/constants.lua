@@ -1,3 +1,5 @@
+require("data.core.constants")
+
 SignalColors = {
   "signal-black",
   "signal-blue",
@@ -10,7 +12,7 @@ SignalColors = {
   "signal-yellow",
 }
 
-BaseDefaultColors = {
+local BaseDefaultColors = {
   -- Source: __base__/graphics/entity/beacon/beacon-radius-visualization.png
   ["beacon-visualization"] = { r = 217, g = 192, b = 55, a = 255 },
   -- Source: __base__/graphics/entity/small-electric-pole/electric-pole-radius-visualization.png
@@ -22,3 +24,4 @@ BaseDefaultColors = {
   ["acid-splash"] = { 1.000, 0.992, 0.512, 1.000 },
   ["acid-sticker"] = { r = 0.714, g = 0.669, b = 0.291, a = 0.745 },
 }
+DefaultColors = table_merge(DefaultColors, BaseDefaultColors)

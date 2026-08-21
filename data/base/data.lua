@@ -5,6 +5,7 @@ require("scripts.fluids")
 require("scripts.sprites")
 require("scripts.updates")
 require("data.base.constants")
+require("data.core.utils")
 
 local prototypes = require("data.base.prototypes")
 apply_prototypes(prototypes)
@@ -123,27 +124,23 @@ update_resource_color("iron-ore")
 update_resource_color("stone")
 update_resource_color("uranium-ore")
 
-local color = config("beacon-visualization-color") --[[@as Color]]
-if color and not color_equals(color, BaseDefaultColors["beacon-visualization"]) then
+do_if_color_setting("beacon-visualization", function(color)
   update_radius_visualization_color("beacon", "beacon", color)
-end
+end)
 
-color = config("electric-pole-visualization-color") --[[@as Color]]
-if color and not color_equals(color, BaseDefaultColors["electric-pole-visualization"]) then
+do_if_color_setting("electric-pole-visualization", function(color)
   update_radius_visualization_color("electric-pole", "small-electric-pole", color)
   update_radius_visualization_color("electric-pole", "medium-electric-pole", color)
   update_radius_visualization_color("electric-pole", "big-electric-pole", color)
   update_radius_visualization_color("electric-pole", "substation", color)
-end
+end)
 
-color = config("mining-drill-visualization-color") --[[@as Color]]
-if color and not color_equals(color, BaseDefaultColors["mining-drill-visualization"]) then
+do_if_color_setting("mining-drill-visualization", function(color)
   update_radius_visualization_color("mining-drill", "electric-mining-drill", color)
   update_radius_visualization_color("mining-drill", "pumpjack", color)
-end
+end)
 
-color = config("acid-splash-color") --[[@as Color]]
-if color and not color_equals(color, BaseDefaultColors["acid-splash"]) then
+do_if_color_setting("acid-splash", function(color)
   for _, prototype in pairs(data.raw["fire"]) do
     if prototype.pictures then
       for i = 1, 4 do
@@ -173,9 +170,8 @@ if color and not color_equals(color, BaseDefaultColors["acid-splash"]) then
       end
     end
   end
-end
-color = config("acid-stream-color") --[[@as Color]]
-if color and not color_equals(color, BaseDefaultColors["acid-stream"]) then
+end)
+do_if_color_setting("acid-stream", function(color)
   for _, prototype in pairs(data.raw["stream"]) do
     if
       prototype.particle
@@ -192,9 +188,8 @@ if color and not color_equals(color, BaseDefaultColors["acid-stream"]) then
       prototype.spine_animation.tint = color
     end
   end
-end
-color = config("acid-sticker-color") --[[@as Color]]
-if color and not color_equals(color, BaseDefaultColors["acid-sticker"]) then
+end)
+do_if_color_setting("acid-sticker", function(color)
   for _, prototype in pairs(data.raw["sticker"]) do
     if
       prototype.animation
@@ -204,4 +199,4 @@ if color and not color_equals(color, BaseDefaultColors["acid-sticker"]) then
       prototype.animation.tint = color
     end
   end
-end
+end)
