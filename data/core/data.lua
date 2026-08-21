@@ -32,17 +32,155 @@ do_replace_wire_sprite("red_wire")
 
 -- Custom circuit background color sprites.
 ---@param config_name string
----@param default string
 ---@param button_name string
-function do_replace_button_background(config_name, default, button_name)
-  local setting = config(config_name)
-  if setting ~= default then
-    data.raw["gui-style"].default[button_name].default_graphical_set.position = OldButtonBackgrounds[setting]
+function do_replace_slot_old_background(config_name, button_name)
+  do_if_color_setting(config_name, function(color)
+    data.raw["gui-style"].default[button_name].default_graphical_set = {
+      border = 1,
+      filename = ModPath .. "/graphics/gui.png",
+      position = { 0, 0 },
+      size = 36,
+      scale = 1,
+      tint = color,
+    }
+  end)
+end
+
+do_replace_slot_old_background("green-circuit-background", "green_circuit_network_content_slot")
+do_replace_slot_old_background("red-circuit-background", "red_circuit_network_content_slot")
+
+---@param color Color
+---@param style_name string
+function replace_button_background(color, style_name)
+  local style = data.raw["gui-style"].default[style_name]
+  style.default_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.default_graphical_set.base.position = { 38, 0 }
+  style.default_graphical_set.base.tint = color
+  style.disabled_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.disabled_graphical_set.base.position = { 89, 0 }
+  style.disabled_graphical_set.base.tint = color
+  style.hovered_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.hovered_graphical_set.base.position = { 55, 0 }
+  style.hovered_graphical_set.base.tint = color
+  style.hovered_graphical_set.glow.tint = color
+  style.clicked_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.clicked_graphical_set.base.position = { 72, 0 }
+  style.clicked_graphical_set.base.tint = color
+end
+
+---@param color Color
+---@param style_name string
+function replace_slot_background(color, style_name)
+  local style = data.raw["gui-style"].default[style_name]
+  style.default_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.default_graphical_set.base.position = { 0, 116 }
+  style.default_graphical_set.base.tint = color
+  style.hovered_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.hovered_graphical_set.base.position = { 80, 116 }
+  style.hovered_graphical_set.base.tint = color
+  if style.hovered_graphical_set.glow then
+    style.hovered_graphical_set.glow.tint = color
+  end
+  style.clicked_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.clicked_graphical_set.base.position = { 160, 116 }
+  style.clicked_graphical_set.base.tint = color
+  if style.selected_graphical_set then
+    style.selected_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+    style.selected_graphical_set.base.position = { 80, 116 }
+    style.selected_graphical_set.base.tint = color
   end
 end
 
-do_replace_button_background("green-circuit-background-color", "green", "green_circuit_network_content_slot")
-do_replace_button_background("red-circuit-background-color", "red", "red_circuit_network_content_slot")
+---@param color Color
+---@param style_name string
+function replace_slot_button_background(color, style_name)
+  local style = data.raw["gui-style"].default[style_name]
+  style.default_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.default_graphical_set.base.position = { 0, 36 }
+  style.default_graphical_set.base.tint = color
+  style.disabled_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.disabled_graphical_set.base.position = { 89, 0 }
+  style.disabled_graphical_set.base.tint = color
+  style.hovered_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.hovered_graphical_set.base.position = { 80, 36 }
+  style.hovered_graphical_set.base.tint = color
+  style.hovered_graphical_set.glow.tint = color
+  style.clicked_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.clicked_graphical_set.base.position = { 160, 36 }
+  style.clicked_graphical_set.base.tint = color
+end
+
+---@param color Color
+---@param style_name string
+function replace_slot_sized_button_background(color, style_name)
+  local style = data.raw["gui-style"].default[style_name]
+  style.default_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.default_graphical_set.base.position = { 125, 0 }
+  style.default_graphical_set.base.tint = color
+  style.disabled_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.disabled_graphical_set.base.position = { 142, 0 }
+  style.disabled_graphical_set.base.tint = color
+  style.hovered_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.hovered_graphical_set.base.position = { 159, 0 }
+  style.hovered_graphical_set.base.tint = color
+  style.hovered_graphical_set.glow.tint = color
+  style.clicked_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.clicked_graphical_set.base.position = { 176, 0 }
+  style.clicked_graphical_set.base.tint = color
+end
+
+---@param color Color
+---@param style_name string
+function replace_tool_button_background(color, style_name)
+  local style = data.raw["gui-style"].default[style_name]
+  style.default_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.default_graphical_set.base.position = { 38, 19 }
+  style.default_graphical_set.base.tint = color
+  style.hovered_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.hovered_graphical_set.base.position = { 55, 19 }
+  style.hovered_graphical_set.base.tint = color
+  style.hovered_graphical_set.glow.tint = color
+  style.clicked_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+  style.clicked_graphical_set.base.position = { 72, 19 }
+  style.clicked_graphical_set.base.tint = color
+  if style.selected_graphical_set then
+    style.selected_graphical_set.base.filename = ModPath .. "/graphics/gui.png"
+    style.selected_graphical_set.base.position = { 72, 19 }
+    style.selected_graphical_set.base.tint = color
+  end
+end
+
+-- Do not replace slider backgrounds (blue_slider, green_, red_), as those are
+-- used for color pickers. That was a good laugh.
+
+do_if_color_setting("blue_slot_background", function(color)
+  replace_slot_background(color, "blue_slot")
+  replace_slot_sized_button_background(color, "slot_sized_button_blue")
+  replace_tool_button_background(color, "tool_button_blue")
+end)
+do_if_color_setting("green_slot_background", function(color)
+  replace_button_background(color, "green_button")
+  -- Used for green circuit network slots in combinators.
+  replace_slot_background(color, "green_slot")
+  replace_slot_sized_button_background(color, "slot_sized_button_green")
+  replace_tool_button_background(color, "tool_button_green")
+end)
+do_if_color_setting("red_slot_background", function(color)
+  replace_button_background(color, "red_button")
+  -- Used for red circuit network slots in combinators.
+  replace_slot_background(color, "red_slot")
+  replace_slot_background(color, "red_inventory_slot")
+  replace_slot_background(color, "not_working_weapon_button")
+  replace_slot_button_background(color, "red_slot_button")
+  replace_slot_sized_button_background(color, "slot_sized_button_red")
+end)
+do_if_color_setting("yellow_slot_background", function(color)
+  replace_slot_background(color, "yellow_slot")
+  replace_slot_button_background(color, "yellow_slot_button")
+end)
+
+-- red network text color?
+-- green network text color?
 
 -- Custom roboport range sprites.
 ---@param name string

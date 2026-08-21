@@ -7,6 +7,14 @@ DefaultColors = {
   circuit_connector_green_light = { r = 0, g = 255, b = 50, a = 255 },
   circuit_connector_blue_light = { r = 0, g = 255, b = 255, a = 255 },
 
+  ["green-circuit-background"] = { r = 26, g = 255, b = 70 },
+  ["red-circuit-background"] = { r = 212, g = 103, b = 102 },
+
+  blue_slot_background = { r = 27, g = 177, b = 249 },
+  green_slot_background = { r = 26, g = 255, b = 70 },
+  red_slot_background = { r = 212, g = 103, b = 102 },
+  yellow_slot_background = { r = 252, g = 208, b = 15 },
+
   -- Copied directly from data/core/prototypes/utility-constants.lua.
   artillery_range = { r = 0.12, g = 0.0375, b = 0.0375, a = 0.15 },
   artillery_range_map = { r = 0.8, g = 0.25, b = 0.25, a = 1 },

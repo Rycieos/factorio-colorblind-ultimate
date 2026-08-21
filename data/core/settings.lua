@@ -186,19 +186,52 @@ add_core_color_setting(
   { "", { "gui-control-behavior.circuit-connection" }, " ", { "virtual-signal-name.signal-blue" } }
 )
 
-add_bg_color_setting("green-circuit", "circuit", "green", {
+add_core_color_setting("green-circuit-background", "circuit", {
   "",
   { "item-name.green-wire" },
   " ",
   { "gui-control-behavior.circuit-network" },
   " ",
   { "colorblind_ultimate-word.background-color" },
-}, keys(OldButtonBackgrounds))
-add_bg_color_setting("red-circuit", "circuit", "red", {
+})
+add_core_color_setting("red-circuit-background", "circuit", {
   "",
   { "item-name.red-wire" },
   " ",
   { "gui-control-behavior.circuit-network" },
   " ",
   { "colorblind_ultimate-word.background-color" },
-}, keys(OldButtonBackgrounds))
+})
+
+add_core_color_setting("blue_slot_background", "gui", {
+  "",
+  { "color.blue" },
+  " ",
+  { "gui-blueprint-library.slots-view" },
+  " ",
+  { "colorblind_ultimate-word.background-color" },
+})
+add_core_color_setting("green_slot_background", "gui", {
+  "",
+  { "color.green" },
+  " ",
+  { "gui-blueprint-library.slots-view" },
+  " ",
+  { "colorblind_ultimate-word.background-color" },
+})
+add_core_color_setting("red_slot_background", "gui", {
+  "",
+  { "color.red" },
+  " ",
+  { "gui-blueprint-library.slots-view" },
+  " ",
+  { "colorblind_ultimate-word.background-color" },
+})
+add_core_color_setting("yellow_slot_background", "gui", {
+  "",
+  { "color.yellow" },
+  " ",
+  { "gui-blueprint-library.slots-view" },
+  " ",
+  { "colorblind_ultimate-word.background-color" },
+})
