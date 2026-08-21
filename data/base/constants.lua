@@ -23,5 +23,7 @@ local BaseDefaultColors = {
   ["acid-stream"] = { 0.917, 1.000, 0.282, 1.000 },
   ["acid-splash"] = { 1.000, 0.992, 0.512, 1.000 },
   ["acid-sticker"] = { r = 0.714, g = 0.669, b = 0.291, a = 0.745 },
+  biter_spawner = { 0.92, 0.54, 0, 0.5 },
+  spitter_spawner = { 0.99, 0.09, 0.09, 1 },
 }
 DefaultColors = table_merge(DefaultColors, BaseDefaultColors)

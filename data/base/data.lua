@@ -200,3 +200,42 @@ do_if_color_setting("acid-sticker", function(color)
     end
   end
 end)
+
+---Change the tint on a spawner or spawner corpse entity's animations.
+---@param animations? [data.Animation|data.RotatedAnimation]
+---@param default_color Color
+---@param color Color
+function tint_spawner_animations(animations, default_color, color)
+  if animations and animations[1] then
+    for _, animation in pairs(animations) do
+      for _, layer in pairs(animation.layers) do
+        if layer.tint and color_equals(layer.tint, default_color) then
+          layer.tint = color
+        end
+      end
+    end
+  end
+end
+
+---Change the tint on a spawner or spawner corpse entity.
+---@param prototype? data.EnemySpawnerPrototype|data.CorpsePrototype
+---@param default_color Color
+---@param color Color
+function tint_spawner(prototype, default_color, color)
+  if prototype then
+    if prototype.graphics_set then
+      tint_spawner_animations(prototype.graphics_set.animations, default_color, color)
+    end
+    tint_spawner_animations(prototype.animation, default_color, color)
+    tint_spawner_animations(prototype.decay_animation, default_color, color)
+  end
+end
+
+do_if_color_setting("biter_spawner", function(color)
+  tint_spawner(data.raw.corpse["biter-spawner-corpse"], DefaultColors.biter_spawner, color)
+  tint_spawner(data.raw["unit-spawner"]["biter-spawner"], DefaultColors.biter_spawner, color)
+end)
+do_if_color_setting("spitter_spawner", function(color)
+  tint_spawner(data.raw.corpse["spitter-spawner-corpse"], DefaultColors.spitter_spawner, color)
+  tint_spawner(data.raw["unit-spawner"]["spitter-spawner"], DefaultColors.spitter_spawner, color)
+end)

@@ -101,3 +101,6 @@ add_color_setting(
   DefaultColors["acid-sticker"],
   { "", { "entity-name.acid-splash" }, " sticker" }
 )
+
+add_color_setting("biter_spawner", "enemy", DefaultColors.biter_spawner, { "entity-name.biter-spawner" })
+add_color_setting("spitter_spawner", "enemy", DefaultColors.spitter_spawner, { "entity-name.spitter-spawner" })
